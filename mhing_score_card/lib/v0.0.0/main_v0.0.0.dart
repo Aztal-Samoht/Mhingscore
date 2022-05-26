@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0.0.0/screens/home_screen.dart';
+import 'package:mhing_score_card/v0.0.0/screens/scorecard_screen.dart';
 
 class MyAppV0_0_0 extends StatelessWidget {
   const MyAppV0_0_0({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class MyAppV0_0_0 extends StatelessWidget {
       initialRoute: HomeScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
+        ScorecardScreen.id: (context) => ScorecardScreen(),
       },
     );
   }

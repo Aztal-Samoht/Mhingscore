@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0.0.0/res/constants.dart';
+import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 
 class ScorecardScreen extends StatelessWidget {
   static String id = '/scorecard';
@@ -6,6 +8,13 @@ class ScorecardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: kAppBarColor,
+          title: Text(sScoreCardTitle),
+        ),
+      ),
+    );
   }
 }
