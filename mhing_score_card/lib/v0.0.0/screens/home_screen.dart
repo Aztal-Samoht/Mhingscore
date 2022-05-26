@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0.0.0/res/constants.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 import 'package:mhing_score_card/v0.0.0/widgets/app_border.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/mhing_button.dart';
+import 'package:mhing_score_card/v0.0.0/widgets/new_game_buton.dart';
 
 class HomeScreen extends StatelessWidget {
   static String id = '/';
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: MhingButton(),
+                  child: NewGameButton(),
                 ),
               ),
               Expanded(child: Container()),

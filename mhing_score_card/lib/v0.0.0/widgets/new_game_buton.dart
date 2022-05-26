@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0.0.0/res/constants.dart';
+import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 import 'package:mhing_score_card/v0.0.0/screens/scorecard_screen.dart';
 
-class MhingButton extends StatelessWidget {
-  const MhingButton({Key? key, required this.child}) : super(key: key);
+class NewGameButton extends StatelessWidget {
+  const NewGameButton({Key? key}) : super(key: key);
   static double radius = 20;
-  final Text? child;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MhingButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius),
           color: Colors.red,
           child: MaterialButton(
-            child: child,
+            child: sNewGameButtonText,
             onPressed: () {
               Navigator.pushNamed(context, ScorecardScreen.id);
             },

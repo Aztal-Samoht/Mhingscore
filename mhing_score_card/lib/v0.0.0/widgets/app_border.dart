@@ -16,7 +16,7 @@ class AppBorder extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(15.0),
           child: Material(
             color: kBackgroundColor,
             borderRadius: BorderRadius.circular(50),
