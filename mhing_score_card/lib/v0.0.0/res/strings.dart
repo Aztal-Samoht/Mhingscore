@@ -19,3 +19,8 @@ const Text sNewGameButtonText = Text(
   ),
 );
 const String sScoreCardTitle = 'Mhing Scorecard!';
+
+const Text sScoreHandButtonText = Text(
+  'score new hand',
+  style: TextStyle(color: kButtonTextColor),
+);
