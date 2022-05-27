@@ -6,11 +6,11 @@ Hand hand0 = Hand(false, 0, 0, 0, 0, false, false, 0, false, 0, false, false,
     false, false, false, false, false, false);
 Hand hand1 = Hand(true, 0, 0, 0, 0, false, false, 0, false, 0, false, false,
     false, false, false, false, false, false);
-Hand hand2 = Hand(true, 0, 0, 0, 0, false, false, 0, false, 0, false, false,
-    false, false, false, false, false, false);
+Hand hand2 = Hand(false, 0, 0, 0, 0, false, false, 8, false, 0, false, false,
+    false, false, false, false, false, true);
 
 class HandListProvider with ChangeNotifier {
-  List<Hand> _hands = [hand0, hand1];
+  List<Hand> _hands = [hand0, hand1, hand2];
 
   List<Hand> get hands => _hands;
 

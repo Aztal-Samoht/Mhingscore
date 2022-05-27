@@ -1,6 +1,6 @@
+import 'package:mhing_score_card/v0.0.0/models/hand.dart';
 import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
-import 'package:mhing_score_card/v0.0.1/res/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +9,10 @@ class HandListToDataTableDisplayer extends StatelessWidget {
 
   static const List<String> someStrings = ['row1', 'row2'];
   static const List<String> otherStrings = ['column1', 'column2'];
-  static const List<List<String>> moreStrings = [
+  static const List<List<dynamic>> moreStrings = [
     ['cell1', 'cell2'],
-    ['cell3', 'cell4']
+    ['cell3', 'cell4'],
+    ['cell5', 'cell6']
   ];
 
   @override
@@ -23,19 +24,32 @@ class HandListToDataTableDisplayer extends StatelessWidget {
         handNum++;
         columns.add(DataColumn(label: Text('$handNum')));
       }
-      int index = 0;
-      List<DataRow> rows = [];
-      for (var rowOfCells in moreStrings) {
-        List<DataCell> thisRow = [DataCell(Text(sCatagory[index]))];
-        for (var element in rowOfCells) {
-          thisRow.add(DataCell(Text(element)));
-        }
-        rows.add(DataRow(cells: thisRow));
-        index++;
+      List<List<dynamic>> tempArray = [];
+      for (dynamic x in handList.hands[0].contents) {
+        tempArray.add([]);
       }
-      print('size of handList: ${handList.hands.length}');
-      print('handList: ${handList.hands}');
-      print('number of columns: ${columns.length}');
+      for (int i = 0; i < handList.hands.length; i++) {
+        for (int j = 0; j < handList.hands[i].contents.length; j++) {
+          tempArray[j].add(handList.hands[i].contents[j]);
+        }
+      }
+
+      print('tempArray: $tempArray');
+      List<List<DataCell>> tempCells = [];
+      for (int i = 0; i < tempArray.length; i++) {
+        tempCells.add([DataCell(Text(sCatagory[i]))]);
+        for (int j = 0; j < tempArray[i].length; j++) {
+          tempCells[i].add(DataCell(Hand.toDisplay(tempArray[i][j])));
+        }
+      }
+
+      List<DataRow> rows = [];
+      print(tempArray);
+      for (var x in tempCells) {
+        rows.add(DataRow(cells: x));
+      }
+      print('\ntempCells: $tempCells');
+
       // print('number of cells in row1: ${rows[0].cells.length}');
       // print('number of cells in row2: ${rows[1].cells.length}');
       return Column(

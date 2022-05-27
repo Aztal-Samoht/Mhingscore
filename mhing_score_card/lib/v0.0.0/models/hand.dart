@@ -134,8 +134,7 @@ class Hand {
     print('hand credits: $_creds\nHand score $_score');
   }
 
-  Widget toDisplay(int index) {
-    var data = _contents[index];
+  static Widget toDisplay(dynamic data) {
     if (data.runtimeType == int)
       return Text(data.toString());
     else
