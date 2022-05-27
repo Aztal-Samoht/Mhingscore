@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0.0.0/res/constants.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 import 'package:mhing_score_card/v0.0.0/widgets/add_hand_form_one_cred.dart';
@@ -39,7 +41,11 @@ class ScorecardScreen extends StatelessWidget {
                   height: 50.0,
                   width: double.infinity,
                 ),
-                HandDatatableDisplayer(),
+                Column(
+                  children: [
+                    HandDatatableDisplayer(),
+                  ],
+                ),
               ],
             ),
           ),

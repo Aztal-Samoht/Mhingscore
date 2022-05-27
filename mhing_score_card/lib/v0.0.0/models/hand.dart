@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+
 class Hand {
   Hand(
       this.seqOnly,
@@ -20,27 +22,13 @@ class Hand {
       this.allDragTrip,
       this.oneSuitOnly,
       this.noConnectHon) {
-    if (this.seqOnly) this._creds++;
-    this._creds += dblSeq;
-    this._creds += dblTrip;
-    this._creds += honTrip;
-    this._creds += brkRoyRun;
-    if (twoSuit) this._creds++;
-    if (pair258) this._creds++;
-    this._creds += flowers;
-    if (tripOnly) this._creds += 3;
-    this._creds += (identDblSeq * 3);
-    if (royRun) this._creds += 3;
-    if (oneSuitHon) this._creds += 3;
-    if (noConnect) this._creds += 3;
-    if (highLow) this._creds += 5;
-    if (allSuitsHon) this._creds += 5;
-    if (allDragTrip) this._creds += 8;
-    if (oneSuitOnly) this._creds += 8;
-    if (noConnectHon) this._creds += 8;
-    this._score = this.calcScore(_creds);
-    print(this._score);
+    fillContents();
+    calcCredits();
+    _contents[19] = calcScore(_contents[18]);
   }
+  List<dynamic> _contents = [];
+
+  List<dynamic> get contents => _contents;
 
   ///1 cred
   final bool seqOnly;
@@ -87,5 +75,70 @@ class Hand {
         bound += 3;
     }
     return pow(2, 17).toInt();
+  }
+
+  static Icon boolDisplayer(bool b) {
+    if (b)
+      return Icon(Icons.done);
+    else
+      return Icon(Icons.close);
+  }
+
+  void fillContents() {
+    _contents = [
+      seqOnly,
+      dblSeq,
+      dblTrip,
+      honTrip,
+      brkRoyRun,
+      twoSuit,
+      pair258,
+      flowers,
+      tripOnly,
+      identDblSeq,
+      royRun,
+      oneSuitHon,
+      noConnect,
+      highLow,
+      allSuitsHon,
+      allDragTrip,
+      oneSuitOnly,
+      noConnectHon,
+      0,
+      0,
+    ];
+  }
+
+  void calcCredits() {
+    if (seqOnly) _contents[18]++;
+    _contents[18] += dblSeq;
+    _contents[18] += dblTrip;
+    _contents[18] += honTrip;
+    _contents[18] += brkRoyRun;
+    if (twoSuit) _contents[18]++;
+    if (pair258) _contents[18]++;
+    _contents[18] += flowers;
+    if (tripOnly) _contents[18] += 3;
+    _contents[18] += (identDblSeq * 3);
+    if (royRun) _contents[18] += 3;
+    if (oneSuitHon) _contents[18] += 3;
+    if (noConnect) _contents[18] += 3;
+    if (highLow) _contents[18] += 5;
+    if (allSuitsHon) _contents[18] += 5;
+    if (allDragTrip) _contents[18] += 8;
+    if (oneSuitOnly) _contents[18] += 8;
+    if (noConnectHon) _contents[18] += 8;
+    _creds = _contents[18];
+    _score = calcScore(_contents[18]);
+    //TODO:DELETE THIS PRINT STATEMENT
+    print('hand credits: $_creds\nHand score $_score');
+  }
+
+  Widget toDisplay(int index) {
+    var data = _contents[index];
+    if (data.runtimeType == int)
+      return Text(data.toString());
+    else
+      return boolDisplayer(data);
   }
 }
