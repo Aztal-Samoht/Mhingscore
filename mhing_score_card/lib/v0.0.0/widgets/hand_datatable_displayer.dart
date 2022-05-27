@@ -1,4 +1,6 @@
 import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0.0.0/res/strings.dart';
+import 'package:mhing_score_card/v0.0.1/res/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +26,12 @@ class HandListToDataTableDisplayer extends StatelessWidget {
       int index = 0;
       List<DataRow> rows = [];
       for (var rowOfCells in moreStrings) {
-        List<DataCell> thisRow = [];
+        List<DataCell> thisRow = [DataCell(Text(sCatagory[index]))];
         for (var element in rowOfCells) {
           thisRow.add(DataCell(Text(element)));
         }
         rows.add(DataRow(cells: thisRow));
+        index++;
       }
       print('size of handList: ${handList.hands.length}');
       print('handList: ${handList.hands}');
