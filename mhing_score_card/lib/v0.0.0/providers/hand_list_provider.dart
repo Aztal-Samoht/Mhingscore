@@ -10,7 +10,7 @@ Hand hand2 = Hand(true, 0, 0, 0, 0, false, false, 0, false, 0, false, false,
     false, false, false, false, false, false);
 
 class HandListProvider with ChangeNotifier {
-  List<Hand> _hands = [];
+  List<Hand> _hands = [hand0, hand1];
 
   List<Hand> get hands => _hands;
 

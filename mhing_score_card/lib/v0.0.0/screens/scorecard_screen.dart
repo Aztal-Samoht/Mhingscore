@@ -43,7 +43,7 @@ class ScorecardScreen extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    HandDatatableDisplayer(),
+                    HandListToDataTableDisplayer(),
                   ],
                 ),
               ],

@@ -1,11 +1,9 @@
-import 'package:mhing_score_card/v0.0.0/models/hand.dart';
 import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-class HandDatatableDisplayer extends StatelessWidget {
-  const HandDatatableDisplayer({Key? key}) : super(key: key);
+class HandListToDataTableDisplayer extends StatelessWidget {
+  const HandListToDataTableDisplayer({Key? key}) : super(key: key);
 
   static const List<String> someStrings = ['row1', 'row2'];
   static const List<String> otherStrings = ['column1', 'column2'];
@@ -17,27 +15,26 @@ class HandDatatableDisplayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HandListProvider>(builder: (context, handList, child) {
-      List<DataColumn> columns = [];
-      otherStrings.forEach((element) {
-        columns.add(DataColumn(label: Text(element)));
-      });
+      List<DataColumn> columns = [DataColumn(label: Text('element'))];
+      int handNum = 0;
+      for (var element in handList.hands) {
+        handNum++;
+        columns.add(DataColumn(label: Text('$handNum')));
+      }
+      int index = 0;
       List<DataRow> rows = [];
-      moreStrings.forEach((rowOfCells) {
+      for (var rowOfCells in moreStrings) {
         List<DataCell> thisRow = [];
-        rowOfCells.forEach((element) {
+        for (var element in rowOfCells) {
           thisRow.add(DataCell(Text(element)));
-        });
+        }
         rows.add(DataRow(cells: thisRow));
-      });
+      }
+      print('size of handList: ${handList.hands.length}');
+      print('handList: ${handList.hands}');
       print('number of columns: ${columns.length}');
-      print('number of cells in row1: ${rows[0].cells.length}');
-      print('number of cells in row2: ${rows[1].cells.length}');
-      // someStrings.forEach((element) {
-      //   rows.add(DataRow(cells: [
-      //     DataCell(Text(moreStrings[0])),
-      //     DataCell(Text(moreStrings[1])),
-      //   ]));
-      // });
+      // print('number of cells in row1: ${rows[0].cells.length}');
+      // print('number of cells in row2: ${rows[1].cells.length}');
       return Column(
         children: [
           DataTable(
