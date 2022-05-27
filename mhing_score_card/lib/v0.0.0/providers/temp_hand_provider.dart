@@ -36,7 +36,7 @@ class TempHandProvider with ChangeNotifier {
   bool getTwoSuit() => _twoSuit;
   bool getPair258() => _pair258;
   int getFlowers() => _flowers;
-  bool getPripOnly() => _tripOnly;
+  bool getTripOnly() => _tripOnly;
   int getIdentDblSeq() => _identDblSeq;
   bool getRoyRun() => _royRun;
   bool getOneSuitHon() => _oneSuitHon;
@@ -59,7 +59,7 @@ class TempHandProvider with ChangeNotifier {
   void setFlowers(int value) => _flowers = value;
   void setPair258(bool value) => _pair258 = value;
   void setTwoSuit(bool value) => _twoSuit = value;
-  void setNrkRoyRun(int value) => _brkRoyRun = value;
+  void setBrkRoyRun(int value) => _brkRoyRun = value;
   void setHonTrip(int value) => _honTrip = value;
   void setDblTrip(int value) => _dblTrip = value;
   void setDblSeq(int value) => _dblSeq = value;
