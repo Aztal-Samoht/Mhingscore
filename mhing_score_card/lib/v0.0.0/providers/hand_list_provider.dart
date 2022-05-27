@@ -6,4 +6,6 @@ class HandListProvider with ChangeNotifier {
   List<Hand> _hands = [];
 
   List<Hand> get hands => _hands;
+
+  void add(Hand a) => _hands.add(a);
 }

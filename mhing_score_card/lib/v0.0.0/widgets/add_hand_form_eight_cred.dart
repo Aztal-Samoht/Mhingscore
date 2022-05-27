@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0.0.0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0.0.0/res/constants.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
@@ -44,6 +45,7 @@ class _AddHandFormEightCredState extends State<AddHandFormEightCred> {
                     width: 175,
                     label: sNext,
                     onPressed: () {
+                      newHand.submit(context);
                       Navigator.pop(context);
                       Navigator.pop(context);
                       Navigator.pop(context);

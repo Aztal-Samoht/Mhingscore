@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0.0.0/models/hand.dart';
+import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class TempHandProvider with ChangeNotifier {
@@ -64,4 +66,29 @@ class TempHandProvider with ChangeNotifier {
   void setDblTrip(int value) => _dblTrip = value;
   void setDblSeq(int value) => _dblSeq = value;
   void setSeqOnly(bool value) => _seqOnly = value;
+
+  void submit(BuildContext context) {
+    context.read<HandListProvider>().add(
+          Hand(
+            this._seqOnly,
+            this._dblSeq,
+            this._dblTrip,
+            this._honTrip,
+            this._brkRoyRun,
+            this._twoSuit,
+            this._pair258,
+            this._flowers,
+            this._tripOnly,
+            this._identDblSeq,
+            this._royRun,
+            this._oneSuitHon,
+            this._noConnect,
+            this._highLow,
+            this._allSuitsHon,
+            this._allDragTrip,
+            this._oneSuitOnly,
+            this._noConnectHon,
+          ),
+        );
+  }
 }

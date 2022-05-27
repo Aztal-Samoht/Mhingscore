@@ -3,6 +3,7 @@ import 'package:mhing_score_card/v0.0.0/res/constants.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
 import 'package:mhing_score_card/v0.0.0/widgets/add_hand_form_one_cred.dart';
 import 'package:mhing_score_card/v0.0.0/widgets/app_border.dart';
+import 'package:mhing_score_card/v0.0.0/widgets/hand_datatable_displayer.dart';
 import 'package:mhing_score_card/v0.0.0/widgets/mhing_button.dart';
 
 class ScorecardScreen extends StatelessWidget {
@@ -26,33 +27,19 @@ class ScorecardScreen extends StatelessWidget {
             child: Column(
               children: [
                 MhingButton(
-                    label: sScoreHandButtonText,
-                    onPressed: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) =>
-                            SingleChildScrollView(child: AddHandFormOneCred()),
-                      );
-                    },
-                    height: 50.0,
-                    width: double.infinity),
-                Row(
-                  children: [
-                    DataTable(
-                      columns: [
-                        DataColumn(label: Text('Hand Type')),
-                      ],
-                      rows: [],
-                    ),
-                    DataTable(
-                      columns: [
-                        DataColumn(label: Text('Hand 1')),
-                      ],
-                      rows: [],
-                    ),
-                  ],
+                  label: sScoreHandButtonText,
+                  onPressed: () {
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (context) =>
+                          SingleChildScrollView(child: AddHandFormOneCred()),
+                    );
+                  },
+                  height: 50.0,
+                  width: double.infinity,
                 ),
+                HandDatatableDisplayer(),
               ],
             ),
           ),

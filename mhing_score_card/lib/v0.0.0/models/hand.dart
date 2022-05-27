@@ -11,7 +11,7 @@ class Hand {
       this.pair258,
       this.flowers,
       this.tripOnly,
-      this.idenDblSeq,
+      this.identDblSeq,
       this.royRun,
       this.oneSuitHon,
       this.noConnect,
@@ -20,9 +20,7 @@ class Hand {
       this.allDragTrip,
       this.oneSuitOnly,
       this.noConnectHon) {
-    if (this.seqOnly) {
-      this._creds++;
-    }
+    if (this.seqOnly) this._creds++;
     this._creds += dblSeq;
     this._creds += dblTrip;
     this._creds += honTrip;
@@ -31,7 +29,7 @@ class Hand {
     if (pair258) this._creds++;
     this._creds += flowers;
     if (tripOnly) this._creds += 3;
-    this._creds += (idenDblSeq * 3);
+    this._creds += (identDblSeq * 3);
     if (royRun) this._creds += 3;
     if (oneSuitHon) this._creds += 3;
     if (noConnect) this._creds += 3;
@@ -41,6 +39,7 @@ class Hand {
     if (oneSuitOnly) this._creds += 8;
     if (noConnectHon) this._creds += 8;
     this._score = this.calcScore(_creds);
+    print(this._score);
   }
 
   ///1 cred
@@ -55,7 +54,7 @@ class Hand {
 
   ///3 cred
   final bool tripOnly;
-  final int idenDblSeq;
+  final int identDblSeq;
   final bool royRun;
   final bool oneSuitHon;
   final bool noConnect;
