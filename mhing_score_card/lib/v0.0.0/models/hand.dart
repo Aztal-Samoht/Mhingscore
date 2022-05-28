@@ -26,6 +26,11 @@ class Hand {
     calcCredits();
     _contents[19] = calcScore(_contents[18]);
   }
+
+  ///having the data in this list gives me the ability to access it in for loops
+  ///I tried passing it from the TempHandProvider as a list, but it was
+  ///causing a lot of issues elsewhere in the app, so I take each bit
+  ///individually and convert it
   List<dynamic> _contents = [];
 
   List<dynamic> get contents => _contents;
@@ -130,7 +135,7 @@ class Hand {
     if (noConnectHon) _contents[18] += 8;
     _creds = _contents[18];
     _score = calcScore(_contents[18]);
-    //TODO:DELETE THIS PRINT STATEMENT
+    //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
     print('hand credits: $_creds\nHand score $_score');
   }
 
