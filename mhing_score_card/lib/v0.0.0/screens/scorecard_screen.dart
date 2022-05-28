@@ -1,3 +1,6 @@
+///this screen is for keeping track of a single player's score during a
+///single game of Mhing.
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
@@ -34,6 +37,12 @@ class _ScorecardScreenState extends State<ScorecardScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  ///this button should bring you through 4 pop-ups to add a
+                  ///new hand.  After which, all 4 should close and the new hand
+                  /// should appear in a new column to the right.
+                  ///
+                  /// as each goes by the input is stored by the TempHandProvider.
+                  /// at the end it is submitted to the HandListProvider.
                   MhingButton(
                     label: sScoreHandButtonText,
                     onPressed: () {
@@ -47,6 +56,8 @@ class _ScorecardScreenState extends State<ScorecardScreen> {
                     height: 50.0,
                     width: double.infinity,
                   ),
+
+                  ///this widget should keep track of your score and update as you add hands to it
                   HandListToDataTableDisplayer(),
                   Text(
                       'Total Score: ${context.read<HandListProvider>().getTotalScore()}'),
