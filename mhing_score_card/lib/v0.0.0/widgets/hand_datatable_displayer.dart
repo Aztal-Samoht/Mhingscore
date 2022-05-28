@@ -1,31 +1,22 @@
 import 'package:mhing_score_card/v0.0.0/models/hand.dart';
 import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0.0.0/res/strings.dart';
+import 'package:mhing_score_card/v0.0.0/widgets/my_data_table.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class HandListToDataTableDisplayer extends StatelessWidget {
   const HandListToDataTableDisplayer({Key? key}) : super(key: key);
 
-  static const List<String> someStrings = ['row1', 'row2'];
-  static const List<String> otherStrings = ['column1', 'column2'];
-  static const List<List<dynamic>> moreStrings = [
-    ['cell1', 'cell2'],
-    ['cell3', 'cell4'],
-    ['cell5', 'cell6']
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Consumer<HandListProvider>(builder: (context, handList, child) {
-      List<DataColumn> columns = [DataColumn(label: Text('element'))];
-      int handNum = 0;
-      for (var element in handList.hands) {
-        handNum++;
-        columns.add(DataColumn(label: Text('$handNum')));
+      List<DataColumn> columns = [DataColumn(label: Text('Hand Number'))];
+      for (int i = 0; i < handList.hands.length; i++) {
+        columns.add(DataColumn(label: Text('${i + 1}')));
       }
       List<List<dynamic>> tempArray = [];
-      for (dynamic x in handList.hands[0].contents) {
+      for (int i = 0; i < handList.hands[0].contents.length; i++) {
         tempArray.add([]);
       }
       for (int i = 0; i < handList.hands.length; i++) {
@@ -50,15 +41,9 @@ class HandListToDataTableDisplayer extends StatelessWidget {
       }
       print('\ntempCells: $tempCells');
 
-      // print('number of cells in row1: ${rows[0].cells.length}');
-      // print('number of cells in row2: ${rows[1].cells.length}');
-      return Column(
-        children: [
-          DataTable(
-            columns: columns, //[DataColumn(label: Text('element'))],
-            rows: rows, //[DataRow(cells: [DataCell(Text('Test'))])],
-          ),
-        ],
+      return MyDataTable(
+        columns: columns,
+        rows: rows,
       );
     }); //Consumer
   }
