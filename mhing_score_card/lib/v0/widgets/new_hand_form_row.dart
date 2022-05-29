@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
 
 class NewHandFormRow<T> extends StatefulWidget {
   const NewHandFormRow(

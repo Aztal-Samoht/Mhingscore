@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:mhing_score_card/main.dart';
-import 'package:mhing_score_card/v0.0.0/main_v0.0.0.dart';
+import 'package:mhing_score_card/v0.0.0/main_v0.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

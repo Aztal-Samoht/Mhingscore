@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/res/constants.dart';
-import 'package:mhing_score_card/v0.0.0/res/strings.dart';
-import 'package:mhing_score_card/v0.0.0/screens/scorecard_screen.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
 
-class NewGameButton extends StatelessWidget {
-  const NewGameButton({Key? key}) : super(key: key);
+class ResumeGameButton extends StatelessWidget {
+  const ResumeGameButton({Key? key}) : super(key: key);
   static double radius = 20;
 
   @override
@@ -19,7 +19,7 @@ class NewGameButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius),
           color: Colors.red,
           child: MaterialButton(
-            child: sNewGameButtonText,
+            child: sResumeButtonText,
             onPressed: () {
               Navigator.pushNamed(context, ScorecardScreen.id);
             },

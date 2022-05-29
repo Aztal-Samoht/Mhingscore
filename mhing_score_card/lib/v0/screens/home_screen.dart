@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/res/constants.dart';
-import 'package:mhing_score_card/v0.0.0/res/strings.dart';
-import 'package:mhing_score_card/v0.0.0/screens/rules_screen.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/app_border.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/mhing_button.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/new_game_buton.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/screens/rules_screen.dart';
+import 'package:mhing_score_card/v0/widgets/app_border.dart';
+import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
+import 'package:mhing_score_card/v0/widgets/new_game_buton.dart';
+import 'package:mhing_score_card/v0/widgets/resume_game_buton.dart';
 
 class HomeScreen extends StatelessWidget {
   static String id = '/';
@@ -29,8 +30,17 @@ class HomeScreen extends StatelessWidget {
               Expanded(child: Container()),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: buttonPadding),
                   child: NewGameButton(),
+                ),
+              ),
+              SizedBox(height: 25),
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: buttonPadding),
+                  child: ResumeGameButton(),
                 ),
               ),
               Expanded(child: Container()),

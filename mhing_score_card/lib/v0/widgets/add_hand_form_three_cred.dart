@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/providers/temp_hand_provider.dart';
-import 'package:mhing_score_card/v0.0.0/res/constants.dart';
-import 'package:mhing_score_card/v0.0.0/res/strings.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/add_hand_form_five_cred.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/mhing_button.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/new_hand_form_row.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/widgets/add_hand_form_five_cred.dart';
+import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
+import 'package:mhing_score_card/v0/widgets/new_hand_form_row.dart';
 import 'package:provider/provider.dart';
 
 class AddHandFormThreeCred extends StatefulWidget {

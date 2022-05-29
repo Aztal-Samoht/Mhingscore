@@ -1,7 +1,7 @@
-import 'package:mhing_score_card/v0.0.0/models/hand.dart';
-import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/v0.0.0/res/strings.dart';
-import 'package:mhing_score_card/v0.0.0/widgets/my_data_table.dart';
+import 'package:mhing_score_card/v0/models/hand.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/widgets/my_data_table.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -58,14 +58,14 @@ class HandListToDataTableDisplayer extends StatelessWidget {
       ///this loop constructs the final 'rows' obj to be passed to the
       ///DataTable Widget
       List<DataRow> rows = [];
-      print(tempArray);
+      // print(tempArray);
       for (var x in tempCells) {
         rows.add(DataRow(cells: x));
       }
 
       ///this print statement was used to prove to myself that the contents
       ///of the 'rows' object was what I was expecting.
-      print('\ntempCells: $tempCells');
+      // print('\ntempCells: $tempCells');
 
       ///I separated this into a custom widget in the hopes that when the
       ///contents of 'rows' that is being passed changed the DataTable within

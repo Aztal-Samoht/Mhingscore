@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/models/hand.dart';
-import 'package:mhing_score_card/v0.0.0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0/models/hand.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class TempHandProvider with ChangeNotifier {

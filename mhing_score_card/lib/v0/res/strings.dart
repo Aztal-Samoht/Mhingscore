@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0.0.0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
 
 const Text sMainTitle = Text(
   'Mhingscore',
@@ -15,7 +15,14 @@ const Text sNewGameButtonText = Text(
   'New Game',
   style: TextStyle(
     color: kTitleColor,
-    fontSize: 30,
+    fontSize: 26,
+  ),
+);
+const Text sResumeButtonText = Text(
+  'Resume Game',
+  style: TextStyle(
+    color: kTitleColor,
+    fontSize: 26,
   ),
 );
 const String sScoreCardTitle = 'Mhing Scorecard!';
