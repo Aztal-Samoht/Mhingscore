@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_v2_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/widgets/add_hand_form_five_cred.dart';
+import 'package:mhing_score_card/v0/widgets/new_hand_form_components/add_hand_form_five_cred.dart';
 import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
-import 'package:mhing_score_card/v0/widgets/new_hand_form_row.dart';
+import 'package:mhing_score_card/v0/widgets/new_hand_form_components/new_hand_form_row.dart';
 import 'package:provider/provider.dart';
 
 class AddHandFormThreeCred extends StatefulWidget {
@@ -17,7 +18,7 @@ class AddHandFormThreeCred extends StatefulWidget {
 class _AddHandFormThreeCredState extends State<AddHandFormThreeCred> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<TempHandProvider>(builder: (context, newHand, child) {
+    return Consumer<TempHand2Provider>(builder: (context, newHand, child) {
       return Material(
         color: Colors.white,
         child: Form(
@@ -30,16 +31,16 @@ class _AddHandFormThreeCredState extends State<AddHandFormThreeCred> {
                   Divider(color: Colors.black, thickness: 2),
                   Text('Three Credit:', style: kNewHandFormSectonFont),
                   Divider(color: Colors.black, thickness: 2),
-                  getBoolPicker([true, false], sCatagory[8],
-                      newHand.getTripOnly, newHand.setTripOnly),
-                  getNumberPicker([0, 1, 2, 3, 4, 6], sCatagory[9],
-                      newHand.getIdentDblSeq, newHand.setIdenDblSeq),
-                  getBoolPicker([true, false], sCatagory[10], newHand.getRoyRun,
-                      newHand.setRoyRun),
-                  getBoolPicker([true, false], sCatagory[11],
-                      newHand.getOneSuitHon, newHand.setOneSuitHon),
-                  getBoolPicker([true, false], sCatagory[12],
-                      newHand.getNoConnect, newHand.setNoConnect),
+                  // getBoolPicker([true, false], sCatagory[8],
+                  //     newHand.getTripOnly, newHand.setTripOnly),
+                  // getNumberPicker([0, 1, 2, 3, 4, 6], sCatagory[9],
+                  //     newHand.getIdentDblSeq, newHand.setIdenDblSeq),
+                  // getBoolPicker([true, false], sCatagory[10], newHand.getRoyRun,
+                  //     newHand.setRoyRun),
+                  // getBoolPicker([true, false], sCatagory[11],
+                  //     newHand.getOneSuitHon, newHand.setOneSuitHon),
+                  // getBoolPicker([true, false], sCatagory[12],
+                  //     newHand.getNoConnect, newHand.setNoConnect),
                   Text('Five Credit:', style: kNewHandFormSectonFont),
                   Divider(color: Colors.black, thickness: 2),
                   Text('Eight Credit:', style: kNewHandFormSectonFont),

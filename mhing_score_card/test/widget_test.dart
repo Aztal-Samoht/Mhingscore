@@ -7,14 +7,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mhing_score_card/main.dart';
-import 'package:mhing_score_card/v0.0.0/main_v0.dart';
+import 'package:mhing_score_card/v0/main_v0.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyAppV0_0_0());
+    await tester.pumpWidget(const MyAppV0());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_v2_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/widgets/add_hand_form_eight_cred.dart';
 import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
-import 'package:mhing_score_card/v0/widgets/new_hand_form_row.dart';
+import 'package:mhing_score_card/v0/widgets/new_hand_form_components/new_hand_form_row.dart';
 import 'package:provider/provider.dart';
 
-class AddHandFormFiveCred extends StatefulWidget {
-  const AddHandFormFiveCred({Key? key}) : super(key: key);
+class AddHandFormEightCred extends StatefulWidget {
+  const AddHandFormEightCred({Key? key}) : super(key: key);
 
   @override
-  State<AddHandFormFiveCred> createState() => _AddHandFormFiveCredState();
+  State<AddHandFormEightCred> createState() => _AddHandFormEightCredState();
 }
 
-class _AddHandFormFiveCredState extends State<AddHandFormFiveCred> {
+class _AddHandFormEightCredState extends State<AddHandFormEightCred> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<TempHandProvider>(builder: (context, newHand, child) {
+    return Consumer<TempHand2Provider>(builder: (context, newHand, child) {
       return Material(
         color: Colors.white,
         child: Form(
@@ -32,24 +33,24 @@ class _AddHandFormFiveCredState extends State<AddHandFormFiveCred> {
                   Divider(color: Colors.black, thickness: 2),
                   Text('Five Credit:', style: kNewHandFormSectonFont),
                   Divider(color: Colors.black, thickness: 2),
-                  getBoolPicker([true, false], sCatagory[13],
-                      newHand.getHighLow, newHand.setHighLow),
-                  getBoolPicker([true, false], sCatagory[14],
-                      newHand.getAllSuitsHon, newHand.setAllSuitsHon),
                   Text('Eight Credit:', style: kNewHandFormSectonFont),
                   Divider(color: Colors.black, thickness: 2),
+                  // getBoolPicker([true, false], sCatagory[15],
+                  //     newHand.getSeqOnly, newHand.setSeqOnly),
+                  // getBoolPicker([true, false], sCatagory[16],
+                  //     newHand.getSeqOnly, newHand.setSeqOnly),
+                  // getBoolPicker([true, false], sCatagory[17],
+                  //     newHand.getSeqOnly, newHand.setSeqOnly),
                   MhingButton(
                     height: 50,
                     width: 175,
                     label: sNext,
                     onPressed: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) => SingleChildScrollView(
-                          child: AddHandFormEightCred(),
-                        ),
-                      );
+                      newHand.submit(context);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                   ),
                 ],

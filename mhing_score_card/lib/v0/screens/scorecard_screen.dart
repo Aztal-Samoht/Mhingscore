@@ -2,11 +2,13 @@
 ///single game of Mhing.
 
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0/providers/hand_v2_list_provider.dart';
+import 'package:mhing_score_card/v0/widgets/hand_datatable_displayerV2.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/widgets/add_hand_form_one_cred.dart';
+import 'package:mhing_score_card/v0/widgets/new_hand_form_components/add_hand_form_one_cred.dart';
 import 'package:mhing_score_card/v0/widgets/app_border.dart';
 import 'package:mhing_score_card/v0/widgets/hand_datatable_displayer.dart';
 import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
@@ -15,7 +17,7 @@ class ScorecardScreen extends StatelessWidget {
   static String id = '/scorecard';
   @override
   Widget build(BuildContext context) {
-    return Consumer<HandListProvider>(builder: (context, handList, child) {
+    return Consumer<Hand2ListProvider>(builder: (context, handList, child) {
       return SafeArea(
         child: Scaffold(
           appBar: AppBar(
@@ -52,10 +54,10 @@ class ScorecardScreen extends StatelessWidget {
                     ),
 
                     ///this widget should keep track of your score and update as you add hands to it
-                    HandListToDataTableDisplayer(),
+                    Hand2ListToDataTableDisplayer(),
                     Divider(color: Colors.red, thickness: 3),
                     Text(
-                      'Total Score: ${handList.getTotalScore()}',
+                      'Total Score: ${handList.totalScore}',
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.red,

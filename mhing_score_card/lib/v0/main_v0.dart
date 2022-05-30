@@ -5,7 +5,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0/providers/hand_v2_list_provider.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_v2_provider.dart';
 import 'package:mhing_score_card/v0/screens/home_screen.dart';
 import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
@@ -18,8 +20,8 @@ class MyAppV0 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => TempHandProvider()),
-        ChangeNotifierProvider(create: (_) => HandListProvider()),
+        ChangeNotifierProvider(create: (_) => TempHand2Provider()),
+        ChangeNotifierProvider(create: (_) => Hand2ListProvider()),
       ],
       child: MaterialApp(
         title: 'Mhingscore Card!',
