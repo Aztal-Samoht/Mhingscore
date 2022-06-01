@@ -29,24 +29,27 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
       },
     );
     return Consumer<TempHandProvider>(builder: (context, newHand, child) {
-      return Row(
-        children: [
-          Text(
-            '${sCatagory[widget.index]}: ',
-            style: kNewHandFormFont,
-          ),
-          Expanded(
-            child: DropdownButton<T>(
-              value: newHand.tempContents[widget.index],
-              items: menuItems,
-              onChanged: (value) {
-                setState(() {
-                  newHand.setAt(value, widget.index);
-                });
-              },
+      return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: Row(
+          children: [
+            Text(
+              '${sCatagory[widget.index]}: ',
+              style: kNewHandFormFont,
             ),
-          ),
-        ],
+            Expanded(
+              child: DropdownButton<T>(
+                value: newHand.tempContents[widget.index],
+                items: menuItems,
+                onChanged: (value) {
+                  setState(() {
+                    newHand.setAt(value, widget.index);
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
       );
     });
   }
