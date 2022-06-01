@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/models/handV2.dart';
-import 'package:mhing_score_card/v0/providers/hand_v2_list_provider.dart';
+import 'package:mhing_score_card/v0/models/hand.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:provider/provider.dart';
 
-class TempHand2Provider with ChangeNotifier {
+class TempHandProvider with ChangeNotifier {
   List<dynamic> _tempContents = [
     false,
     0,
@@ -32,7 +32,7 @@ class TempHand2Provider with ChangeNotifier {
   List<dynamic> get tempContents => _tempContents;
 
   void submit(BuildContext context) {
-    context.read<Hand2ListProvider>().add(Hand2(_tempContents));
+    context.read<HandListProvider>().add(Hand(_tempContents));
     print('tempContents submitted');
     for (int i = 0; i < _tempContents.length; i++) {
       _tempContents[i] = kEmptyHand[i];

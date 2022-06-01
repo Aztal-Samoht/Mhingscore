@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/models/handV2.dart';
+import 'package:mhing_score_card/v0/models/hand.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 
-class Hand2ListProvider with ChangeNotifier {
+class HandListProvider with ChangeNotifier {
   List<List<DataCell>> _sortedHands = buildInitialSortedHand();
   num _totalScore = 0;
 
@@ -12,15 +13,15 @@ class Hand2ListProvider with ChangeNotifier {
   static List<List<DataCell>> buildInitialSortedHand() {
     List<List<DataCell>> toReturn = [];
     for (int i = 0; i < sCatagory.length; i++) {
-      toReturn.add([DataCell(Text(sCatagory[i]))]);
+      toReturn.add([DataCell(Text(sCatagory[i], style: kCellStyle))]);
     }
     return toReturn;
   }
 
-  void add(Hand2 h) {
+  void add(Hand h) {
     _totalScore += h.contents.last;
     for (int i = 0; i < h.contents.length; i++) {
-      _sortedHands[i].add(DataCell(Hand2.toDisplayWidget(h.contents[i])));
+      _sortedHands[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
     }
     notifyListeners();
     //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON

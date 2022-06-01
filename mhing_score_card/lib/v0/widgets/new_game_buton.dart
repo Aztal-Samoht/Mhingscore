@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/providers/hand_v2_list_provider.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
@@ -23,7 +23,7 @@ class NewGameButton extends StatelessWidget {
           child: MaterialButton(
             child: sNewGameButtonText,
             onPressed: () {
-              context.read<Hand2ListProvider>().reset();
+              context.read<HandListProvider>().reset();
               Navigator.pushNamed(context, ScorecardScreen.id);
             },
           ),

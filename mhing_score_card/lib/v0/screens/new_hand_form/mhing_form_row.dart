@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/providers/temp_hand_v2_provider.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +28,7 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
         );
       },
     );
-    return Consumer<TempHand2Provider>(builder: (context, newHand, child) {
+    return Consumer<TempHandProvider>(builder: (context, newHand, child) {
       return Row(
         children: [
           Text(

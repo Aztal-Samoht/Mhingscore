@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/providers/temp_hand_v2_provider.dart';
+import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/screens/new_hand_form_v2/mhing_form_row.dart';
+import 'package:mhing_score_card/v0/screens/new_hand_form/mhing_form_row.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/mhing_button.dart';
@@ -19,7 +19,7 @@ class AddHandScreen extends StatefulWidget {
 class _AddHandScreenState extends State<AddHandScreen> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<TempHand2Provider>(
+    return Consumer<TempHandProvider>(
       builder: (context, tempHand, child) {
         return SingleChildScrollView(
           child: Column(
@@ -51,6 +51,10 @@ class _AddHandScreenState extends State<AddHandScreen> {
               MhingFormRow<bool>(index: 16, options: [true, false]),
               MhingFormRow<bool>(index: 17, options: [true, false]),
               MhingFormRow<bool>(index: 18, options: [true, false]),
+              Divider(color: Colors.black, thickness: 2),
+              SizedBox(
+                height: 20,
+              ),
               MhingButton(
                 height: 50,
                 width: 175,
@@ -59,6 +63,9 @@ class _AddHandScreenState extends State<AddHandScreen> {
                   tempHand.submit(context);
                   Navigator.pop(context);
                 },
+              ),
+              SizedBox(
+                height: 40,
               ),
             ],
           ),
