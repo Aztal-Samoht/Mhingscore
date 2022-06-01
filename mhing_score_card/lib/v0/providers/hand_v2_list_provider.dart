@@ -18,13 +18,17 @@ class Hand2ListProvider with ChangeNotifier {
   }
 
   void add(Hand2 h) {
-    _totalScore += h.contents[19];
+    _totalScore += h.contents.last;
     for (int i = 0; i < h.contents.length; i++) {
-      _sortedHands.add([DataCell(Hand2.toDisplayWidget(h.contents[i]))]);
+      _sortedHands[i].add(DataCell(Hand2.toDisplayWidget(h.contents[i])));
     }
+    notifyListeners();
+    //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
+    print('printed from the add function:\n$_sortedHands');
   }
 
   void reset() {
     _sortedHands = buildInitialSortedHand();
+    _totalScore = 0;
   }
 }

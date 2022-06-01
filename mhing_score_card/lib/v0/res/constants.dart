@@ -7,3 +7,26 @@ const Color kTitleColor = Color(0xffffa000);
 const Color kButtonTextColor = Color(0xfffbc02d);
 const TextStyle kNewHandFormFont = TextStyle(fontSize: 18);
 const TextStyle kNewHandFormSectonFont = TextStyle(fontSize: 25);
+const List<dynamic> kEmptyHand = [
+  false,
+  0,
+  0,
+  0,
+  0,
+  false,
+  false,
+  0,
+  false,
+  0,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  0,
+  0,
+];

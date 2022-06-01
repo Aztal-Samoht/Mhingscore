@@ -29,7 +29,7 @@ const String sScoreCardTitle = 'Mhing Scorecard!';
 
 const String sScoreHandButtonText = 'score new hand';
 
-const String sNext = 'To next Catagory';
+const String sSubmit = 'Submit Hand';
 
 const List<String> sCatagory = [
   'Sequence Only Hand',
@@ -40,13 +40,14 @@ const List<String> sCatagory = [
   'Two Suits Only',
   'Pair of 2s, 5s or 8s',
   'Flowers',
-  'Triplets Only  sHand',
+  'Triplets Only Hand',
   'Identical Double Sequence',
   'Royal Run',
   'One Suit w/Honors',
   'Nothing Connects',
   'High/Low',
   'All Suits and Honors',
+  'Seven Pairs',
   'All Dragon Triplets',
   'One Suit Only',
   'Nothing Connects w/All Honors',
