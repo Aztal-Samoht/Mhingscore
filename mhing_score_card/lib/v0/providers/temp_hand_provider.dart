@@ -51,4 +51,9 @@ class TempHandProvider with ChangeNotifier {
     _tempContents[index] = value;
     print(_tempContents);
   }
+
+  void toggleAt(int index) {
+    _tempContents[index] = !_tempContents[index];
+    notifyListeners();
+  }
 }

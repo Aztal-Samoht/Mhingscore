@@ -4,6 +4,8 @@ import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:provider/provider.dart';
 
+List<int> boolOptions = [0, 5, 6, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+
 class MhingFormRow<T> extends StatefulWidget {
   const MhingFormRow({Key? key, required this.index, required this.options})
       : super(key: key);
@@ -15,8 +17,7 @@ class MhingFormRow<T> extends StatefulWidget {
 }
 
 class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
-  @override
-  Widget build(BuildContext context) {
+  List<DropdownMenuItem<T>> getItemList() {
     List<DropdownMenuItem<T>> menuItems = [];
     widget.options.forEach(
       (element) {
@@ -28,6 +29,37 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
         );
       },
     );
+    return menuItems;
+  }
+
+  Widget getPicker(TempHandProvider tempHand) {
+    if (boolOptions.contains(widget.index)) {
+      return Checkbox(
+        checkColor: Colors.black,
+        activeColor: Colors.red,
+        value: tempHand.tempContents[widget.index],
+        onChanged: (value) {
+          tempHand.toggleAt(widget.index);
+        },
+      );
+    }
+    return Expanded(
+      child: DropdownButton<T>(
+        value: tempHand.tempContents[widget.index],
+        items: getItemList(),
+        onChanged: (value) {
+          setState(
+            () {
+              tempHand.setAt(value, widget.index);
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Consumer<TempHandProvider>(builder: (context, newHand, child) {
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -37,17 +69,7 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
               '${sCatagory[widget.index]}: ',
               style: kNewHandFormFont,
             ),
-            Expanded(
-              child: DropdownButton<T>(
-                value: newHand.tempContents[widget.index],
-                items: menuItems,
-                onChanged: (value) {
-                  setState(() {
-                    newHand.setAt(value, widget.index);
-                  });
-                },
-              ),
-            ),
+            getPicker(newHand),
           ],
         ),
       );

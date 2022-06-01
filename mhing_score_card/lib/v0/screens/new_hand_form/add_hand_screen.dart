@@ -24,9 +24,10 @@ class _AddHandScreenState extends State<AddHandScreen> {
         return SingleChildScrollView(
           child: Column(
             children: [
+              Text('', style: kNewHandFormSectonFont),
               Text('One Credit:', style: kNewHandFormSectonFont),
               Divider(color: Colors.black, thickness: 2),
-              MhingFormRow<bool>(index: 0, options: [true, false]),
+              MhingFormRow<bool>(index: 0, options: []),
               MhingFormRow<int>(index: 1, options: [0, 1, 2, 3]),
               MhingFormRow<int>(index: 2, options: [0, 1, 2, 3, 4, 5, 6]),
               MhingFormRow<int>(index: 3, options: [0, 1, 2, 3, 4]),
