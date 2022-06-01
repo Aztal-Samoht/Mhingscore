@@ -41,7 +41,20 @@ class HandListToDataTableDisplayer extends StatelessWidget {
         print(
             'contents of rows[0].cells just before return statement: ${rows[0].cells}');
 
-        return DataTable(columns: columns, rows: rows, columnSpacing: 5);
+        return Padding(
+          padding: const EdgeInsets.only(
+            left: 8.0,
+            right: 8.0,
+            top: 8.0,
+          ),
+          child: DataTable(
+            columns: columns,
+            rows: rows,
+            columnSpacing: 5,
+            border: TableBorder.symmetric(
+                inside: BorderSide(color: Colors.black38)),
+          ),
+        );
       },
     ); //Consumer
   }

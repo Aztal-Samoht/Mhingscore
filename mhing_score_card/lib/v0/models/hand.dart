@@ -8,11 +8,13 @@ class Hand {
     if (b)
       return Icon(Icons.done, color: Colors.green);
     else
-      return Icon(Icons.close, color: Colors.red);
+      return kNoScore;
   }
 
   static Widget toDisplayWidget(dynamic data) {
-    if (data.runtimeType == int)
+    if (data.runtimeType == int) if (data == 0) {
+      return kNoScore;
+    } else
       return Text(
         data.toString(),
         textAlign: TextAlign.center,

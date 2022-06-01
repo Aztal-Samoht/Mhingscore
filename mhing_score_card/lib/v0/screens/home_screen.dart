@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: buttonPadding),
+                      const EdgeInsets.symmetric(horizontal: kButtonPadding),
                   child: NewGameButton(),
                 ),
               ),
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: buttonPadding),
+                      const EdgeInsets.symmetric(horizontal: kButtonPadding),
                   child: ResumeGameButton(),
                 ),
               ),

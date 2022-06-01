@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-const double buttonPadding = 25;
+const Icon kNoScore = Icon(
+  Icons.remove,
+  color: Colors.red,
+);
+const double kButtonPadding = 25;
 const Color kAppBarColor = Color(0xffff9100);
 const Color kBackgroundColor = Colors.black;
 const Color kTitleColor = Color(0xffffa000);
