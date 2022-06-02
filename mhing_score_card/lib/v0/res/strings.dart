@@ -27,7 +27,7 @@ const Text sResumeButtonText = Text(
 );
 const String sScoreCardTitle = 'Mhing Scorecard!';
 
-const String sScoreHandButtonText = 'score new hand';
+const String sScoreHandButtonText = 'Score New Hand';
 
 const String sSubmit = 'Submit Hand';
 
