@@ -52,15 +52,6 @@ List<DataRow> rows3 = [
   ]),
 ];
 
-List<DataRow> rows = [
-  DataRow(
-    cells: [
-      DataCell(
-        Container(),
-      ),
-    ],
-  ),
-];
 main() {
   runApp(
     MaterialApp(
@@ -69,6 +60,8 @@ main() {
       initialRoute: DataTableDisplayer.id,
       routes: {
         DataTableScreen0.id: (context) => DataTableScreen0(),
+        DataTableScreenN.id: (context) => DataTableScreenN(),
+        DataTableScreenI.id: (context) => DataTableScreenI(),
         DataTableDisplayer.id: (context) => DataTableDisplayer(),
         // DataTableScreen1.id: (context) => HomeDataTableScreen1(),
         // DataTableScreen2.id: (context) => HomeDataTableScreen2(),
@@ -77,15 +70,9 @@ main() {
   );
 }
 
-class DataTableDisplayer extends StatefulWidget {
-  const DataTableDisplayer({Key? key}) : super(key: key);
-  static const String id = 'DataTableDisplay';
-
-  @override
-  State<DataTableDisplayer> createState() => _DataTableDisplayerState();
-}
-
-class _DataTableDisplayerState extends State<DataTableDisplayer> {
+///Pages
+class DataTableDisplayer extends StatelessWidget {
+  static const String id = 'DataTableDisplayer';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -115,7 +102,10 @@ class DataTableScreen0 extends StatelessWidget {
         backgroundColor: Colors.green,
         body: Column(
           children: [
-            NavRow(),
+            Text('DataTableScreen0'),
+            Text('$currentScreen'),
+            Text('${rowList.length}'),
+            NavRow(btn0: DummyBtn(text: 'Prev'), btn2: NextPageBtn()),
             Center(
               child: DataTable(
                 columns: columns,
@@ -129,6 +119,63 @@ class DataTableScreen0 extends StatelessWidget {
   }
 }
 
+class DataTableScreenI extends StatelessWidget {
+  DataTableScreenI({Key? key}) : super(key: key);
+
+  static const String id = 'DataTableScreenI';
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.green,
+        body: Column(
+          children: [
+            Text('DataTableScreenI'),
+            Text('$currentScreen'),
+            Text('${rowList.length}'),
+            NavRow(btn0: PrevPageBtn(), btn2: NextPageBtn()),
+            Center(
+              child: DataTable(
+                columns: columns,
+                rows: rowList[currentScreen],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DataTableScreenN extends StatelessWidget {
+  DataTableScreenN({Key? key}) : super(key: key);
+
+  static const String id = 'DataTableScreenN';
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.green,
+        body: Column(
+          children: [
+            Text('DataTableScreenN'),
+            Text('$currentScreen'),
+            Text('${rowList.length}'),
+            NavRow(btn0: PrevPageBtn(), btn2: DummyBtn(text: 'Next')),
+            Center(
+              child: DataTable(
+                columns: columns,
+                rows: rowList[currentScreen],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+///Widgets
 class NavBtn extends StatelessWidget {
   NavBtn({Key? key, required this.onPressed, required this.text})
       : super(key: key);
@@ -148,21 +195,15 @@ class NavBtn extends StatelessWidget {
 }
 
 class NavRow extends StatelessWidget {
-  const NavRow({Key? key}) : super(key: key);
-
+  const NavRow({Key? key, required this.btn0, required this.btn2})
+      : super(key: key);
+  final Widget btn0;
+  final Widget btn2;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: NavBtn(
-              text: 'Prev',
-              onPressed: () {
-                Navigator.pop(context);
-                currentScreen--;
-                Navigator.pushNamed(context, DataTableScreen0.id);
-              }),
-        ),
+        btn0,
         Expanded(
           child: NavBtn(
               text: 'back',
@@ -170,9 +211,7 @@ class NavRow extends StatelessWidget {
                 Navigator.pop(context);
               }),
         ),
-        Expanded(
-          child: NextPageBtn(),
-        ),
+        btn2,
       ],
     );
   }
@@ -185,15 +224,61 @@ class NextPageBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: NavBtn(
-          text: 'Next',
+        text: 'Next',
+        onPressed: () {
+          Navigator.pop(context);
+          if (currentScreen == rowList.length - 2) {
+            currentScreen++;
+            Navigator.pushNamed(context, DataTableScreenN.id);
+          } else {
+            currentScreen++;
+            Navigator.pushNamed(context, DataTableScreenI.id);
+          }
+        },
+      ),
+    );
+  }
+}
+
+class PrevPageBtn extends StatelessWidget {
+  const PrevPageBtn({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: NavBtn(
+          text: 'Prev',
           onPressed: () {
             Navigator.pop(context);
-if (            currentScreen != rowList.length-1) {
-              currentScreen++;
+            if (currentScreen == 1) {
+              currentScreen--;
               Navigator.pushNamed(context, DataTableScreen0.id);
+            } else {
+              currentScreen--;
+              Navigator.pushNamed(context, DataTableScreenI.id);
             }
-else{         Navigator.pushNamed(context, DataTableScreenN.id);
           }),
+    );
+  }
+}
+
+class DummyBtn extends StatelessWidget {
+  const DummyBtn({Key? key, required this.text}) : super(key: key);
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Material(
+        borderRadius: BorderRadius.circular(20),
+        child: MaterialButton(
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.grey),
+          ),
+          elevation: 50,
+          onPressed: () {},
+        ),
+      ),
     );
   }
 }
