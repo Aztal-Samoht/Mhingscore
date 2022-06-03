@@ -43,8 +43,7 @@ class ScorecardScreen extends StatelessWidget {
                         showModalBottomSheet(
                           isScrollControlled: true,
                           context: context,
-                          builder: (context) =>
-                              SingleChildScrollView(child: AddHandScreen()),
+                          builder: (context) => AddHandScreen(),
                         );
                       },
                       height: 50.0,

@@ -4,7 +4,7 @@ import 'package:mhing_score_card/lab/lab01/screens.dart';
 import 'package:provider/provider.dart';
 
 class NavBtn extends StatelessWidget {
-  NavBtn({Key? key, required this.onPressed, required this.text})
+  NavBtn({Key? key, required this.text, required this.onPressed})
       : super(key: key);
   final void Function() onPressed;
   final String text;

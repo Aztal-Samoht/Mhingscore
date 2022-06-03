@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/lab/lab01/constants.dart';
 
-class DataProvider extends ChangeNotifier {
+class DataProvider with ChangeNotifier {
   ///members
   /*
   * dataPages[
@@ -65,12 +65,12 @@ class DataProvider extends ChangeNotifier {
   }
 
   void add() {
-    if (_dataPages[_currentPage][0].length == 4) {
+    if (_dataPages.last[0].length == 4) {
       _currentPage++;
       buildInitialData();
     }
 
-    _dataPages[_currentPage].forEach((element) {
+    _dataPages.last.forEach((element) {
       element.add(DataCell(Text(':)')));
     });
 
@@ -89,7 +89,7 @@ class DataProvider extends ChangeNotifier {
     }
   }
 
-  String bottomText() {
+  String getBottomText() {
     String toReturn = '';
     for (int page = 0; page < _dataPages.length; page++) {
       for (int cell = 1; cell < _dataPages[page].last.length; cell++) {
@@ -97,5 +97,17 @@ class DataProvider extends ChangeNotifier {
       }
     }
     return toReturn;
+  }
+
+  void absorb(List<int> contents) {
+    if (_dataPages.last[0].length > 3) {
+      _currentPage++;
+      buildInitialData();
+    }
+    for (int i = 0; i < contents.length; i++) {
+      dataPages[currentPage][i].add(DataCell(Text('${contents[i]}')));
+    }
+    printState();
+    notifyListeners();
   }
 }

@@ -4,6 +4,8 @@ import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 
 class HandListProvider with ChangeNotifier {
+  List<List<List<DataCell>>> _pagedHands = buildInitialSortedHand();
+
   List<List<DataCell>> _sortedHands = buildInitialSortedHand();
   num _totalScore = 0;
 

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/lab/lab01/constants.dart';
 import 'package:mhing_score_card/lab/lab01/dataProvider.dart';
+import 'package:mhing_score_card/lab/lab01/tempProvider.dart';
 import 'package:mhing_score_card/lab/lab01/widgets.dart';
 import 'package:provider/provider.dart';
+
+import 'dart:ui' show lerpDouble;
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 class LabHomeScreen extends StatelessWidget {
   static const String id = 'DataTableDisplayer';
@@ -83,11 +89,62 @@ class DataTableScreenX extends StatelessWidget {
               Text('DataTableScreenX'),
               Text('page ${DP.currentPage + 1}/${DP.dataPages.length}'),
               NavRow(),
+              NavBtn(
+                text: 'add column',
+                onPressed: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (context) => MyModal(),
+                  );
+                },
+              ),
               DataTable(columns: columns, rows: rows),
               SizedBox(height: 20),
-              Text(DP.bottomText()),
+              Text(DP.getBottomText()),
             ],
           ),
+        ),
+      );
+    });
+  }
+}
+
+class MyModal extends StatelessWidget {
+  const MyModal({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<TempProvider>(builder: (context, temp, child) {
+      void setVal(String value, int index) {
+        int val;
+        try {
+          val = int.parse(value);
+        } catch (e) {
+          val = -1;
+        }
+        temp.setAt(val, index);
+      }
+
+      return SafeArea(
+        child: Column(
+          children: [
+            SizedBox(height: 100),
+            TextField(
+              onChanged: (value) {
+                setVal(value, 5);
+              },
+            ),
+            NavBtn(
+              text: 'submit',
+              onPressed: () {
+                temp.submit(context);
+                Navigator.pop(context);
+                Navigator.pop(context);
+                Navigator.pushNamed(context, DataTableScreenX.id);
+              },
+            ),
+          ],
         ),
       );
     });

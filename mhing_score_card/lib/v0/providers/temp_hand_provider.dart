@@ -34,9 +34,7 @@ class TempHandProvider with ChangeNotifier {
   void submit(BuildContext context) {
     context.read<HandListProvider>().add(Hand(_tempContents));
     print('tempContents submitted');
-    for (int i = 0; i < _tempContents.length; i++) {
-      _tempContents[i] = kEmptyHand[i];
-    }
+
     //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
     print('_tempContents after getting assigned kEmptyHand:');
     for (int i = 0; i < _tempContents.length; i++) {
