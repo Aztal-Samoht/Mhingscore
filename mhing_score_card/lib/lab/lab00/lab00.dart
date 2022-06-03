@@ -104,7 +104,7 @@ class DataTableScreen0 extends StatelessWidget {
           children: [
             Text('DataTableScreen0'),
             Text('$currentScreen'),
-            Text('${rowList.length}'),
+            Text('${rowList.length - 1}'),
             NavRow(btn0: DummyBtn(text: 'Prev'), btn2: NextPageBtn()),
             Center(
               child: DataTable(
@@ -132,7 +132,7 @@ class DataTableScreenI extends StatelessWidget {
           children: [
             Text('DataTableScreenI'),
             Text('$currentScreen'),
-            Text('${rowList.length}'),
+            Text('${rowList.length - 1}'),
             NavRow(btn0: PrevPageBtn(), btn2: NextPageBtn()),
             Center(
               child: DataTable(
@@ -160,7 +160,7 @@ class DataTableScreenN extends StatelessWidget {
           children: [
             Text('DataTableScreenN'),
             Text('$currentScreen'),
-            Text('${rowList.length}'),
+            Text('${rowList.length - 1}'),
             NavRow(btn0: PrevPageBtn(), btn2: DummyBtn(text: 'Next')),
             Center(
               child: DataTable(
