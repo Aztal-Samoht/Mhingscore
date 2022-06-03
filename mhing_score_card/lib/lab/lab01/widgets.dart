@@ -32,12 +32,8 @@ class NextPageBtn extends StatelessWidget {
           text: 'Next',
           onPressed: () {
             Navigator.pop(context);
-            if (DP.currentScreen == DP.data.length) {
-              Navigator.pushNamed(context, DataTableScreenX.id);
-            } else {
-              DP.incScreen();
-              Navigator.pushNamed(context, DataTableScreenX.id);
-            }
+            DP.incScreen();
+            Navigator.pushNamed(context, DataTableScreenX.id);
           },
         ),
       );
@@ -56,12 +52,8 @@ class PrevPageBtn extends StatelessWidget {
             text: 'Prev',
             onPressed: () {
               Navigator.pop(context);
-              if (DP.currentScreen == 0) {
-                Navigator.pushNamed(context, DataTableScreenX.id);
-              } else {
-                DP.decScreen();
-                Navigator.pushNamed(context, DataTableScreenX.id);
-              }
+              DP.decScreen();
+              Navigator.pushNamed(context, DataTableScreenX.id);
             }),
       );
     });
@@ -73,7 +65,7 @@ class DummyBtn extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Consumer<DataProvider>(builder: (context, data, child) {
+    return Consumer<DataProvider>(builder: (context, DP, child) {
       return Expanded(
         child: Material(
           borderRadius: BorderRadius.circular(20),
@@ -99,7 +91,7 @@ class NavRow extends StatelessWidget {
       builder: (context, DP, child) {
         return Row(
           children: [
-            DP.currentScreen == 0 ? DummyBtn(text: 'Prev') : PrevPageBtn(),
+            DP.currentPage == 0 ? DummyBtn(text: 'Prev') : PrevPageBtn(),
             Expanded(
               child: NavBtn(
                   text: 'back',
@@ -107,7 +99,7 @@ class NavRow extends StatelessWidget {
                     Navigator.pop(context);
                   }),
             ),
-            DP.currentScreen == (DP.data[0].length - 1)
+            DP.currentPage == DP.dataPages.length - 1
                 ? DummyBtn(text: 'Next')
                 : NextPageBtn(),
           ],
