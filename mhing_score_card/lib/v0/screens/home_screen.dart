@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     return AppBorder(
       borderRadius: 50,
       child: Scaffold(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Color(0x00ffffff),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
