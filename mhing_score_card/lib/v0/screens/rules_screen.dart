@@ -46,6 +46,7 @@ class RulesScreen extends StatelessWidget {
                     Text(sRules8, style: kRulesText),
 
                     ///TODO:make this image zoomable
+                    ///make table with alternating color rows
                     Image(image: AssetImage('assets/examples.png')),
                     Text(sRules9),
                   ],

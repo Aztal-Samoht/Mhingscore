@@ -1,8 +1,8 @@
 ///this screen is for keeping track of a single player's score during a
 ///single game of Mhing.
-
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/screens/scorecard/new_hand_form/add_hand_screen.dart';
 import 'package:mhing_score_card/v0/screens/scorecard/hand_datatable_displayer.dart';
 import 'package:mhing_score_card/v0/widgets/nav_row/nav_row.dart';
@@ -11,6 +11,9 @@ import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/mhing_button.dart';
+
+//todo: add rules button
+//todo: add pics and descriptions of hands
 
 class ScorecardScreen extends StatelessWidget {
   static String id = '/scorecard';
@@ -21,7 +24,25 @@ class ScorecardScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: kAppBarColor,
-            title: Text(sScoreCardTitle),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(sScoreCardTitle),
+                TextButton(
+                  child: Text(
+                    'view rules',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, RulesScreen.id);
+                  },
+                ),
+              ],
+            ),
           ),
           body: AppBorder(
             aBackgroundColor: Colors.white,
