@@ -9,7 +9,6 @@ class MhingButton extends StatelessWidget {
     required this.height,
     required this.width,
   }) : super(key: key);
-  static double radius = 20;
   final String? label;
   final void Function() onPressed;
   final double width;
@@ -21,13 +20,13 @@ class MhingButton extends StatelessWidget {
       width: this.width,
       height: this.height,
       child: Material(
-        borderRadius: BorderRadius.circular(radius),
+        borderRadius: BorderRadius.circular(kBtnRadius),
         elevation: 5.0,
         color: kAppBarColor,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Material(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(kBtnRadius),
             color: Colors.red,
             child: MaterialButton(
               child: Text(

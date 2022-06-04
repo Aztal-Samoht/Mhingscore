@@ -30,7 +30,7 @@ class HandListProvider with ChangeNotifier {
   static List<List<List<DataCell>>> _addFirstPage() {
     List<List<List<DataCell>>> toReturn = [[]];
     for (int i = 0; i < sCatagory.length; i++) {
-      toReturn.last.add([DataCell(Text(sCatagory[i], style: kCellStyle))]);
+      toReturn.last.add([DataCell(Text(sCatagory[i] /*, style: kCellStyle*/))]);
     }
     return toReturn;
   }
@@ -47,13 +47,17 @@ class HandListProvider with ChangeNotifier {
   }
 
   void ingest(Hand h) {
-    if (_pagedHands.last[0].length > 3) {
+    print('pagedHands content before injestion:');
+    printState();
+    if (_pagedHands.last.last.length > 3) {
       _addPage();
     }
     _totalScore += h.contents.last;
     for (int i = 0; i < h.contents.length; i++) {
       _pagedHands.last[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
     }
+    print('pagedHands content after injestion:');
+    printState();
     notifyListeners();
   }
 
@@ -73,28 +77,4 @@ class HandListProvider with ChangeNotifier {
       }
     }
   }
-
-  /// depricated
-  // List<List<DataCell>> _sortedHands = buildInitialSortedHand();
-
-  // List<List<DataCell>> get sortedHands => _sortedHands;
-
-  // static List<List<DataCell>> buildInitialSortedHand() {
-  //   List<List<DataCell>> toReturn = [];
-  //   for (int i = 0; i < sCatagory.length; i++) {
-  //     toReturn.add([DataCell(Text(sCatagory[i], style: kCellStyle))]);
-  //   }
-  //   return toReturn;
-  // }
-
-  // void add(Hand h) {
-  //   _totalScore += h.contents.last;
-  //   for (int i = 0; i < h.contents.length; i++) {
-  //     _sortedHands[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
-  //   }
-  //   notifyListeners();
-  //   //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
-  //   print('printed from the add function:\n$_sortedHands');
-  // }
-
 }

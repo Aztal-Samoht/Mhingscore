@@ -3,12 +3,11 @@ import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:mhing_score_card/v0/screens/new_hand_form/mhing_form_row.dart';
+import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/mhing_button.dart';
 
-///todo:make this new form pop up and go down and submit a new hand
-///
 class AddHandScreen extends StatefulWidget {
   const AddHandScreen({Key? key}) : super(key: key);
 
@@ -38,7 +37,7 @@ class _AddHandScreenState extends State<AddHandScreen> {
               Text('Three Credit:', style: kNewHandFormSectonFont),
               Divider(color: Colors.black, thickness: 2),
               MhingFormRow<bool>(index: 8, options: [true, false]),
-              MhingFormRow<int>(index: 2, options: [0, 1, 2, 3, 4, 5, 6]),
+              MhingFormRow<int>(index: 9, options: [0, 1, 2, 3, 4, 5, 6]),
               MhingFormRow<bool>(index: 10, options: [true, false]),
               MhingFormRow<bool>(index: 11, options: [true, false]),
               MhingFormRow<bool>(index: 12, options: [true, false]),
@@ -63,6 +62,8 @@ class _AddHandScreenState extends State<AddHandScreen> {
                 onPressed: () {
                   tempHand.submit(context);
                   Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, ScorecardScreen.id);
                 },
               ),
               SizedBox(
