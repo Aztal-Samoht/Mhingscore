@@ -29,36 +29,41 @@ class ScorecardScreen extends StatelessWidget {
             child: SizedBox(
               height: double.infinity,
               width: double.infinity,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    NavRow(),
-                    SizedBox(height: 15),
-                    MhingButton(
-                      label: sScoreHandButtonText,
-                      onPressed: () {
-                        showModalBottomSheet(
-                          isScrollControlled: true,
-                          context: context,
-                          builder: (context) => AddHandScreen(),
-                        );
-                      },
-                      height: 50.0,
-                      width: double.infinity,
+              child: Column(
+                children: [
+                  NavRow(),
+                  SizedBox(height: 15),
+                  MhingButton(
+                    label: sScoreHandButtonText,
+                    onPressed: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) => AddHandScreen(),
+                      );
+                    },
+                    height: 50.0,
+                    width: double.infinity,
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ///this widget should keep track of your score and update as you add hands to it
+                          HandListAsDataTableDisplayer(),
+                        ],
+                      ),
                     ),
-
-                    ///this widget should keep track of your score and update as you add hands to it
-                    HandListAsDataTableDisplayer(),
-                    Divider(color: Colors.red, thickness: 3),
-                    Text(
-                      'Total Score: ${handList.totalScore}',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.red,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
+                  ),
+                  Divider(color: Colors.red, thickness: 3),
+                  Text(
+                    'Total Score: ${handList.totalScore}',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             ),
           ),

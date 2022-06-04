@@ -30,7 +30,7 @@ class HandListProvider with ChangeNotifier {
   static List<List<List<DataCell>>> _addFirstPage() {
     List<List<List<DataCell>>> toReturn = [[]];
     for (int i = 0; i < sCatagory.length; i++) {
-      toReturn.last.add([DataCell(Text(sCatagory[i] /*, style: kCellStyle*/))]);
+      toReturn.last.add([DataCell(Text(sCatagory[i]))]);
     }
     return toReturn;
   }

@@ -1,6 +1,6 @@
-import 'package:mhing_score_card/lab/lab01/constants.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
