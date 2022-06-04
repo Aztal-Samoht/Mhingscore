@@ -28,10 +28,6 @@ class Hand {
     _contents = newContents;
     calcCredits();
     calcScore();
-    //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
-    int i = 0;
-    print('new hand added:');
-    print('hand credits: ${_contents[19]}\nHand score ${_contents[20]}');
   }
   List<dynamic> _contents = [];
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/screens/new_hand_form/add_hand_screen.dart';
 import 'package:mhing_score_card/v0/widgets/hand_datatable_displayer.dart';
+import 'package:mhing_score_card/v0/widgets/nav_row/nav_row.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
@@ -31,12 +32,8 @@ class ScorecardScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    ///this button should bring you through 4 pop-ups to add a
-                    ///new hand.  After which, all 4 should close and the new hand
-                    /// should appear in a new column to the right.
-                    ///
-                    /// as each goes by the input is stored by the TempHandProvider.
-                    /// at the end it is submitted to the HandListProvider.
+                    NavRow(),
+                    SizedBox(height: 15),
                     MhingButton(
                       label: sScoreHandButtonText,
                       onPressed: () {
@@ -51,7 +48,7 @@ class ScorecardScreen extends StatelessWidget {
                     ),
 
                     ///this widget should keep track of your score and update as you add hands to it
-                    HandListToDataTableDisplayer(),
+                    HandListAsDataTableDisplayer(),
                     Divider(color: Colors.red, thickness: 3),
                     Text(
                       'Total Score: ${handList.totalScore}',

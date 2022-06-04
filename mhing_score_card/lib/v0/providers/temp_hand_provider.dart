@@ -32,26 +32,27 @@ class TempHandProvider with ChangeNotifier {
   List<dynamic> get tempContents => _tempContents;
 
   void submit(BuildContext context) {
-    context.read<HandListProvider>().add(Hand(_tempContents));
+    print('begining submission');
+    context.read<HandListProvider>().ingest(Hand(_tempContents));
     print('tempContents submitted');
-
-    //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
-    print('_tempContents after getting assigned kEmptyHand:');
-    for (int i = 0; i < _tempContents.length; i++) {
-      print('_tempContents[$i]: ${_tempContents[i]}');
-    }
-    ;
+    clearTemp();
     notifyListeners();
-    //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
+  }
+
+  void clearTemp() {
+    for (int i = 0; i < _tempContents.length; i++) {
+      _tempContents[i] = kEmptyHand[i];
+    }
   }
 
   void setAt(dynamic value, int index) {
     _tempContents[index] = value;
-    print(_tempContents);
+    print('tempContents set to: $_tempContents');
   }
 
   void toggleAt(int index) {
     _tempContents[index] = !_tempContents[index];
+    print('tempContents set to: $_tempContents');
     notifyListeners();
   }
 }
