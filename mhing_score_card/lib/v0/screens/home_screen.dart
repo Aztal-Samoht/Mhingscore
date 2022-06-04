@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBorder(
-      borderRadius: 50,
+      borderRadius: kAppBorderRadius,
       child: Scaffold(
         backgroundColor: Color(0x00ffffff),
         body: Padding(

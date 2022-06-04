@@ -33,7 +33,7 @@ class OptionsScreen extends StatelessWidget {
     return Consumer<HandListProvider>(builder: (context, HL, child) {
       return SafeArea(
         child: AppBorder(
-          borderRadius: 50,
+          borderRadius: kAppBorderRadius,
           child: Scaffold(
             backgroundColor: kBackgroundColor,
             body: Padding(

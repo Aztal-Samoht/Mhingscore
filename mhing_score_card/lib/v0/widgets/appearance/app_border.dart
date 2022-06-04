@@ -5,11 +5,11 @@ class AppBorder extends StatelessWidget {
   AppBorder(
       {Key? key,
       required this.child,
-      Color? aBackgroundColor,
+      Color? backgroundColor,
       required this.borderRadius})
       : super(key: key) {
     this.backgroundColor =
-        aBackgroundColor == null ? kBackgroundColor : this.backgroundColor;
+        backgroundColor == null ? kBackgroundColor : this.backgroundColor;
   }
 
   final Widget child;
@@ -18,22 +18,26 @@ class AppBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/card_back.png'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Material(
-          color: this.backgroundColor,
-          borderRadius: BorderRadius.circular(this.borderRadius),
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/card_back.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SafeArea(
-              child: this.child,
+            padding: const EdgeInsets.all(15.0),
+            child: Material(
+              color: this.backgroundColor,
+              borderRadius: BorderRadius.circular(this.borderRadius),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SafeArea(
+                  child: this.child,
+                ),
+              ),
             ),
           ),
         ),

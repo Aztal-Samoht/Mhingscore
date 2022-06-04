@@ -17,7 +17,7 @@ class RulesScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: AppBorder(
         borderRadius: 50,
-        aBackgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(

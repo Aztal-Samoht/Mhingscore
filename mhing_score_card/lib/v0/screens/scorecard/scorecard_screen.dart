@@ -43,8 +43,8 @@ class ScorecardScreen extends StatelessWidget {
             ),
           ),
           body: AppBorder(
-            aBackgroundColor: Colors.white,
-            borderRadius: 20,
+            backgroundColor: Colors.white,
+            borderRadius: kAppBorderRadiusSm,
             child: SizedBox(
               height: double.infinity,
               width: double.infinity,

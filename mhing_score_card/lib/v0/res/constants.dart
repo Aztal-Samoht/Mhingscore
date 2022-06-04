@@ -4,6 +4,8 @@ const Icon kNoScore = Icon(
   Icons.remove,
   color: Colors.red,
 );
+const double kAppBorderRadius = 50;
+const double kAppBorderRadiusSm = 30;
 const TextStyle kRulesTitle = TextStyle(fontSize: 30);
 const TextStyle kRulesSubtitle = TextStyle(fontSize: 20);
 const TextStyle kRulesText = TextStyle(fontSize: 15);
@@ -14,7 +16,7 @@ const Color kBackgroundColor = Colors.black;
 const Color kTitleColor = Color(0xffffa000);
 const Color kButtonTextColor = Color(0xfffbc02d);
 const TextStyle kCellStyle = TextStyle(fontSize: 20);
-const TextStyle kNewHandFormFont = TextStyle(fontSize: 18);
+const TextStyle kNewHandFormFont = TextStyle(fontSize: 16);
 const TextStyle kNewHandFormSectonFont = TextStyle(fontSize: 25);
 const List<dynamic> kEmptyHand = [
   false,
