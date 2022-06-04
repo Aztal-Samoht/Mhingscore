@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/widgets/nav_row/nav_btn.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
+import 'package:mhing_score_card/v0/screens/scorecard/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
 class PrevPageBtn extends StatelessWidget {

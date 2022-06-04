@@ -3,14 +3,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/v0/screens/new_hand_form/add_hand_screen.dart';
-import 'package:mhing_score_card/v0/widgets/hand_datatable_displayer.dart';
+import 'package:mhing_score_card/v0/screens/scorecard/new_hand_form/add_hand_screen.dart';
+import 'package:mhing_score_card/v0/screens/scorecard/hand_datatable_displayer.dart';
 import 'package:mhing_score_card/v0/widgets/nav_row/nav_row.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/widgets/app_border.dart';
-import 'package:mhing_score_card/v0/widgets/mhing_button.dart';
+import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
+import 'package:mhing_score_card/v0/widgets/appearance/mhing_button.dart';
 
 class ScorecardScreen extends StatelessWidget {
   static String id = '/scorecard';

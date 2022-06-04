@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/screens/new_hand_form/mhing_form_row.dart';
-import 'package:mhing_score_card/v0/screens/scorecard_screen.dart';
+import './mhing_form_row.dart';
+import 'package:mhing_score_card/v0/screens/scorecard/scorecard_screen.dart';
+import 'package:mhing_score_card/v0/widgets/appearance/mhing_button.dart';
 import 'package:provider/provider.dart';
-
-import '../../widgets/mhing_button.dart';
 
 class AddHandScreen extends StatefulWidget {
   const AddHandScreen({Key? key}) : super(key: key);

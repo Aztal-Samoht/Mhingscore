@@ -10,6 +10,15 @@ const Text sMainTitle = Text(
     fontSize: 45,
   ),
 );
+const Text sOptionsTitle = Text(
+  'Scorecard Options',
+  textAlign: TextAlign.center,
+  style: TextStyle(
+    color: kTitleColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 45,
+  ),
+);
 
 const Text sNewGameButtonText = Text(
   'New Game',

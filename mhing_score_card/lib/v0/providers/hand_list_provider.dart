@@ -17,6 +17,9 @@ class HandListProvider with ChangeNotifier {
   int get handsPerPage => _handsPerPage;
 
   ///setters
+  set handsPerPage(int value) {
+    _handsPerPage = value;
+  }
 
   ///functions
   void incScreen() {
