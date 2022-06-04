@@ -23,49 +23,50 @@ class OptionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: AppBorder(
-        borderRadius: 50,
-        child: Scaffold(
-          backgroundColor: kBackgroundColor,
-          body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(child: Container()),
-                Expanded(
-                  child: sOptionsTitle,
-                ),
-                Expanded(
-                  flex: 3,
-                  child: MhingCard(
-                    child: Row(
-                      children: [
-                        Text(
-                          'Hands per screen: ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        DropdownButton<int>(
-                          value: 3,
-                          items: getItems(),
-                          onChanged: (value) {
-                            context.read<HandListProvider>().handsPerPage =
-                                value!;
-                          },
-                        ),
-                        //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
-                      ],
+    return Consumer<HandListProvider>(builder: (context, HL, child) {
+      return SafeArea(
+        child: AppBorder(
+          borderRadius: 50,
+          child: Scaffold(
+            backgroundColor: kBackgroundColor,
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: Container()),
+                  Expanded(
+                    child: sOptionsTitle,
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: MhingCard(
+                      child: Row(
+                        children: [
+                          Text(
+                            'Hands per screen: ',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          DropdownButton<int>(
+                            value: HL.handsPerPage,
+                            items: getItems(),
+                            onChanged: (value) {
+                              HL.handsPerPage = value!;
+                            },
+                          ),
+                          //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 /*
