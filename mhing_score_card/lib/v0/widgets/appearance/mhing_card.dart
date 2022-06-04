@@ -17,7 +17,7 @@ class MhingCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Material(
-          borderRadius: BorderRadius.circular(kBtnRadius),
+          borderRadius: BorderRadius.circular(kBtnRadius - 10),
           color: Colors.red,
           child: Padding(
             padding: const EdgeInsets.all(15.0),

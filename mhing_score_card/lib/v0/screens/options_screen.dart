@@ -33,31 +33,24 @@ class OptionsScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(child: Container()),
-                  Expanded(
-                    child: sOptionsTitle,
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: MhingCard(
-                      child: Row(
-                        children: [
-                          Text(
-                            'Hands per screen: ',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          DropdownButton<int>(
-                            value: HL.handsPerPage,
-                            items: getItems(),
-                            onChanged: (value) {
-                              HL.handsPerPage = value!;
-                            },
-                          ),
-                          //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
-                        ],
-                      ),
+                  sOptionsTitle,
+                  MhingCard(
+                    child: Row(
+                      children: [
+                        Text(
+                          'Hands per screen: ',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        DropdownButton<int>(
+                          value: HL.handsPerPage,
+                          items: getItems(),
+                          onChanged: (value) {
+                            HL.handsPerPage = value!;
+                          },
+                        ), //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
+                      ],
                     ),
                   ),
                 ],
