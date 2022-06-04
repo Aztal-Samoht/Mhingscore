@@ -3,6 +3,7 @@ import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
+import 'package:mhing_score_card/v0/widgets/appearance/mhing_button.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/mhing_card.dart';
 import 'package:provider/provider.dart';
 
@@ -52,6 +53,14 @@ class OptionsScreen extends StatelessWidget {
                         ), //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
                       ],
                     ),
+                  ),
+                  MhingButton(
+                    label: 'Save Changes',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    height: 50,
+                    width: 100,
                   ),
                 ],
               ),
