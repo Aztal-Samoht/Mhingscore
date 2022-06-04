@@ -4,6 +4,9 @@ const Icon kNoScore = Icon(
   Icons.remove,
   color: Colors.red,
 );
+const TextStyle kRulesTitle = TextStyle(fontSize: 30);
+const TextStyle kRulesSubtitle = TextStyle(fontSize: 20);
+const TextStyle kRulesText = TextStyle(fontSize: 15);
 const double kBtnRadius = 20;
 const double kButtonPadding = 25;
 const Color kAppBarColor = Color(0xffff9100);

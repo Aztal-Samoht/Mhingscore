@@ -22,21 +22,34 @@ class RulesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
-              children: const [
-                Text(sRules0),
-                Text(sRules1),
-                Text(sRules2),
-                Text(sRules3),
-                Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: Text(sRules4),
+              children: [
+                Text(sRules0, style: kRulesTitle),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(sRules1t, style: kRulesSubtitle),
+                    Text(sRules1, style: kRulesText),
+                    Text(sRules2t, style: kRulesSubtitle),
+                    Text(sRules2, style: kRulesText),
+                    Text(sRules3t, style: kRulesSubtitle),
+                    Text(sRules3, style: kRulesText),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: Text(sRules4, style: kRulesText),
+                    ),
+                    Text(sRules5, style: kRulesText),
+                    Text(sRules6t, style: kRulesSubtitle),
+                    Text(sRules6, style: kRulesText),
+                    Text(sRules7t, style: kRulesSubtitle),
+                    Text(sRules7, style: kRulesText),
+                    Text(sRules8t, style: kRulesSubtitle),
+                    Text(sRules8, style: kRulesText),
+
+                    ///TODO:make this image zoomable
+                    Image(image: AssetImage('assets/examples.png')),
+                    Text(sRules9),
+                  ],
                 ),
-                Text(sRules5),
-                Text(sRules6),
-                Text(sRules7),
-                Text(sRules8),
-                Image(image: AssetImage('assets/examples.png')),
-                Text(sRules9),
               ],
             ),
           ),

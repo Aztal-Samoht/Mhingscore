@@ -19,6 +19,7 @@ class HandListProvider with ChangeNotifier {
   ///setters
   set handsPerPage(int value) {
     _handsPerPage = value;
+    notifyListeners();
   }
 
   ///functions
