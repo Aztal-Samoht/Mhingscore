@@ -18,7 +18,9 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
         //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
         print('contents of columns before for loop: $columns');
         for (int i = 1; i < HL.pagedHands[HL.currentPage][0].length; i++) {
-          columns.add(DataColumn(label: Text('$i', style: kCellStyle)));
+          columns.add(DataColumn(
+              label: Text('${i + HL.handsPerPage * HL.currentPage}',
+                  style: kCellStyle)));
         }
         //TODO:DELETE THIS PRINT STATEMENT BEFORE PUBLICATON
         print('contents of columns after for loop: $columns');

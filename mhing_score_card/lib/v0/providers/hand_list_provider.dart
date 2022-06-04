@@ -8,11 +8,13 @@ class HandListProvider with ChangeNotifier {
   List<List<List<DataCell>>> _pagedHands = _addFirstPage();
   num _totalScore = 0;
   int _currentPage = 0;
+  int _handsPerPage = 3;
 
   ///getters
   List<List<List<DataCell>>> get pagedHands => _pagedHands;
   num get totalScore => _totalScore;
   int get currentPage => _currentPage;
+  int get handsPerPage => _handsPerPage;
 
   ///setters
 
@@ -49,7 +51,7 @@ class HandListProvider with ChangeNotifier {
   void ingest(Hand h) {
     print('pagedHands content before injestion:');
     printState();
-    if (_pagedHands.last.last.length > 3) {
+    if (_pagedHands.last.last.length > _handsPerPage) {
       _addPage();
     }
     _totalScore += h.contents.last;
