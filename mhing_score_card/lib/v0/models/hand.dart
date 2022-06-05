@@ -59,7 +59,7 @@ class Hand {
     _contents[19] += _contents[3];
     _contents[19] += _contents[4];
     if (_contents[5]) _contents[19]++;
-    if (_contents[6]) _contents[19]++;
+    _contents[19] += _contents[6];
     _contents[19] += _contents[7];
     if (_contents[8]) _contents[19] += 3;
     _contents[19] += (_contents[9] * 3);

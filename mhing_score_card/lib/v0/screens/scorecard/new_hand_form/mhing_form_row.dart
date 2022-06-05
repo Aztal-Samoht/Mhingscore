@@ -4,7 +4,7 @@ import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:provider/provider.dart';
 
-List<int> boolOptions = [0, 5, 6, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+List<int> boolOptions = [0, 5, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
 class MhingFormRow<T> extends StatefulWidget {
   const MhingFormRow({Key? key, required this.index, required this.options})

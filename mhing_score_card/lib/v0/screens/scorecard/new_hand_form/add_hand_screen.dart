@@ -59,7 +59,8 @@ class _AddHandScreenState extends State<AddHandScreen> {
                     MhingFormRow<int>(index: 3, options: [0, 1, 2, 3, 4]),
                     MhingFormRow<int>(index: 4, options: [0, 1, 2]),
                     MhingFormRow<bool>(index: 5, options: [true, false]),
-                    MhingFormRow<bool>(index: 6, options: [true, false]),
+                    MhingFormRow<int>(
+                        index: 6, options: [0, 1, 2, 3, 4, 5, 6, 7]),
                     MhingFormRow<int>(
                         index: 7, options: [0, 1, 2, 3, 4, 5, 6, 7, 8]),
                     Text('Three Credit:', style: kNewHandFormSectonFont),
