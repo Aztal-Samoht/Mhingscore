@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/screens/hand_examples/hand_example.dart';
 import 'package:mhing_score_card/v0/screens/options_screen.dart';
 import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
@@ -67,6 +68,21 @@ class HomeScreen extends StatelessWidget {
                     label: 'Options',
                     onPressed: () {
                       Navigator.pushNamed(context, OptionsScreen.id);
+                    },
+                    height: 20,
+                    width: 40,
+                  ),
+                ),
+              ),
+              Expanded(child: Container()),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0, vertical: 10),
+                  child: MhingButton(
+                    label: 'sample Hand',
+                    onPressed: () {
+                      Navigator.pushNamed(context, HandExample.id);
                     },
                     height: 20,
                     width: 40,

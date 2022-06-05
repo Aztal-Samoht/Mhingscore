@@ -32,11 +32,14 @@ class OptionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HandListProvider>(builder: (context, HL, child) {
       return SafeArea(
-        child: AppBorder(
-          borderRadius: kAppBorderRadius,
-          child: Scaffold(
-            backgroundColor: kBackgroundColor,
-            body: Padding(
+        child: Scaffold(
+          backgroundColor: kBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: kAppBarColor,
+          ),
+          body: AppBorder(
+            borderRadius: kAppBorderRadius,
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/theme_data.dart';
+import 'package:mhing_score_card/v0/screens/hand_examples/hand_example.dart';
 import 'package:mhing_score_card/v0/screens/home_screen.dart';
 import 'package:mhing_score_card/v0/screens/options_screen.dart';
 import 'package:mhing_score_card/v0/screens/rules_screen.dart';
@@ -28,6 +29,7 @@ class MyAppV0 extends StatelessWidget {
         title: 'Mhingscore Card!',
         initialRoute: HomeScreen.id,
         routes: {
+          HandExample.id: (context) => HandExample(),
           OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           ScorecardScreen.id: (context) => ScorecardScreen(),
