@@ -32,8 +32,6 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       HL.currentExample = i;
-                      //TODO: make a provider that tells the program which hand to load and set it here, then
-                      //TODO: make the HandExample consume that provider
 
                       Navigator.pushNamed(context, HandExample.id);
                     },

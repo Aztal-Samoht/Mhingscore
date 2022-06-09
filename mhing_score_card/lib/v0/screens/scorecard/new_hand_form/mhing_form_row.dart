@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:provider/provider.dart';
+import 'package:mhing_score_card/v0/screens/hand_examples/hand_example.dart';
 
 List<int> boolOptions = [0, 5, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
-class MhingFormRow<T> extends StatefulWidget {
+class MhingFormRow extends StatefulWidget {
   const MhingFormRow({Key? key, required this.index, required this.options})
       : super(key: key);
 
-  final List<T> options;
+  final List<int> options;
   final int index;
   @override
-  State<MhingFormRow<T>> createState() => _MhingFormRowState();
+  State<MhingFormRow> createState() => _MhingFormRowState();
 }
 
-class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
-  List<DropdownMenuItem<T>> getItemList() {
-    List<DropdownMenuItem<T>> menuItems = [];
+class _MhingFormRowState extends State<MhingFormRow> {
+  List<DropdownMenuItem<int>> getItemList() {
+    List<DropdownMenuItem<int>> menuItems = [];
     widget.options.forEach(
       (element) {
         menuItems.add(
@@ -44,7 +46,7 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
       );
     }
     return Expanded(
-      child: DropdownButton<T>(
+      child: DropdownButton<int>(
         value: tempHand.tempContents[widget.index],
         items: getItemList(),
         onChanged: (value) {
@@ -65,9 +67,16 @@ class _MhingFormRowState<T> extends State<MhingFormRow<T>> {
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Row(
           children: [
-            Text(
-              '${sCatagory[widget.index]}: ',
-              style: kNewHandFormFont,
+            TextButton(
+              onPressed: () {
+                context.read<HandListProvider>().currentExample = widget.index;
+
+                Navigator.pushNamed(context, HandExample.id);
+              },
+              child: Text(
+                sCatagory[widget.index],
+                style: kNewHandFormFont,
+              ),
             ),
             getPicker(newHand),
           ],
