@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
-import 'package:mhing_score_card/v0/screens/hand_examples/hand_example.dart';
+import 'package:mhing_score_card/v0/screens/hand_examples/hand_example_lab.dart';
 import 'package:mhing_score_card/v0/screens/options_screen.dart';
 import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                   child: MhingButton(
                     label: 'sample Hand',
                     onPressed: () {
-                      Navigator.pushNamed(context, HandExample.id);
+                      Navigator.pushNamed(context, HandExampleLab.id);
                     },
                     height: 20,
                     width: 40,

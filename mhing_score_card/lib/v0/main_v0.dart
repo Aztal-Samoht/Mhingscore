@@ -8,6 +8,7 @@ import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/v0/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/v0/res/theme_data.dart';
 import 'package:mhing_score_card/v0/screens/hand_examples/hand_example.dart';
+import 'package:mhing_score_card/v0/screens/hand_examples/hand_example_lab.dart';
 import 'package:mhing_score_card/v0/screens/home_screen.dart';
 import 'package:mhing_score_card/v0/screens/options_screen.dart';
 import 'package:mhing_score_card/v0/screens/rules_screen.dart';
@@ -29,7 +30,26 @@ class MyAppV0 extends StatelessWidget {
         title: 'Mhingscore Card!',
         initialRoute: HomeScreen.id,
         routes: {
+          HandExampleLab.id: (context) => HandExampleLab(),
           HandExample.id: (context) => HandExample(),
+          // HandExample1.id: (context) => HandExample1(),
+          // HandExample2.id: (context) => HandExample2(),
+          // HandExample3.id: (context) => HandExample3(),
+          // HandExample4.id: (context) => HandExample4(),
+          // HandExample5.id: (context) => HandExample5(),
+          // HandExample6.id: (context) => HandExample6(),
+          // HandExample7.id: (context) => HandExample7(),
+          // HandExample8.id: (context) => HandExample8(),
+          // HandExample9.id: (context) => HandExample9(),
+          // HandExample10.id: (context) => HandExample10(),
+          // HandExample11.id: (context) => HandExample11(),
+          // HandExample12.id: (context) => HandExample12(),
+          // HandExample13.id: (context) => HandExample13(),
+          // HandExample14.id: (context) => HandExample14(),
+          // HandExample15.id: (context) => HandExample15(),
+          // HandExample16.id: (context) => HandExample16(),
+          // HandExample17.id: (context) => HandExample17(),
+          // HandExample18.id: (context) => HandExample18(),
           OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           ScorecardScreen.id: (context) => ScorecardScreen(),

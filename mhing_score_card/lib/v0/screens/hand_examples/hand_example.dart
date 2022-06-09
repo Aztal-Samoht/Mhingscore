@@ -1,117 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/v0/res/strings.dart';
+import 'package:mhing_score_card/v0/widgets/example_hand/hand_galary.dart';
 
 class HandExample extends StatelessWidget {
-  const HandExample({Key? key}) : super(key: key);
-
-  static const String id = 'handExample';
-
+  static String id = sCatagory[0];
+  const HandExample({Key? key, required this.hand}) : super(key: key);
+  final List<String> hand;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('hand example'),
-      content: HandGalary('bam1', 'bam2', 'bam3', 'bam4', 'bam5', 'bam6',
-          'bam7', 'bam8', 'bam9', 'bam1', 'bam1', 'bam1', 'bam1', 'bam1', 75),
+      title: Text(sCatagory[0]),
+      content: HandGalary(
+          hand[0],
+          hand[1],
+          hand[2],
+          hand[3],
+          hand[4],
+          hand[5],
+          hand[6],
+          hand[7],
+          hand[8],
+          hand[9],
+          hand[10],
+          hand[11],
+          hand[12],
+          hand[13],
+          75),
       actions: [
         TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
             child: Text('close')),
-      ],
-    );
-  }
-}
-
-class HandSet extends StatelessWidget {
-  const HandSet(String? this.card1, String? this.card2, String? this.card3,
-      double? this.size,
-      {Key? key})
-      : super(key: key);
-
-  final String? card1;
-  final String? card2;
-  final String? card3;
-  final double? size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image.asset('assets/cards/$card1.png', height: size),
-        Image.asset('assets/cards/$card2.png', height: size),
-        Image.asset('assets/cards/$card3.png', height: size),
-      ],
-    );
-  }
-}
-
-class HandPair extends StatelessWidget {
-  const HandPair(String? this.card1, String? this.card2, double? this.size,
-      {Key? key})
-      : super(key: key);
-
-  final String? card1;
-  final String? card2;
-  final double? size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image.asset('assets/cards/$card1.png', height: size),
-        Image.asset('assets/cards/$card2.png', height: size),
-      ],
-    );
-  }
-}
-
-class HandGalary extends StatelessWidget {
-  const HandGalary(
-      String this.card1,
-      String this.card2,
-      String this.card3,
-      String this.card4,
-      String this.card5,
-      String this.card6,
-      String this.card7,
-      String this.card8,
-      String this.card9,
-      String this.card10,
-      String this.card11,
-      String this.card12,
-      String this.card13,
-      String this.card14,
-      double this.size,
-      {Key? key})
-      : super(key: key);
-  final String? card1;
-  final String? card2;
-  final String? card3;
-  final String? card4;
-  final String? card5;
-  final String? card6;
-  final String? card7;
-  final String? card8;
-  final String? card9;
-  final String? card10;
-  final String? card11;
-  final String? card12;
-  final String? card13;
-  final String? card14;
-  final double? size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        HandSet(card1, card2, card3, size),
-        HandSet(card4, card5, card6, size),
-        HandSet(card7, card8, card9, size),
-        HandSet(card10, card11, card12, size),
-        HandPair(card13, card14, size)
       ],
     );
   }
