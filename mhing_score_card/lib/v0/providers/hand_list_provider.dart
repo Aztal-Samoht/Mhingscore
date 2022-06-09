@@ -5,6 +5,7 @@ import 'package:mhing_score_card/v0/res/strings.dart';
 
 class HandListProvider with ChangeNotifier {
   ///memebers
+  int currentExample = 0;
   List<List<List<DataCell>>> _pagedHands = _addFirstPage();
   num _totalScore = 0;
   int _currentPage = 0;

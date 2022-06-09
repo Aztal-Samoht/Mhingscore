@@ -25,16 +25,24 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
 
         List<DataRow> rows = [];
         for (int i = 0; i < sCatagory.length; i++) {
-          rows.add(DataRow(cells: [
-            DataCell(TextButton(
-              onPressed: () {
-                //TODO: make a provider that tells the program which hand to load and set it here, then
-                // make the HandExample consume that provider
-                Navigator.pushNamed(context, HandExample.id);
-              },
-              child: Text(sCatagory[i]),
-            ))
-          ]));
+          rows.add(
+            DataRow(
+              cells: [
+                DataCell(
+                  TextButton(
+                    onPressed: () {
+                      HL.currentExample = i;
+                      //TODO: make a provider that tells the program which hand to load and set it here, then
+                      //TODO: make the HandExample consume that provider
+
+                      Navigator.pushNamed(context, HandExample.id);
+                    },
+                    child: Text(sCatagory[i]),
+                  ),
+                )
+              ],
+            ),
+          );
         }
         for (int i = 0; i < HL.pagedHands[HL.currentPage].length; i++) {
           for (int j = 1; j < HL.pagedHands[HL.currentPage][i].length; j++) {
