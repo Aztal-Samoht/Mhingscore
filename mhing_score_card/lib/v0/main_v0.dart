@@ -15,8 +15,8 @@ import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/screens/scorecard/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
-class MyAppV0 extends StatelessWidget {
-  const MyAppV0({Key? key}) : super(key: key);
+class MyAppV0_4 extends StatelessWidget {
+  const MyAppV0_4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,6 @@ class MyAppV0 extends StatelessWidget {
         title: 'Mhingscore Card!',
         initialRoute: HomeScreen.id,
         routes: {
-          HandExampleLab.id: (context) => HandExampleLab(),
           HandExample.id: (context) => HandExample(),
           OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => HomeScreen(),
