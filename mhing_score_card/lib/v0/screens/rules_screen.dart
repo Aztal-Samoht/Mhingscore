@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/v0/res/constants.dart';
 import 'package:mhing_score_card/v0/res/strings.dart';
 import 'package:mhing_score_card/v0/widgets/appearance/app_border.dart';
+import 'package:mhing_score_card/v0/widgets/hand_descriptions.dart';
 
 class RulesScreen extends StatelessWidget {
   static String id = '/rules';
@@ -26,7 +27,7 @@ class RulesScreen extends StatelessWidget {
                 Text(sRules0, style: kRulesTitle),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(sRules1t, style: kRulesSubtitle),
                     Text(sRules1, style: kRulesText),
                     Text(sRules2t, style: kRulesSubtitle),
@@ -46,6 +47,7 @@ class RulesScreen extends StatelessWidget {
                     Text(sRules8, style: kRulesText),
 
                     ///TODO:make this image zoomable
+                    ExampleTable(),
                     Image(image: AssetImage('assets/examples.png')),
                     Text(sRules9),
                   ],
