@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/widgets/appearance/app_border.dart';
 import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
 import 'package:mhing_score_card/widgets/appearance/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/appearance/resume_game_buton.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   static String id = '/';
@@ -35,7 +37,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 25),
-              //todo: make this button work
               Expanded(
                 child: Padding(
                   padding:
@@ -67,6 +68,7 @@ class HomeScreen extends StatelessWidget {
                   child: MhingButton(
                     label: 'Options',
                     onPressed: () {
+                      context.read<GameProvider>().printPlayers();
                       // Navigator.pushNamed(context, OptionsScreen.id);
                     },
                     height: 20,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/models/hand.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +33,7 @@ class TempHandProvider with ChangeNotifier {
 
   void submit(BuildContext context) {
     print('begining submission');
-    context.read<HandListProvider>().ingest(Hand(_tempContents));
+    context.read<GameProvider>().ingestHand(Hand(_tempContents));
     print('tempContents submitted');
     clearTemp();
     notifyListeners();

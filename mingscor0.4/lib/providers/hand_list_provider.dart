@@ -59,7 +59,7 @@ class HandListProvider with ChangeNotifier {
     if (_pagedHands.last.last.length > _handsPerPage) {
       _addPage();
     }
-    _totalScore += h.contents.last;
+    _totalScore += h.contents[sCatagory[20]];
     for (int i = 0; i < h.contents.length; i++) {
       _pagedHands.last[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
     }

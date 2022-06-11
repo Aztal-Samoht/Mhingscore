@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/modals/new_game_modal.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/screens/home_screen.dart';
+import 'package:mhing_score_card/screens/rules_screen.dart';
+import 'package:mhing_score_card/screens/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyAppV0_4 extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => GameProvider()),
         ChangeNotifierProvider(create: (_) => TempHandProvider()),
-        ChangeNotifierProvider(create: (_) => HandListProvider()),
+        // ChangeNotifierProvider(create: (_) => HandListProvider()),
       ],
       child: MaterialApp(
         // theme: getMytheme(context),
@@ -31,8 +32,8 @@ class MyAppV0_4 extends StatelessWidget {
           // OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           NewGameModal.id: (context) => NewGameModal(),
-          // ScorecardScreen.id: (context) => ScorecardScreen(),
-          // RulesScreen.id: (context) => RulesScreen(),
+          ScorecardScreen.id: (context) => ScorecardScreen(),
+          RulesScreen.id: (context) => RulesScreen(),
         },
       ),
     );

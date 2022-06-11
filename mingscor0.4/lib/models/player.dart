@@ -7,7 +7,9 @@ class Player {
   final String _name;
   List<Hand> _hands = [];
   int _currentPage = 0;
+  int _totalScore = 0;
 
+  int get totalScore => _totalScore;
   String get name => _name;
   List<Hand> get hands => _hands;
   int get currentPage => _currentPage;
@@ -20,22 +22,12 @@ class Player {
     _currentPage = value;
   }
 
-  int addHand(Hand h) {
-    try {
-      _hands.add(h);
-    } catch (e) {
-      return -1;
-    }
-    return 0;
+  void addHand(Hand h) {
+    _hands.add(h);
   }
 
-  int removeHand(int index) {
-    try {
-      _hands.removeAt(index);
-    } catch (e) {
-      return -1;
-    }
-    return 0;
+  void removeHand(int index) {
+    _hands.removeAt(index);
   }
 
   @override

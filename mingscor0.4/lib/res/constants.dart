@@ -13,6 +13,9 @@ const double kBtnRadius = 20;
 const double kButtonPadding = 25;
 const Color kAppBarColor = Color(0xffff9100);
 const Color kBackgroundColor = Colors.black;
+const TextStyle kTitleFont = TextStyle(color: Color(0xffffa000), fontSize: 20);
+const TextStyle kSubtitleFont =
+    TextStyle(color: Color(0xffffa000), fontSize: 15);
 const Color kTitleColor = Color(0xffffa000);
 const Color kButtonTextColor = Color(0xfffbc02d);
 const TextStyle kCellStyle = TextStyle(fontSize: 20);

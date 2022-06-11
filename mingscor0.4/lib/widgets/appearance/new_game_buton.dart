@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/modals/new_game_modal.dart';
-import 'package:mhing_score_card/providers/game_provider.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
-// import 'package:mhing_score_card/screens/scorecard/scorecard_screen.dart';
-import 'package:provider/provider.dart';
 
 class NewGameButton extends StatelessWidget {
   const NewGameButton({Key? key}) : super(key: key);
