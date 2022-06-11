@@ -8,11 +8,11 @@ import 'package:mhing_score_card/screens/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyAppV0_4());
+  runApp(const MyAppVersionZeroPointFour());
 }
 
-class MyAppV0_4 extends StatelessWidget {
-  const MyAppV0_4({Key? key}) : super(key: key);
+class MyAppVersionZeroPointFour extends StatelessWidget {
+  const MyAppVersionZeroPointFour({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,10 @@ class MyAppV0_4 extends StatelessWidget {
           // HandExampleLab.id: (context) => HandExampleLab(),
           // HandExample.id: (context) => HandExample(),
           // OptionsScreen.id: (context) => OptionsScreen(),
-          HomeScreen.id: (context) => HomeScreen(),
+          HomeScreen.id: (context) => const HomeScreen(),
           NewGameModal.id: (context) => NewGameModal(),
           ScorecardScreen.id: (context) => ScorecardScreen(),
-          RulesScreen.id: (context) => RulesScreen(),
+          RulesScreen.id: (context) => const RulesScreen(),
         },
       ),
     );

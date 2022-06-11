@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/models/player.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/screens/scorecard_screen.dart';
-import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
-import 'package:mhing_score_card/widgets/appearance/mhing_card.dart';
 
 class NewGameModal extends StatelessWidget {
   NewGameModal({Key? key}) : super(key: key);
