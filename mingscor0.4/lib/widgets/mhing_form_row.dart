@@ -4,6 +4,7 @@ import 'package:mhing_score_card/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/hand_example.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/hand_example_button.dart';
 import 'package:provider/provider.dart';
 
 List<int> boolOptions = [0, 5, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18];
@@ -64,18 +65,9 @@ class _MhingFormRowState extends State<MhingFormRow> {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            TextButton(
-              onPressed: () {
-                context.read<HandListProvider>().currentExample = widget.index;
-
-                Navigator.pushNamed(context, HandExample.id);
-              },
-              child: Text(
-                sCatagory[widget.index],
-                style: kNewHandFormFont,
-              ),
-            ),
+            HandExampleButton(widget.index),
             getPicker(newHand),
           ],
         ),

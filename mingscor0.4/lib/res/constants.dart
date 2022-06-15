@@ -22,7 +22,7 @@ const TextStyle kSubtitleFont =
 const Color kTitleColor = Color(0xffffa000);
 const Color kButtonTextColor = Color(0xfffbc02d);
 const TextStyle kCellStyle = TextStyle(fontSize: 20);
-const TextStyle kNewHandFormFont = TextStyle(fontSize: 16);
+const TextStyle kNewHandFormFont = TextStyle(fontSize: 15);
 const TextStyle kNewHandFormSectonFont = TextStyle(fontSize: 25);
 const List<dynamic> kEmptyHand = [
   false,

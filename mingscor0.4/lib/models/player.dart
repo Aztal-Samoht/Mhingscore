@@ -3,6 +3,7 @@ import 'package:mhing_score_card/models/hand.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/hand_example.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/hand_example_button.dart';
 import 'package:provider/provider.dart';
 
 class Player {
@@ -118,16 +119,7 @@ class Player {
     for (int i = 0; i < sCatagory.length; i++) {
       newPage.add(DataRow(
         cells: [
-          DataCell(
-            TextButton(
-              onPressed: () {
-                context.read<GameProvider>().currentExample = i;
-
-                Navigator.pushNamed(context, HandExample.id);
-              },
-              child: Text(sCatagory[i]),
-            ),
-          ),
+          DataCell(HandExampleButton(i)),
         ],
       ));
     }
