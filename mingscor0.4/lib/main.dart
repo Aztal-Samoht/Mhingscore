@@ -5,6 +5,7 @@ import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/screens/hand_example.dart';
 import 'package:mhing_score_card/screens/home_screen.dart';
+import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
 import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:provider/provider.dart';
@@ -31,10 +32,10 @@ class MyAppVersionZeroPointFour extends StatelessWidget {
         routes: {
           // HandExampleLab.id: (context) => HandExampleLab(),
           HandExample.id: (context) => HandExample(),
-          // OptionsScreen.id: (context) => OptionsScreen(),
+          OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => const HomeScreen(),
-          NewGameModal.id: (context) => NewGameModal(),
-          TabedScorecardScreen.id: (context) => TabedScorecardScreen(),
+          NewGameModal.id: (context) => const NewGameModal(),
+          TabedScorecardScreen.id: (context) => const TabedScorecardScreen(),
           RulesScreen.id: (context) => const RulesScreen(),
         },
       ),

@@ -7,14 +7,14 @@ class DummyBtn extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Consumer<HandListProvider>(builder: (context, HL, child) {
+    return Consumer<HandListProvider>(builder: (context, hl, child) {
       return Expanded(
         child: Material(
           borderRadius: BorderRadius.circular(20),
           child: MaterialButton(
             child: Text(
               text,
-              style: TextStyle(color: Colors.grey),
+              style: const TextStyle(color: Colors.grey),
             ),
             elevation: 50,
             onPressed: () {},

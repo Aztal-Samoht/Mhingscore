@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/modals/add_hand_screen.dart';
+import 'package:mhing_score_card/modals/add_hand_modal.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
-import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:mhing_score_card/widgets/appearance/app_border.dart';
 import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
 import 'package:mhing_score_card/widgets/datatable_displayer.dart';
 import 'package:mhing_score_card/widgets/nav_row/nav_row.dart';
+import 'package:mhing_score_card/widgets/total_score_displayer.dart';
 import 'package:provider/provider.dart';
 
 class ScorecardTabDisplayer extends StatelessWidget {
-  const ScorecardTabDisplayer(String this.playerName, {Key? key})
-      : super(key: key);
+  const ScorecardTabDisplayer(this.playerName, {Key? key}) : super(key: key);
 
   final String playerName;
   @override
@@ -36,7 +35,7 @@ class ScorecardTabDisplayer extends StatelessWidget {
                   showModalBottomSheet(
                     isScrollControlled: true,
                     context: context,
-                    builder: (context) => AddHandModal(),
+                    builder: (context) => const AddHandModal(),
                   );
                 },
                 height: 50.0,

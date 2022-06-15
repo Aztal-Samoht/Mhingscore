@@ -21,16 +21,14 @@ class MhingFormRow extends StatefulWidget {
 class _MhingFormRowState extends State<MhingFormRow> {
   List<DropdownMenuItem<int>> getItemList() {
     List<DropdownMenuItem<int>> menuItems = [];
-    widget.options.forEach(
-      (element) {
-        menuItems.add(
-          DropdownMenuItem(
-            child: Text(element.toString(), style: kNewHandFormFont),
-            value: element,
-          ),
-        );
-      },
-    );
+    for (int element in widget.options) {
+      menuItems.add(
+        DropdownMenuItem(
+          child: Text(element.toString(), style: kNewHandFormFont),
+          value: element,
+        ),
+      );
+    }
     return menuItems;
   }
 
@@ -64,7 +62,7 @@ class _MhingFormRowState extends State<MhingFormRow> {
   Widget build(BuildContext context) {
     return Consumer<TempHandProvider>(builder: (context, newHand, child) {
       return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
           children: [
             TextButton(

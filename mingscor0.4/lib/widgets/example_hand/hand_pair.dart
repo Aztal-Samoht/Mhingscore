@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HandPair extends StatelessWidget {
-  const HandPair(String? this.card1, String? this.card2, double? this.size,
-      {Key? key})
+  const HandPair(this.card1, this.card2, this.size, {Key? key})
       : super(key: key);
 
   final String? card1;

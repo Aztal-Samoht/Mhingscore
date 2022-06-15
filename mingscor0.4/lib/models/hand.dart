@@ -6,23 +6,26 @@ import 'package:mhing_score_card/res/strings.dart';
 
 class Hand {
   static Icon boolDisplayer(bool b) {
-    if (b)
-      return Icon(Icons.done, color: Colors.green);
-    else
+    if (b) {
+      return const Icon(Icons.done, color: Colors.green);
+    } else {
       return kNoScore;
+    }
   }
 
   static Widget toDisplayWidget(dynamic data) {
     if (data.runtimeType == int) if (data == 0) {
       return kNoScore;
-    } else
+    } else {
       return Text(
         data.toString(),
         textAlign: TextAlign.center,
         style: kCellStyle,
       );
-    else
+    }
+    else {
       return boolDisplayer(data);
+    }
   }
 
   Hand(List<dynamic> newContents) {
@@ -65,17 +68,18 @@ class Hand {
     int bound = 5;
     if (_contents[sCatagory[19]] < bound) {
       _contents[sCatagory[20]] = pow(2, _contents[sCatagory[19]]).toInt();
-    } else if (_contents[sCatagory[19]] > 40)
+    } else if (_contents[sCatagory[19]] > 40) {
       _contents[sCatagory[20]] = pow(2, 17).toInt();
-    else {
+    } else {
       bound += 2;
 
       for (int e = 5; e < 17; e++) {
         if (_contents[sCatagory[19]] <= bound) {
           _contents[sCatagory[20]] = pow(2, e).toInt();
           break;
-        } else
+        } else {
           bound += 3;
+        }
       }
     }
   }

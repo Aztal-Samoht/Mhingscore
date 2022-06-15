@@ -14,14 +14,10 @@ class DataDisplayer extends StatelessWidget {
         List<DataColumn> columns = [
           const DataColumn(label: Text('Hand Number', style: kCellStyle))
         ];
-        print("created 'columns' obj");
         List<DataRow> rows = gp.getRows(context);
 
         ///populate the columns
         for (int i = 1; i < gp.getColumnCount(); i++) {
-          print('adding column for hand number $i');
-          print(
-              '(gp.players[playerName]?.currentPageNumber)!: ${(gp.players[playerName]?.currentPageNumber)!}');
           columns.add(
             DataColumn(
               label: Text(
@@ -54,7 +50,7 @@ class DataDisplayer extends StatelessWidget {
                   rows: rows,
                   columnSpacing: 5,
                   border: TableBorder.symmetric(
-                      inside: BorderSide(color: Colors.black38)),
+                      inside: const BorderSide(color: Colors.black38)),
                 ),
               ),
             ],

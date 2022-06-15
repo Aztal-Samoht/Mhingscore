@@ -23,7 +23,7 @@ class NewGameButton extends StatelessWidget {
               onPressed: () {
                 showDialog<String>(
                     context: context,
-                    builder: (BuildContext context) => NewGameModal());
+                    builder: (BuildContext context) => const NewGameModal());
               }),
         ),
       ),

@@ -32,10 +32,8 @@ class TempHandProvider with ChangeNotifier {
   List<dynamic> get tempContents => _tempContents;
 
   void submit(BuildContext context) {
-    print('begining submission');
     context.read<GameProvider>().ingestHand(context,Hand(_tempContents));
-    print('tempContents submitted. printing game state...');
-    context.read<GameProvider>().printState();
+    // context.read<GameProvider>().printState();
     clearTemp();
     notifyListeners();
   }
@@ -48,12 +46,10 @@ class TempHandProvider with ChangeNotifier {
 
   void setAt(dynamic value, int index) {
     _tempContents[index] = value;
-    print('tempContents set to: $_tempContents');
   }
 
   void toggleAt(int index) {
     _tempContents[index] = !_tempContents[index];
-    print('tempContents set to: $_tempContents');
     notifyListeners();
   }
 }

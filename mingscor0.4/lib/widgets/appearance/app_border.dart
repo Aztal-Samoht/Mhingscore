@@ -21,7 +21,7 @@ class AppBorder extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/card_back.png'),
               fit: BoxFit.cover,
@@ -30,12 +30,12 @@ class AppBorder extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Material(
-              color: this.backgroundColor,
-              borderRadius: BorderRadius.circular(this.borderRadius),
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(borderRadius),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SafeArea(
-                  child: this.child,
+                  child: child,
                 ),
               ),
             ),

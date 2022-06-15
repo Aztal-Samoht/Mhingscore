@@ -17,8 +17,8 @@ class MhingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: this.width,
-      height: this.height,
+      width: width,
+      height: height,
       child: Material(
         borderRadius: BorderRadius.circular(kBtnRadius),
         elevation: 5.0,
@@ -31,9 +31,9 @@ class MhingButton extends StatelessWidget {
             child: MaterialButton(
               child: Text(
                 label!,
-                style: TextStyle(color: kButtonTextColor),
+                style: const TextStyle(color: kButtonTextColor),
               ),
-              onPressed: this.onPressed,
+              onPressed: onPressed,
             ),
           ),
         ),

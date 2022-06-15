@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
+import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/widgets/appearance/app_border.dart';
 import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
 import 'package:mhing_score_card/widgets/appearance/new_game_buton.dart';
@@ -20,30 +21,28 @@ class HomeScreen extends StatelessWidget {
     return AppBorder(
       borderRadius: kAppBorderRadius,
       child: Scaffold(
-        backgroundColor: Color(0x00ffffff),
+        backgroundColor: const Color(0x00ffffff),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(child: Container()),
-              Expanded(
+              const Expanded(
                 child: sMainTitle,
               ),
-              SizedBox(height: 35),
-              Expanded(
+              const SizedBox(height: 35),
+              const Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: kButtonPadding),
+                  padding: EdgeInsets.symmetric(horizontal: kButtonPadding),
                   child: NewGameButton(),
                 ),
               ),
-              SizedBox(height: 25),
-              Expanded(
+              const SizedBox(height: 25),
+              const Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: kButtonPadding),
+                  padding: EdgeInsets.symmetric(horizontal: kButtonPadding),
                   child: ResumeGameButton(),
                 ),
               ),
@@ -71,8 +70,7 @@ class HomeScreen extends StatelessWidget {
                   child: MhingButton(
                     label: 'Options',
                     onPressed: () {
-                      context.read<GameProvider>().printPlayers();
-                      // Navigator.pushNamed(context, OptionsScreen.id);
+                      Navigator.pushNamed(context, OptionsScreen.id);
                     },
                     height: 20,
                     width: 40,

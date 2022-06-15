@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HandSet extends StatelessWidget {
-  const HandSet(String? this.card1, String? this.card2, String? this.card3,
-      double? this.size,
-      {Key? key})
+  const HandSet(this.card1, this.card2, this.card3, this.size, {Key? key})
       : super(key: key);
 
   final String? card1;

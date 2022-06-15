@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:mhing_score_card/widgets/nav_row/nav_btn.dart';
 import 'package:provider/provider.dart';
 

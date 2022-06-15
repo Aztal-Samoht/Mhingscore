@@ -5,7 +5,7 @@ class GameModeAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return const AlertDialog(
       title: Text('Pick Game Mode'),
     );
   }

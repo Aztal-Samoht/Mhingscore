@@ -13,7 +13,7 @@ class RulesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        title: Text('Rules of Mhing'),
+        title: const Text('Rules of Mhing'),
       ),
       backgroundColor: Colors.white,
       body: AppBorder(
@@ -24,10 +24,10 @@ class RulesScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(sRules0, style: kRulesTitle),
+                const Text(sRules0, style: kRulesTitle),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(sRules1t, style: kRulesSubtitle),
                     Text(sRules1, style: kRulesText),
                     Text(sRules2t, style: kRulesSubtitle),

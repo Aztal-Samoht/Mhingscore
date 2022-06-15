@@ -5,13 +5,20 @@ import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 
-class NewGameModal extends StatelessWidget {
-  NewGameModal({Key? key}) : super(key: key);
+class NewGameModal extends StatefulWidget {
+  const NewGameModal({Key? key}) : super(key: key);
   static String id = 'NewGameModal';
+
+  @override
+  State<NewGameModal> createState() => _NewGameModalState();
+}
+
+class _NewGameModalState extends State<NewGameModal> {
   String playerName = '';
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(builder: (context, GP, child) {
+    return Consumer<GameProvider>(builder: (context, gp, child) {
       List<Widget> enteredPlayers = [
         Form(
           child: TextField(
@@ -21,25 +28,23 @@ class NewGameModal extends StatelessWidget {
             },
           ),
         ),
-        Text(
+        const Text(
           '\n\nPlayers for this game:',
           textAlign: TextAlign.start,
           style: kTitleFont,
         )
       ];
-      GP.newPlayers.keys.forEach(
-        (element) {
+      for (String element in gp.newPlayers.keys) {
           enteredPlayers.add(
             Text(
               '*$element',
               style: kSubtitleFont,
             ),
           );
-        },
-      );
+        }
       return AlertDialog(
         backgroundColor: Colors.red.shade900,
-        title: Text(
+        title: const Text(
           'New Game',
           textAlign: TextAlign.center,
           style: kTitleFont,
@@ -51,12 +56,12 @@ class NewGameModal extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            child: Text(
+            child: const Text(
               'cancel',
               style: kTitleFont,
             ),
             onPressed: () {
-              GP.clearNewPlayerList();
+              gp.clearNewPlayerList();
               Navigator.pop(context);
             },
           ),
@@ -66,37 +71,36 @@ class NewGameModal extends StatelessWidget {
               style: kTitleFont,
             ),
             onPressed: () {
-              print('entered name: $playerName');
               context.read<GameProvider>().addPlayer(Player(playerName));
               Navigator.pop(context);
               showDialog<String>(
                 context: context,
-                builder: (BuildContext context) => NewGameModal(),
+                builder: (BuildContext context) => const NewGameModal(),
               );
             },
           ),
           TextButton(
-            child: Text(
+            child: const Text(
               'Start Game',
               style: kTitleFont,
             ),
             onPressed: () {
-              if (GP.newPlayers.isNotEmpty) {
-                GP.updatePlayerList();
+              if (gp.newPlayers.isNotEmpty) {
+                gp.updatePlayerList();
                 Navigator.pop(context);
                 Navigator.pushNamed(context, TabedScorecardScreen.id);
               } else {
                 showDialog<String>(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
-                    title: Text('Too few players!'),
-                    content: Text('please enter at least one player name'),
+                    title: const Text('Too few players!'),
+                    content: const Text('please enter at least one player name'),
                     actions: [
                       TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('close'))
+                          child: const Text('close'))
                     ],
                   ),
                 );

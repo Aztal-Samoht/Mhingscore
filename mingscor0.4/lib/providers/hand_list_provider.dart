@@ -54,8 +54,6 @@ class HandListProvider with ChangeNotifier {
   }
 
   void ingest(Hand h) {
-    print('pagedHands content before injestion:');
-    printState();
     if (_pagedHands.last.last.length > _handsPerPage) {
       _addPage();
     }
@@ -63,8 +61,6 @@ class HandListProvider with ChangeNotifier {
     for (int i = 0; i < h.contents.length; i++) {
       _pagedHands.last[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
     }
-    print('pagedHands content after injestion:');
-    printState();
     notifyListeners();
   }
 
@@ -73,15 +69,15 @@ class HandListProvider with ChangeNotifier {
     _totalScore = 0;
   }
 
-  void printState() {
-    for (int page = 0; page < _pagedHands.length; page++) {
-      for (int row = 0; row < _pagedHands[page].length; row++) {
-        for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
-          print(
-            'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
-          );
-        }
-      }
-    }
-  }
+  // void printState() {
+  //   for (int page = 0; page < _pagedHands.length; page++) {
+  //     for (int row = 0; row < _pagedHands[page].length; row++) {
+  //       for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
+  //         print(
+  //           'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
+  //         );
+  //       }
+  //     }
+  //   }
+  // }
 }

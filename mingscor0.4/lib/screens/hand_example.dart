@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class HandExample extends StatelessWidget {
   static String id = 'handExample';
-  HandExample({Key? key}) : super(key: key);
+  const HandExample({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {

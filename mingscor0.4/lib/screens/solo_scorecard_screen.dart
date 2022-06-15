@@ -9,9 +9,11 @@ import 'package:provider/provider.dart';
 
 class SoloScorecardScreen extends StatelessWidget {
   static String id = '/scorecard';
+
+  const SoloScorecardScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(builder: (context, GP, child) {
+    return Consumer<GameProvider>(builder: (context, gp, child) {
       return SafeArea(
         child: Scaffold(
           appBar: AppBar(
@@ -19,9 +21,9 @@ class SoloScorecardScreen extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(sScoreCardTitle),
+                const Text(sScoreCardTitle),
                 TextButton(
-                  child: Text(
+                  child: const Text(
                     'view rules',
                     style: TextStyle(
                       fontSize: 20,
@@ -44,8 +46,8 @@ class SoloScorecardScreen extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  NavRow(),
-                  SizedBox(height: 15),
+                  const NavRow(),
+                  const SizedBox(height: 15),
                   // MhingButton(
                   //   label: sScoreHandButtonText,
                   //   onPressed: () {
@@ -61,17 +63,16 @@ class SoloScorecardScreen extends StatelessWidget {
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
-                        children: [
-                          ///this widget should keep track of your score and update as you add hands to it
+                        children: const [
                           // HandListAsDataTableDisplayer(),
                         ],
                       ),
                     ),
                   ),
-                  Divider(color: Colors.red, thickness: 3),
+                  const Divider(color: Colors.red, thickness: 3),
                   Text(
-                    'Total Score: ${GP.players[GP.activePlayer]!.totalScore}',
-                    style: TextStyle(
+                    'Total Score: ${gp.players[gp.activePlayer]!.totalScore}',
+                    style: const TextStyle(
                         fontSize: 20,
                         color: Colors.red,
                         fontWeight: FontWeight.w600),
