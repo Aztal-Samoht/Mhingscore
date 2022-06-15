@@ -32,18 +32,7 @@ class Player {
     //todo:alter this line if hands are not appearing correctly
     if (_sortedHands.last[0].cells.length >
         context.read<GameProvider>().handsPerPage) {
-      List<DataRow> newPage = [];
-      for (int i = 0; i < sCatagory.length; i++) {
-        newPage.add(DataRow(
-          cells: [
-            DataCell(
-              Text(
-                sCatagory[i],
-              ),
-            ),
-          ],
-        ));
-      }
+      List<DataRow> newPage = constructInitialRows(context);
       _sortedHands.add(newPage);
       incPage();
     }
@@ -55,23 +44,7 @@ class Player {
 
   void buildInitialPage(BuildContext context) {
     if (_sortedHands.isEmpty) {
-      List<DataRow> newPage = [];
-      for (int i = 0; i < sCatagory.length; i++) {
-        newPage.add(DataRow(
-          cells: [
-            DataCell(
-              TextButton(
-                onPressed: () {
-                  context.read<GameProvider>().currentExample = i;
-
-                  Navigator.pushNamed(context, HandExample.id);
-                },
-                child: Text(sCatagory[i]),
-              ),
-            ),
-          ],
-        ));
-      }
+      List<DataRow> newPage = constructInitialRows(context);
       _sortedHands.add(newPage);
     }
   }
@@ -106,7 +79,7 @@ class Player {
   void resortHands(BuildContext context) {
     print('entered player.resortHands()');
     _currentPageNumber = 0;
-    while (_sortedHands != []) {
+    while (_sortedHands.length != 0) {
       _sortedHands.remove(_sortedHands.first);
     }
     for (Hand element in _hands) {
@@ -139,4 +112,25 @@ class Player {
   //     }
   //   }
   // }
+
+  List<DataRow> constructInitialRows(BuildContext context) {
+    List<DataRow> newPage = [];
+    for (int i = 0; i < sCatagory.length; i++) {
+      newPage.add(DataRow(
+        cells: [
+          DataCell(
+            TextButton(
+              onPressed: () {
+                context.read<GameProvider>().currentExample = i;
+
+                Navigator.pushNamed(context, HandExample.id);
+              },
+              child: Text(sCatagory[i]),
+            ),
+          ),
+        ],
+      ));
+    }
+    return newPage;
+  }
 }

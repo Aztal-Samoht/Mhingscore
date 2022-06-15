@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 
 class NavBtn extends StatelessWidget {
   const NavBtn({Key? key, required this.text, required this.onPressed})

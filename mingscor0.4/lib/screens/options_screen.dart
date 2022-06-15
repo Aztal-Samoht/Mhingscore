@@ -3,9 +3,9 @@ import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
-import 'package:mhing_score_card/widgets/appearance/app_border.dart';
-import 'package:mhing_score_card/widgets/appearance/mhing_button.dart';
-import 'package:mhing_score_card/widgets/appearance/mhing_card.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_card.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

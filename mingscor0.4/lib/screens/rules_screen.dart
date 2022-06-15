@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
-import 'package:mhing_score_card/widgets/appearance/app_border.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/hand_descriptions.dart';
 
 class RulesScreen extends StatelessWidget {
