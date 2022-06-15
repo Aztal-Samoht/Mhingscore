@@ -3,6 +3,7 @@ import 'package:mhing_score_card/models/hand.dart';
 import 'package:mhing_score_card/models/player.dart';
 
 class GameProvider with ChangeNotifier {
+  bool singlePlayerMode = false;
   int _handsPerPage = 3;
   int currentExample = 0;
   Map<String, Player> _players = {};

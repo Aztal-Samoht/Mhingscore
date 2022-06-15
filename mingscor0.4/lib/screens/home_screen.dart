@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/options_screen.dart';
+import 'package:mhing_score_card/screens/rules_screen.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/resume_game_buton.dart';
-import 'package:provider/provider.dart';
 
 //TODO: get the solo game working like the old version
 //TODO: store the scores online
@@ -47,15 +46,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Expanded(child: Container()),
-              //todo: make this button work
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 10),
                   child: MhingButton(
-                    label: 'Rules',
+                    'Rules',
                     onPressed: () {
-                      // Navigator.pushNamed(context, RulesScreen.id);
+                      Navigator.pushNamed(context, RulesScreen.id);
                     },
                     height: 20,
                     width: 40,
@@ -68,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0, vertical: 10),
                   child: MhingButton(
-                    label: 'Options',
+                    'Options',
                     onPressed: () {
                       Navigator.pushNamed(context, OptionsScreen.id);
                     },

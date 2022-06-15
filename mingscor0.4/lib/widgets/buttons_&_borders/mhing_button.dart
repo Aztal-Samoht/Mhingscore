@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
 class MhingButton extends StatelessWidget {
-  const MhingButton({
+  const MhingButton(
+    this.label, {
     Key? key,
-    required this.label,
     required this.onPressed,
     required this.height,
     required this.width,
+    this.style,
   }) : super(key: key);
   final String? label;
+  final TextStyle? style;
   final void Function() onPressed;
   final double width;
   final double height;
@@ -31,7 +33,7 @@ class MhingButton extends StatelessWidget {
             child: MaterialButton(
               child: Text(
                 label!,
-                style: const TextStyle(color: kButtonTextColor),
+                style: this.style ?? const TextStyle(color: kButtonTextColor),
               ),
               onPressed: onPressed,
             ),

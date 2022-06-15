@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/modals/game_mode_modal.dart';
 import 'package:mhing_score_card/modals/new_game_modal.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
@@ -23,7 +24,7 @@ class NewGameButton extends StatelessWidget {
               onPressed: () {
                 showDialog<String>(
                     context: context,
-                    builder: (BuildContext context) => const NewGameModal());
+                    builder: (BuildContext context) => const GameModeModal());
               }),
         ),
       ),

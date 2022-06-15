@@ -53,7 +53,7 @@ class HandListProvider with ChangeNotifier {
     }
   }
 
-  void ingest(Hand h) {
+  void ingestHand(Hand h) {
     if (_pagedHands.last.last.length > _handsPerPage) {
       _addPage();
     }

@@ -86,9 +86,9 @@ class _AddHandModalState extends State<AddHandModal> {
                       height: 20,
                     ),
                     MhingButton(
+                      sSubmit,
                       height: 50,
                       width: 175,
-                      label: sSubmit,
                       onPressed: () {
                         tempHand.submit(context);
                         Navigator.pop(context);

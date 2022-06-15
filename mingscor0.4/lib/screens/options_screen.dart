@@ -31,7 +31,8 @@ class OptionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(builder: (context, gp, child) {
+    return Consumer2<GameProvider, HandListProvider>(
+        builder: (context, gp, hl, child) {
       return SafeArea(
         child: Scaffold(
           backgroundColor: kBackgroundColor,
@@ -59,13 +60,14 @@ class OptionsScreen extends StatelessWidget {
                           items: getItems(),
                           onChanged: (value) {
                             gp.handsPerPage = value!;
+                            hl.handsPerPage = value;
                           },
-                        ), //                    context.read<HandListProvider>().ingest(Hand(_tempContents));
+                        ),
                       ],
                     ),
                   ),
                   MhingButton(
-                    label: 'Save Changes',
+                    'Save Changes',
                     onPressed: () {
                       gp.resortHands(context);
                       Navigator.pop(context);
@@ -77,8 +79,8 @@ class OptionsScreen extends StatelessWidget {
                   ///todo: add link to privacy policy
                   ///https://pub.dev/packages/url_launcher
                   MhingButton(
+                    'Privacy Policy',
                     onPressed: _launchUrl,
-                    label: 'Privacy Policy',
                     height: 40,
                     width: 100,
                   ),

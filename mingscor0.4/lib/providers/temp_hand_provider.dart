@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/models/hand.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
+import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +33,9 @@ class TempHandProvider with ChangeNotifier {
   List<dynamic> get tempContents => _tempContents;
 
   void submit(BuildContext context) {
-    context.read<GameProvider>().ingestHand(context,Hand(_tempContents));
+    context.read<GameProvider>().singlePlayerMode
+        ? context.read<GameProvider>().ingestHand(context, Hand(_tempContents))
+        : context.read<HandListProvider>().ingestHand(Hand(_tempContents));
     // context.read<GameProvider>().printState();
     clearTemp();
     notifyListeners();

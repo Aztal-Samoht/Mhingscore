@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/providers/temp_hand_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
-import 'package:mhing_score_card/res/strings.dart';
-import 'package:mhing_score_card/screens/hand_example.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/hand_example_button.dart';
 import 'package:provider/provider.dart';
 

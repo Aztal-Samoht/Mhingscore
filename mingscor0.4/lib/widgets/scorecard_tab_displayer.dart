@@ -6,7 +6,7 @@ import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/datatable_displayer.dart';
-import 'package:mhing_score_card/widgets/nav_row/nav_row.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/nav_row.dart';
 import 'package:mhing_score_card/widgets/total_score_displayer.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +29,7 @@ class ScorecardTabDisplayer extends StatelessWidget {
               const NavRow(),
               const SizedBox(height: 15),
               MhingButton(
-                label: sScoreHandButtonText,
+                sScoreHandButtonText,
                 onPressed: () {
                   gp.activePlayer = playerName;
                   showModalBottomSheet(

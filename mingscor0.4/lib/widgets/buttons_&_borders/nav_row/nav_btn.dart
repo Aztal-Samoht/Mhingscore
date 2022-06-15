@@ -9,7 +9,7 @@ class NavBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MhingButton(
-      label: text,
+      text,
       onPressed: onPressed,
       height: 50,
       width: double.infinity,

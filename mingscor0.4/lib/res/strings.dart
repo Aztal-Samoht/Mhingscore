@@ -35,6 +35,8 @@ const Text sResumeButtonText = Text(
   ),
 );
 const String sScoreCardTitle = 'Mhing Scorecard!';
+const String gameModeModalSoloButton = 'Score For Yourself';
+const String gameModeModalMultiButton = 'Score for the Table';
 
 const String sScoreHandButtonText = 'Score New Hand';
 
