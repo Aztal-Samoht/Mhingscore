@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
 const Text sMainTitle = Text(
-  'Mhingscore',
+  'Mhingscore0.4',
   textAlign: TextAlign.center,
   style: TextStyle(
     color: kTitleColor,
     fontWeight: FontWeight.bold,
-    fontSize: 45,
+    fontSize: 40,
   ),
 );
 const Text sOptionsTitle = Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/models/player.dart';
 import 'package:mhing_score_card/res/constants.dart';
-import 'package:mhing_score_card/screens/scorecard_screen.dart';
+import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 
@@ -15,6 +15,7 @@ class NewGameModal extends StatelessWidget {
       List<Widget> enteredPlayers = [
         Form(
           child: TextField(
+            autofocus: true,
             onChanged: (value) {
               playerName = value;
             },
@@ -83,7 +84,7 @@ class NewGameModal extends StatelessWidget {
               if (GP.newPlayers.isNotEmpty) {
                 GP.updatePlayerList();
                 Navigator.pop(context);
-                Navigator.pushNamed(context, ScorecardScreen.id);
+                Navigator.pushNamed(context, TabedScorecardScreen.id);
               } else {
                 showDialog<String>(
                   context: context,

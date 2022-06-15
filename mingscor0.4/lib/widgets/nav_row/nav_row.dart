@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/widgets/nav_row/dummy_btn.dart';
 import 'package:mhing_score_card/widgets/nav_row/nav_btn.dart';
@@ -10,11 +11,11 @@ class NavRow extends StatelessWidget {
   const NavRow({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Consumer<HandListProvider>(
-      builder: (context, HL, child) {
+    return Consumer<GameProvider>(
+      builder: (context, gp, child) {
         return Row(
           children: [
-            HL.currentPage == 0 ? DummyBtn(text: 'Prev') : PrevPageBtn(),
+            gp.getCurrentPage() == 0 ? DummyBtn(text: 'Prev') : PrevPageBtn(),
             Expanded(
               child: NavBtn(
                   text: 'back',
@@ -22,7 +23,7 @@ class NavRow extends StatelessWidget {
                     Navigator.pop(context);
                   }),
             ),
-            HL.currentPage == HL.pagedHands.length - 1
+            gp.getCurrentPage() >= gp.getNumOfPages() - 1
                 ? DummyBtn(text: 'Next')
                 : NextPageBtn(),
           ],

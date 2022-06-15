@@ -33,8 +33,9 @@ class TempHandProvider with ChangeNotifier {
 
   void submit(BuildContext context) {
     print('begining submission');
-    context.read<GameProvider>().ingestHand(Hand(_tempContents));
-    print('tempContents submitted');
+    context.read<GameProvider>().ingestHand(context,Hand(_tempContents));
+    print('tempContents submitted. printing game state...');
+    context.read<GameProvider>().printState();
     clearTemp();
     notifyListeners();
   }

@@ -30,27 +30,14 @@ class Hand {
     calcCredits();
     calcScore();
   }
+
+  @override
+  String toString() {
+    return 'Hand{_contents: $_contents}';
+  }
+
   Map<String, dynamic> _contents = {};
   Map<String, dynamic> get contents => _contents;
-
-  void calcScore() {
-    int bound = 5;
-    if (_contents[sCatagory[19]] < bound) {
-      _contents[sCatagory[20]] = pow(2, _contents[sCatagory[19]]).toInt();
-    } else if (_contents[sCatagory[19]] > 40)
-      _contents[sCatagory[20]] = pow(2, 17).toInt();
-    else {
-      bound += 2;
-
-      for (int e = 5; e < 17; e++) {
-        if (_contents[sCatagory[19]] <= bound) {
-          _contents[sCatagory[20]] = pow(2, e).toInt();
-          break;
-        } else
-          bound += 3;
-      }
-    }
-  }
 
   void calcCredits() {
     if (_contents[sCatagory[0]]) _contents[sCatagory[19]]++;
@@ -72,5 +59,24 @@ class Hand {
     if (_contents[sCatagory[16]]) _contents[sCatagory[19]] += 8;
     if (_contents[sCatagory[17]]) _contents[sCatagory[19]] += 8;
     if (_contents[sCatagory[18]]) _contents[sCatagory[19]] += 8;
+  }
+
+  void calcScore() {
+    int bound = 5;
+    if (_contents[sCatagory[19]] < bound) {
+      _contents[sCatagory[20]] = pow(2, _contents[sCatagory[19]]).toInt();
+    } else if (_contents[sCatagory[19]] > 40)
+      _contents[sCatagory[20]] = pow(2, 17).toInt();
+    else {
+      bound += 2;
+
+      for (int e = 5; e < 17; e++) {
+        if (_contents[sCatagory[19]] <= bound) {
+          _contents[sCatagory[20]] = pow(2, e).toInt();
+          break;
+        } else
+          bound += 3;
+      }
+    }
   }
 }

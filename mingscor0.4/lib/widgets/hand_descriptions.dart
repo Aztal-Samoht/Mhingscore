@@ -22,6 +22,7 @@ List<DataCell> creditValues = [
   DataCell(Text('8')),
   DataCell(Text('8')),
 ];
+//TODO: switch to emojis for the tiles
 List<DataCell> handDescriptions = [
   DataCell(Text(
       '1, 2 & 3 of Bamboo; 5, 6 & 7 of Dots; 2, 3 & 4 of Dots; 6, 7 & 8 of Characters; 6 & 6 of Characters.')),
