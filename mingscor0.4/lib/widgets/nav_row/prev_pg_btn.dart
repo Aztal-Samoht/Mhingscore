@@ -15,9 +15,9 @@ class PrevPageBtn extends StatelessWidget {
         child: NavBtn(
             text: 'Prev',
             onPressed: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
               gp.decPage();
-              Navigator.pushNamed(context, TabedScorecardScreen.id);
+              // Navigator.pushNamed(context, TabedScorecardScreen.id);
             }),
       );
     });

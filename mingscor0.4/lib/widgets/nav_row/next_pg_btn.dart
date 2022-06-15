@@ -15,9 +15,9 @@ class NextPageBtn extends StatelessWidget {
         child: NavBtn(
           text: 'Next',
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
             gp.incPage();
-            Navigator.pushNamed(context, TabedScorecardScreen.id);
+            // Navigator.pushNamed(context, TabedScorecardScreen.id);
           },
         ),
       );

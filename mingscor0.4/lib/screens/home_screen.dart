@@ -8,6 +8,9 @@ import 'package:mhing_score_card/widgets/appearance/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/appearance/resume_game_buton.dart';
 import 'package:provider/provider.dart';
 
+//TODO: get the solo game working like the old version
+//TODO: store the scores online
+//TODO: create game sessions online
 class HomeScreen extends StatelessWidget {
   static String id = '/';
   const HomeScreen({Key? key}) : super(key: key);

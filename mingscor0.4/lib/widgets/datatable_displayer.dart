@@ -34,14 +34,14 @@ class DataDisplayer extends StatelessWidget {
         return SingleChildScrollView(
           child: Column(
             children: [
-              Text((gp.players[playerName]?.name)!),
-              Text((gp.players[playerName]?.currentPageNumber)!.toString()),
-              Text(
-                  'number of hands $playerName has scored: ${gp.players[playerName]?.hands.length}'),
-              Text('number of rows: ${rows.length}'),
-              Text('number of cells in rows[0]: ${rows[0].cells.length}'),
-              Text('number of columns: ${columns.length}'),
-              Text(playerName!),
+              // Text((gp.players[playerName]?.name)!),
+              // Text((gp.players[playerName]?.currentPageNumber)!.toString()),
+              // Text(
+              //     'number of hands $playerName has scored: ${gp.players[playerName]?.hands.length}'),
+              // Text('number of rows: ${rows.length}'),
+              // Text('number of cells in rows[0]: ${rows[0].cells.length}'),
+              // Text('number of columns: ${columns.length}'),
+              // Text(playerName!),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 8.0,
