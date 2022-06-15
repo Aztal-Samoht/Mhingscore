@@ -22,6 +22,12 @@ class GameProvider with ChangeNotifier {
     _activePlayer = value;
   }
 
+  void resortHands(BuildContext context) {
+    _players.forEach((key, value) {
+      value.resortHands(context);
+    });
+  }
+
   void incPage() {
     _players[_activePlayer]?.incPage();
     notifyListeners();
@@ -37,6 +43,11 @@ class GameProvider with ChangeNotifier {
     if (_activePlayer == '') {
       _activePlayer = p.name;
     }
+    notifyListeners();
+  }
+
+  void removePlayer(String key) {
+    _newPlayers.remove(key);
     notifyListeners();
   }
 

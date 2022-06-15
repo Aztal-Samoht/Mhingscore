@@ -67,6 +67,7 @@ class OptionsScreen extends StatelessWidget {
                   MhingButton(
                     label: 'Save Changes',
                     onPressed: () {
+                      gp.resortHands(context);
                       Navigator.pop(context);
                     },
                     height: 50,

@@ -20,37 +20,55 @@ class _NewGameModalState extends State<NewGameModal> {
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {
       List<Widget> enteredPlayers = [
-        Form(
-          child: TextField(
-            autofocus: true,
-            onChanged: (value) {
-              playerName = value;
-            },
+        Expanded(
+          child: Form(
+            child: TextField(
+              autofocus: true,
+              onChanged: (value) {
+                playerName = value;
+              },
+            ),
           ),
         ),
-        const Text(
-          '\n\nPlayers for this game:',
-          textAlign: TextAlign.start,
-          style: kTitleFont,
+        Expanded(
+          child: Text(
+            'Players for this game:',
+            textAlign: TextAlign.start,
+            style: kNewGameModalTitleFont,
+          ),
         )
       ];
       for (String element in gp.newPlayers.keys) {
-          enteredPlayers.add(
-            Text(
-              '*$element',
-              style: kSubtitleFont,
+        enteredPlayers.add(
+          Expanded(
+            child: TextButton(
+              child: Text(
+                '*$element',
+                style: kSubtitleFont,
+              ),
+              onLongPress: () {
+                gp.removePlayer(element);
+                Navigator.pop(context);
+                showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => const NewGameModal(),
+                );
+              },
+              onPressed: () {},
             ),
-          );
-        }
+          ),
+        );
+      }
       return AlertDialog(
         backgroundColor: Colors.red.shade900,
         title: const Text(
           'New Game',
           textAlign: TextAlign.center,
-          style: kTitleFont,
+          style: kNewGameModalTitleFont,
         ),
         content: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: enteredPlayers,
           ),
         ),
@@ -58,7 +76,7 @@ class _NewGameModalState extends State<NewGameModal> {
           TextButton(
             child: const Text(
               'cancel',
-              style: kTitleFont,
+              style: kNewGameModalActionFont,
             ),
             onPressed: () {
               gp.clearNewPlayerList();
@@ -68,7 +86,7 @@ class _NewGameModalState extends State<NewGameModal> {
           TextButton(
             child: const Text(
               'add player',
-              style: kTitleFont,
+              style: kNewGameModalActionFont,
             ),
             onPressed: () {
               context.read<GameProvider>().addPlayer(Player(playerName));
@@ -82,7 +100,7 @@ class _NewGameModalState extends State<NewGameModal> {
           TextButton(
             child: const Text(
               'Start Game',
-              style: kTitleFont,
+              style: kNewGameModalActionFont,
             ),
             onPressed: () {
               if (gp.newPlayers.isNotEmpty) {
@@ -94,7 +112,8 @@ class _NewGameModalState extends State<NewGameModal> {
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
                     title: const Text('Too few players!'),
-                    content: const Text('please enter at least one player name'),
+                    content:
+                        const Text('please enter at least one player name'),
                     actions: [
                       TextButton(
                           onPressed: () {

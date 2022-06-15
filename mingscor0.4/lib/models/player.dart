@@ -29,7 +29,9 @@ class Player {
 
   void sortNewHand(BuildContext context, Hand h) {
     buildInitialPage(context);
-    if (_sortedHands.last[0].cells.length > 3) {
+    //todo:alter this line if hands are not appearing correctly
+    if (_sortedHands.last[0].cells.length >
+        context.read<GameProvider>().handsPerPage) {
       List<DataRow> newPage = [];
       for (int i = 0; i < sCatagory.length; i++) {
         newPage.add(DataRow(
@@ -99,6 +101,17 @@ class Player {
 
   void removeHand(int index) {
     _hands.removeAt(index);
+  }
+
+  void resortHands(BuildContext context) {
+    print('entered player.resortHands()');
+    _currentPageNumber = 0;
+    while (_sortedHands != []) {
+      _sortedHands.remove(_sortedHands.first);
+    }
+    for (Hand element in _hands) {
+      sortNewHand(context, element);
+    }
   }
 
   @override
