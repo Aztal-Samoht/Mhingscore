@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/models/player.dart';
-import 'package:mhing_score_card/providers/hand_list_provider.dart';
-import 'package:mhing_score_card/res/constants.dart';
+import 'package:mhing_score_card/v0/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/v0/res/constants.dart';
+import 'package:mhing_score_card/v0_4/models/player.dart';
 import 'package:provider/provider.dart';
 
 class HandListAsDataTableDisplayer extends StatelessWidget {

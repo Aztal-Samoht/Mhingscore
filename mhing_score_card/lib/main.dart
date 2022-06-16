@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mhing_score_card/v0/main_v0.dart';
+import 'package:mhing_score_card/v0_4/main.dart';
 
 void main() {
-  runApp(const MyAppV0_4());
+  mainV0_4();
 }

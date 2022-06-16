@@ -15,8 +15,8 @@ import 'package:mhing_score_card/v0/screens/rules_screen.dart';
 import 'package:mhing_score_card/v0/screens/scorecard/scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
-class MyAppV0_4 extends StatelessWidget {
-  const MyAppV0_4({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
