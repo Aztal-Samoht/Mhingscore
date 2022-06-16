@@ -56,28 +56,32 @@ class HandListProvider with ChangeNotifier {
   void ingestHand(Hand h) {
     if (_pagedHands.last.last.length > _handsPerPage) {
       _addPage();
+      _currentPage++;
     }
     _totalScore += h.contents[sCatagory[20]];
     for (int i = 0; i < h.contents.length; i++) {
-      _pagedHands.last[i].add(DataCell(Hand.toDisplayWidget(h.contents[i])));
+      _pagedHands.last[i].add(
+        DataCell(Hand.toDisplayWidget(h.contents[sCatagory[i]])),
+      );
     }
     notifyListeners();
   }
 
   void reset() {
+    _currentPage = 0;
     _pagedHands = _addFirstPage();
     _totalScore = 0;
   }
 
-  // void printState() {
-  //   for (int page = 0; page < _pagedHands.length; page++) {
-  //     for (int row = 0; row < _pagedHands[page].length; row++) {
-  //       for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
-  //         print(
-  //           'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
-  //         );
-  //       }
-  //     }
-  //   }
-  // }
+  void printState() {
+    for (int page = 0; page < _pagedHands.length; page++) {
+      for (int row = 0; row < _pagedHands[page].length; row++) {
+        for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
+          print(
+            'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
+          );
+        }
+      }
+    }
+  }
 }

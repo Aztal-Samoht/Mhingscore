@@ -14,16 +14,17 @@ class Hand {
   }
 
   static Widget toDisplayWidget(dynamic data) {
-    if (data.runtimeType == int) if (data == 0) {
-      return kNoScore;
+    if (data.runtimeType == int) {
+      if (data == 0) {
+        return kNoScore;
+      } else {
+        return Text(
+          data.toString(),
+          textAlign: TextAlign.center,
+          style: kCellStyle,
+        );
+      }
     } else {
-      return Text(
-        data.toString(),
-        textAlign: TextAlign.center,
-        style: kCellStyle,
-      );
-    }
-    else {
       return boolDisplayer(data);
     }
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/modals/add_hand_modal.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
+import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
@@ -16,7 +17,7 @@ class SoloScorecardScreen extends StatelessWidget {
   const SoloScorecardScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(builder: (context, gp, child) {
+    return Consumer<HandListProvider>(builder: (context, hl, child) {
       return SafeArea(
         child: Scaffold(
           appBar: AppBar(
@@ -74,7 +75,7 @@ class SoloScorecardScreen extends StatelessWidget {
                   ),
                   const Divider(color: Colors.red, thickness: 3),
                   Text(
-                    'Total Score: ${gp.players[gp.activePlayer]!.totalScore}',
+                    'Total Score: ${hl.totalScore}',
                     style: const TextStyle(
                         fontSize: 20,
                         color: Colors.red,

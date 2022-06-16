@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mhing_score_card/models/player.dart';
 import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
@@ -22,31 +23,13 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
                   style: kCellStyle)));
         }
 
-        List<DataRow> rows = [];
-        for (int i = 0; i < sCatagory.length; i++) {
-          rows.add(
-            DataRow(
-              cells: [
-                DataCell(
-                  TextButton(
-                    onPressed: () {
-                      hl.currentExample = i;
-
-                      Navigator.pushNamed(context, HandExample.id);
-                    },
-                    child: Text(sCatagory[i]),
-                  ),
-                )
-              ],
-            ),
-          );
-        }
+        List<DataRow> rows = Player.constructInitialRows();
         for (int i = 0; i < hl.pagedHands[hl.currentPage].length; i++) {
           for (int j = 1; j < hl.pagedHands[hl.currentPage][i].length; j++) {
-            print('adding: ${hl.pagedHands[hl.currentPage][i][j]}');
             rows[i].cells.add(hl.pagedHands[hl.currentPage][i][j]);
           }
         }
+        hl.printState();
         return Padding(
           padding: const EdgeInsets.only(
             left: 8.0,

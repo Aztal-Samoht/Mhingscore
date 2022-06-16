@@ -34,8 +34,8 @@ class TempHandProvider with ChangeNotifier {
 
   void submit(BuildContext context) {
     context.read<GameProvider>().singlePlayerMode
-        ? context.read<GameProvider>().ingestHand(context, Hand(_tempContents))
-        : context.read<HandListProvider>().ingestHand(Hand(_tempContents));
+        ? context.read<HandListProvider>().ingestHand(Hand(_tempContents))
+        : context.read<GameProvider>().ingestHand(context, Hand(_tempContents));
     // context.read<GameProvider>().printState();
     clearTemp();
     notifyListeners();

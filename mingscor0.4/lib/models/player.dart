@@ -32,7 +32,7 @@ class Player {
     //todo:alter this line if hands are not appearing correctly
     if (_sortedHands.last[0].cells.length >
         context.read<GameProvider>().handsPerPage) {
-      List<DataRow> newPage = constructInitialRows(context);
+      List<DataRow> newPage = constructInitialRows();
       _sortedHands.add(newPage);
       incPage();
     }
@@ -44,7 +44,7 @@ class Player {
 
   void buildInitialPage(BuildContext context) {
     if (_sortedHands.isEmpty) {
-      List<DataRow> newPage = constructInitialRows(context);
+      List<DataRow> newPage = constructInitialRows();
       _sortedHands.add(newPage);
     }
   }
@@ -113,7 +113,7 @@ class Player {
   //   }
   // }
 
-  List<DataRow> constructInitialRows(BuildContext context) {
+  static List<DataRow> constructInitialRows() {
     List<DataRow> newPage = [];
     for (int i = 0; i < sCatagory.length; i++) {
       newPage.add(DataRow(
