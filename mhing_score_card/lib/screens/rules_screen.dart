@@ -45,8 +45,6 @@ class RulesScreen extends StatelessWidget {
                     Text(sRules7, style: kRulesText),
                     Text(sRules8t, style: kRulesSubtitle),
                     Text(sRules8, style: kRulesText),
-
-                    ///TODO:make this image zoomable
                     ExampleTable(),
                     Image(image: AssetImage('assets/examples.png')),
                     Text(sRules9),

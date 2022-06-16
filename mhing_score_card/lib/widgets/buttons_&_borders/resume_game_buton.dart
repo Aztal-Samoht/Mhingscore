@@ -10,6 +10,7 @@ class ResumeGameButton extends StatelessWidget {
   const ResumeGameButton({Key? key}) : super(key: key);
   static double radius = 20;
 
+  ///TODO: add condition of no game started yet.
   @override
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {

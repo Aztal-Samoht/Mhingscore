@@ -42,7 +42,7 @@ class GameModeModal extends StatelessWidget {
               Navigator.pop(context);
               showDialog<String>(
                   context: context,
-                  builder: (BuildContext context) => const NewGameModal());
+                  builder: (BuildContext context) => NewGameModal());
             },
             height: 100,
             width: double.infinity,

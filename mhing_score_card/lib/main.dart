@@ -35,7 +35,7 @@ class MyAppVersionZeroPointFour extends StatelessWidget {
           HandExample.id: (context) => HandExample(),
           OptionsScreen.id: (context) => OptionsScreen(),
           HomeScreen.id: (context) => const HomeScreen(),
-          NewGameModal.id: (context) => const NewGameModal(),
+          NewGameModal.id: (context) => NewGameModal(),
           TabedScorecardScreen.id: (context) => const TabedScorecardScreen(),
           SoloScorecardScreen.id: (context) => const SoloScorecardScreen(),
           RulesScreen.id: (context) => const RulesScreen(),

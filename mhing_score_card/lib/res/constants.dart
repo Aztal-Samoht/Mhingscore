@@ -21,6 +21,11 @@ const TextStyle kNewGameModalActionFont =
     TextStyle(color: Color(0xffffa000), fontSize: 15.609);
 const TextStyle kSubtitleFont =
     TextStyle(color: Color(0xffffa000), fontSize: 15);
+const InputDecoration newPlayerFieldDeco = InputDecoration(
+  focusedBorder: UnderlineInputBorder(
+    borderSide: BorderSide(color: Colors.black),
+  ),
+);
 const Color kTitleColor = Color(0xffffa000);
 const Color kButtonTextColor = Color(0xfffbc02d);
 const TextStyle kCellStyle = TextStyle(fontSize: 20);

@@ -29,7 +29,6 @@ class Player {
 
   void sortNewHand(BuildContext context, Hand h) {
     buildInitialPage(context);
-    //todo:alter this line if hands are not appearing correctly
     if (_sortedHands.last[0].cells.length >
         context.read<GameProvider>().handsPerPage) {
       List<DataRow> newPage = constructInitialRows();

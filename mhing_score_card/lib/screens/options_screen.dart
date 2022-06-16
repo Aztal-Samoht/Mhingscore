@@ -76,7 +76,6 @@ class OptionsScreen extends StatelessWidget {
                     width: 100,
                   ),
 
-                  ///todo: add link to privacy policy
                   ///https://pub.dev/packages/url_launcher
                   MhingButton(
                     'Privacy Policy',
