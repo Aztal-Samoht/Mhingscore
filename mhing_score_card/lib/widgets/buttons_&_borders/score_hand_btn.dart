@@ -14,7 +14,7 @@ class ScoreHandBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MhingButton(
-      sScoreHandButtonText + (' for $playerName' ?? ''),
+      sScoreHandButtonText + (playerName != null ? ' for $playerName' : ''),
       onPressed: () {
         context.read<GameProvider>().activePlayer = playerName ?? '';
 

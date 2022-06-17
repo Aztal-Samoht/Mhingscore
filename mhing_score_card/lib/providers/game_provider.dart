@@ -3,6 +3,7 @@ import 'package:mhing_score_card/models/hand.dart';
 import 'package:mhing_score_card/models/player.dart';
 
 class GameProvider with ChangeNotifier {
+  String _playerName = '';
   bool singlePlayerMode = false;
   int _handsPerPage = 3;
   int currentExample = 0;
@@ -13,6 +14,13 @@ class GameProvider with ChangeNotifier {
   Map<String, Player> get newPlayers => _newPlayers;
   String get activePlayer => _activePlayer;
   int get handsPerPage => _handsPerPage;
+
+  String get playerName => _playerName;
+
+  set playerName(String value) {
+    _playerName = value;
+    notifyListeners();
+  }
 
   set handsPerPage(int value) {
     _handsPerPage = value;
