@@ -5,6 +5,7 @@ import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
+import 'package:mhing_score_card/widgets/buttons_&_borders/score_hand_btn.dart';
 import 'package:mhing_score_card/widgets/datatable_displayer.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/nav_row.dart';
 import 'package:mhing_score_card/widgets/total_score_displayer.dart';
@@ -27,20 +28,7 @@ class ScorecardTabDisplayer extends StatelessWidget {
           child: Column(
             children: [
               const NavRow(),
-              const SizedBox(height: 15),
-              MhingButton(
-                sScoreHandButtonText,
-                onPressed: () {
-                  gp.activePlayer = playerName;
-                  showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) => const AddHandModal(),
-                  );
-                },
-                height: 50.0,
-                width: double.infinity,
-              ), //new hand button
+              const SizedBox(height: 15), ScoreHandBtn(playerName: playerName),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

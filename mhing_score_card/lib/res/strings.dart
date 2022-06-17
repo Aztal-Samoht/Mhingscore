@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
-const Text sMainTitle = Text(
-  'Mhingscore0.4',
-  textAlign: TextAlign.center,
-  style: TextStyle(
-    color: kTitleColor,
-    fontWeight: FontWeight.bold,
-    fontSize: 40,
+const Expanded sMainTitle = Expanded(
+  flex: 1,
+  child: Text(
+    'Mhingscore 0.4.1',
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      color: kTitleColor,
+      fontWeight: FontWeight.bold,
+      fontSize: 30, //todo: change this back to 40 for production version
+    ),
   ),
 );
 const Text sOptionsTitle = Text(

@@ -3,6 +3,7 @@ import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
+import 'package:mhing_score_card/widgets/AppBarRow.dart';
 import 'package:mhing_score_card/widgets/scorecard_tab_displayer.dart';
 import 'package:provider/provider.dart';
 
@@ -13,12 +14,9 @@ class TabedScorecardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {
-      List<Tab> playerTabs = [];
-      List<Widget> scorecards = [];
+      Map<Tab, Widget> tabs = {};
       for (String element in gp.players.keys) {
-        // gp.activePlayer = element;
-        playerTabs.add(Tab(text: element));
-        scorecards.add(ScorecardTabDisplayer(element));
+        tabs.addAll({Tab(text: element): ScorecardTabDisplayer(element)});
       }
 
       return SafeArea(
@@ -27,30 +25,12 @@ class TabedScorecardScreen extends StatelessWidget {
           child: Scaffold(
               appBar: AppBar(
                 backgroundColor: kAppBarColor,
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(sScoreCardTitle),
-                    TextButton(
-                      child: const Text(
-                        'view rules',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, RulesScreen.id);
-                      },
-                    ),
-                  ],
-                ),
+                title: AppBarRow(sScoreCardTitle),
                 bottom: TabBar(
-                  tabs: playerTabs,
+                  tabs: tabs.keys.toList(),
                 ),
               ),
-              body: TabBarView(children: scorecards)),
+              body: TabBarView(children: tabs.values.toList())),
         ),
       );
     });

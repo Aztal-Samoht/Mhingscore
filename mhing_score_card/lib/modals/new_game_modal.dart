@@ -16,7 +16,6 @@ class NewGameModal extends StatelessWidget {
     return Consumer<GameProvider>(builder: (context, gp, child) {
       String playerName = '';
       List<String> enteredPlayers = [];
-
       for (String element in gp.newPlayers.keys) {
         enteredPlayers.add(element);
       }
@@ -57,19 +56,10 @@ class NewGameModal extends StatelessWidget {
                     : 90,
                 child: ListView.builder(
                   itemBuilder: (context, index) {
-                    return TextButton(
-                      style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: Size(50, 30),
-                          maximumSize: Size(50, 30),
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          alignment: Alignment.centerLeft),
-                      child: Text(
-                        enteredPlayers[index],
-                        style: kNewGameModalActionFont,
-                      ),
-                      onPressed: () {
-                        enteredPlayers.remove(enteredPlayers[index]);
+                    return PlayerNameListTile(
+                      enteredPlayers[index],
+                      () {
+                        enteredPlayers.remove(index);
                       },
                     );
                   },
@@ -147,5 +137,30 @@ class NewGameModal extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class PlayerNameListTile extends StatelessWidget {
+  const PlayerNameListTile(this.name, this.onPressed, {Key? key})
+      : super(key: key);
+  final String name;
+  final void Function() onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: TextButton(
+        style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+            minimumSize: Size(50, 30),
+            maximumSize: Size(50, 30),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            alignment: Alignment.centerLeft),
+        child: Text(
+          name,
+          style: kNewGameModalActionFont,
+        ),
+        onPressed: onPressed,
+      ),
+    );
   }
 }

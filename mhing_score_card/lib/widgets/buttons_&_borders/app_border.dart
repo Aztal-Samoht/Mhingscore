@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
 class AppBorder extends StatelessWidget {
-  AppBorder(
-      {Key? key,
-      required this.child,
-      Color? backgroundColor,
-      required this.borderRadius})
-      : super(key: key) {
+  AppBorder({
+    Key? key,
+    required this.child,
+    Color? backgroundColor,
+    required this.borderRadius,
+    this.hPadding,
+    this.vPadding,
+  }) : super(key: key) {
     this.backgroundColor =
         backgroundColor == null ? kBackgroundColor : this.backgroundColor;
   }
-
+  final double? hPadding;
+  final double? vPadding;
   final Widget child;
   double borderRadius;
   Color? backgroundColor;
@@ -35,7 +38,13 @@ class AppBorder extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SafeArea(
-                  child: child,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: hPadding ?? 0,
+                      vertical: vPadding ?? 0,
+                    ),
+                    child: child,
+                  ),
                 ),
               ),
             ),
