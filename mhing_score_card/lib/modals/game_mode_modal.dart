@@ -39,6 +39,8 @@ class GameModeModal extends StatelessWidget {
             sGameModeModalMultiButton,
             onPressed: () {
               gp.singlePlayerMode = false;
+              // gp.playerName = '';
+              // gp.enteredPlayers = [];
               Navigator.pop(context);
               showDialog<String>(
                   context: context,

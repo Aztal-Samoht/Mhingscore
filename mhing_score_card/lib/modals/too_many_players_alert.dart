@@ -27,7 +27,6 @@ class TooManyPlayersAlert extends StatelessWidget {
             },
             child: Text('Continue'),
           ),
-          StartGameBtn(),
         ],
       );
     });

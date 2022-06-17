@@ -16,55 +16,96 @@ class NewGameModal extends StatelessWidget {
   static String id = 'new game modal';
 
   NewGameModal({Key? key}) : super(key: key);
-
-  List<String> enteredPlayers = [];
   @override
   Widget build(BuildContext context) {
     print('entered NewGameModal.build()');
     return Consumer<GameProvider>(builder: (context, gp, child) {
-      Widget thisContent = SizedBox(
-        height: 100,
+      return AlertDialog(
+        backgroundColor: Colors.red.shade900,
+        title: kTitle,
+        content: ContentWidget(),
+        actions: [CloseModalBtn(), AddPlayerBtn(), StartGameBtn()],
+      );
+    });
+  }
+}
+
+class ContentWidget extends StatelessWidget {
+  const ContentWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<GameProvider>(builder: (context, gp, child) {
+      return SizedBox(
+        height: 120,
         child: Column(
           children: [
             Form(
               child: TextField(
-                autofocus: true,
+                decoration: newPlayerFieldDeco,
                 onChanged: (value) {
                   gp.playerName = value;
-                  print('value: $value');
-                  print('gp.playerName: ${gp.playerName}');
                 },
               ),
             ),
+            Text(
+              'Players for this game:',
+              style: kNewGameModalTableFont,
+            ),
+            TableFromEnteredPlayers()
           ],
         ),
       );
+    });
+  }
+}
 
-      List<Widget> theseActions = [
-        const CloseModalBtn(),
-        AddPlayerBtn(),
-        const StartGameBtn(),
-      ];
-      for (String element in gp.newPlayers.keys) {
-        enteredPlayers.add(element);
-      }
-      print('enteredPlayers : ${enteredPlayers}');
+class TableFromEnteredPlayers extends StatelessWidget {
+  const TableFromEnteredPlayers({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<GameProvider>(
+      builder: (context, gp, child) {
+        List<TableRow> rows = [];
+        for (int i = 0; i < gp.newPlayers.keys.length; i++) {
+          if (i % 2 == 0) {
+            rows.add(TableRow(children: [Container(), Container()]));
+            rows.last.children?[0] = MyTableEntery(i: i);
+          } else {
+            rows.last.children?[1] = MyTableEntery(i: i);
+          }
+        }
+        return Table(
+          children: rows,
+        );
+      },
+    );
+  }
+}
 
-      return AlertDialog(
-        backgroundColor: Colors.red.shade900,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: kTitle,
-        content: thisContent,
-        actions: theseActions,
+class MyTableEntery extends StatelessWidget {
+  const MyTableEntery({
+    Key? key,
+    required this.i,
+  }) : super(key: key);
+
+  final int i;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<GameProvider>(builder: (context, gp, child) {
+      return Text(
+        '${i + 1}: ${gp.newPlayers.keys.toList()[i]}',
+        style: kNewGameModalTableFont,
       );
     });
   }
 }
 
 class StartGameBtn extends StatelessWidget {
-  const StartGameBtn({
-    Key? key,
-  }) : super(key: key);
+  const StartGameBtn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +116,7 @@ class StartGameBtn extends StatelessWidget {
           style: kNewGameModalActionFont,
         ),
         onPressed: () {
-          if (gp.newPlayers.length > 1) {
+          if (gp.newPlayers.isNotEmpty) {
             gp.updatePlayerList();
             Navigator.pop(context);
             Navigator.pushNamed(context, TabedScorecardScreen.id);
@@ -84,29 +125,48 @@ class StartGameBtn extends StatelessWidget {
               context: context,
               builder: (BuildContext context) => AlertDialog(
                 title: const Text('Too few players!'),
-                content: const Text(
-                    'Proceeding with less than 2 players will result in a opening the solo-scorecard'),
+                content: const Text('please enter at least one player name'),
                 actions: [
                   TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('dismiss'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      gp.singlePlayerMode = true;
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, SoloScorecardScreen.id);
-                    },
-                    child: const Text('proceed'),
-                  ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('close'))
                 ],
               ),
             );
           }
         },
+      );
+    });
+  }
+}
+
+class TooManyPlayersAlert extends StatelessWidget {
+  const TooManyPlayersAlert({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<GameProvider>(builder: (context, gp, child) {
+      return AlertDialog(
+        title: Text('Too Many Players'),
+        content: Text(
+            "Mhing is intended to be played by 2 to 6 players. Select 'Continue' below to add the 7th player, or 'Start Game' to play with 6 players"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              gp.addPlayer(Player(gp.playerName));
+              Navigator.pop(context);
+              Navigator.pop(context);
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => NewGameModal(),
+              );
+            },
+            child: Text('Continue'),
+          ),
+          StartGameBtn(),
+        ],
       );
     });
   }
@@ -127,6 +187,12 @@ class AddPlayerBtn extends StatelessWidget {
             style: kNewGameModalActionFont,
           ),
           onPressed: () {
+            if (gp.newPlayers.keys.length == 6) {
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => TooManyPlayersAlert(),
+              );
+            }
             gp.addPlayer(Player(gp.playerName));
             Navigator.pop(context);
             showDialog<String>(
