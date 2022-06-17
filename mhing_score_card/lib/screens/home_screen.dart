@@ -8,12 +8,6 @@ import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/resume_game_buton.dart';
 
-//TODO: store the scores online
-//TODO: create game sessions online
-//TODO: deactivate resume btn if no game started
-//TODO: add warning to new solo game of erasing current game
-//TODO: add storage for previously used names
-//TODO:
 class HomeScreen extends StatelessWidget {
   static String id = '/';
   const HomeScreen({Key? key}) : super(key: key);
