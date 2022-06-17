@@ -39,11 +39,13 @@ class ContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {
       return SizedBox(
-        height: 120,
+        height: 140,
         child: Column(
           children: [
             Form(
               child: TextField(
+                autofocus: true,
+                style: kNewGameModalTableFont,
                 decoration: newPlayerFieldDeco,
                 onChanged: (value) {
                   gp.playerName = value;
@@ -96,9 +98,20 @@ class MyTableEntery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<GameProvider>(builder: (context, gp, child) {
-      return Text(
-        '${i + 1}: ${gp.newPlayers.keys.toList()[i]}',
-        style: kNewGameModalTableFont,
+      return TextButton(
+        child: Text(
+          '${i + 1}: ${gp.newPlayers.keys.toList()[i]}',
+          style: kNewGameModalTableFont,
+        ),
+        style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+            minimumSize: Size(50, 30),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            alignment: Alignment.centerLeft),
+        onPressed: () {},
+        onLongPress: () {
+          gp.removePlayer(gp.newPlayers.keys.toString()[i]);
+        },
       );
     });
   }
