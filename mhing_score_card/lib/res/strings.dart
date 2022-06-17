@@ -4,7 +4,7 @@ import 'package:mhing_score_card/res/constants.dart';
 const Expanded sMainTitle = Expanded(
   flex: 1,
   child: Text(
-    'Mhingscore 0.4.1',
+    'Mhingscore',
     textAlign: TextAlign.center,
     style: TextStyle(
       color: kTitleColor,

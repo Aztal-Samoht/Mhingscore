@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/options_screen.dart';
@@ -31,9 +32,14 @@ class HomeScreen extends StatelessWidget {
           RulesBtn(),
           MyHomePageSpacer(1, 20),
           OptionsBtn(),
+          Text('v0.4.2', style: TextStyle(color: Colors.red, fontSize: 10)),
         ],
       ),
     );
+  }
+
+  Future<InitializationStatus> _initGoogleMobileAds() {
+    return MobileAds.instance.initialize();
   }
 }
 

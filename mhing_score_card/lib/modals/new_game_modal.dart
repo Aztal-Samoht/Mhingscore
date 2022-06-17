@@ -53,7 +53,7 @@ class ContentWidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Players for this game:',
+              'Players for this game: ${gp.newPlayers.keys.length}',
               style: kNewGameModalTableFont,
             ),
             TableFromEnteredPlayers()
@@ -205,13 +205,14 @@ class AddPlayerBtn extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) => TooManyPlayersAlert(),
               );
+            } else {
+              gp.addPlayer(Player(gp.playerName));
+              Navigator.pop(context);
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => NewGameModal(),
+              );
             }
-            gp.addPlayer(Player(gp.playerName));
-            Navigator.pop(context);
-            showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => NewGameModal(),
-            );
           },
         );
       },
