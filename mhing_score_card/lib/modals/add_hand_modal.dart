@@ -28,7 +28,7 @@ class _AddHandModalState extends State<AddHandModal> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('aTitle'),
+                Text(''),
                 TextButton(
                   child: const Text(
                     'view rules',
@@ -67,7 +67,7 @@ class _AddHandModalState extends State<AddHandModal> {
                   const Divider(color: Colors.black, thickness: 2),
                   const MhingFormRow(index: 8, options: []),
                   const MhingFormRow(index: 9, options: [0, 1, 2, 3, 4, 5, 6]),
-                  const MhingFormRow(index: 10, options: []),
+                  const MhingFormRow(index: 10, options: [0, 1, 2]),
                   const MhingFormRow(index: 11, options: []),
                   const MhingFormRow(index: 12, options: []),
                   const Text('Five Credit:', style: kNewHandFormSectonFont),

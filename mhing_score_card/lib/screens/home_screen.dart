@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           RulesBtn(1),
           MyHomePageSpacer(1, 20),
           OptionsBtn(1),
-          Text('v0.5.0', style: TextStyle(color: Colors.red, fontSize: 10)),
+          Text('v0.5.1', style: TextStyle(color: Colors.red, fontSize: 10)),
         ],
       ),
     );
