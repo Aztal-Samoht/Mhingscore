@@ -4,17 +4,24 @@ import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
+import 'package:mhing_score_card/screens/ad_test_screen.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/resume_game_buton.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static String id = '/';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    int standardFlex = 2;
     return AppBorder(
       vPadding: 40,
       hPadding: 20,
@@ -22,17 +29,18 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
+          MyHomePageSpacer(1, 10),
           sMainTitle,
-          MyHomePageSpacer(1, 45),
-          NewGameBtn(),
-          MyHomePageSpacer(1, 25),
-          ResumeGameBtn(),
-          MyHomePageSpacer(1, 40),
-          RulesBtn(),
           MyHomePageSpacer(1, 20),
-          OptionsBtn(),
-          Text('v0.4.2', style: TextStyle(color: Colors.red, fontSize: 10)),
+          NewGameBtn(standardFlex),
+          MyHomePageSpacer(1, 10),
+          ResumeGameBtn(standardFlex),
+          MyHomePageSpacer(2, 40),
+          RulesBtn(1),
+          MyHomePageSpacer(1, 20),
+          OptionsBtn(1),
+          Text('v0.5.0', style: TextStyle(color: Colors.red, fontSize: 10)),
         ],
       ),
     );
@@ -44,14 +52,15 @@ class HomeScreen extends StatelessWidget {
 }
 
 class OptionsBtn extends StatelessWidget {
-  const OptionsBtn({
+  const OptionsBtn(
+    this.flex, {
     Key? key,
   }) : super(key: key);
-
+  final int flex;
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 1,
+        flex: flex,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50.0),
           child: MhingButton(
@@ -67,14 +76,16 @@ class OptionsBtn extends StatelessWidget {
 }
 
 class RulesBtn extends StatelessWidget {
-  const RulesBtn({
+  const RulesBtn(
+    this.flex, {
     Key? key,
   }) : super(key: key);
+  final int flex;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 1,
+        flex: flex,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50.0),
           child: MhingButton(
@@ -100,8 +111,3 @@ class MyHomePageSpacer extends StatelessWidget {
     return Expanded(flex: flex, child: SizedBox(height: height));
   }
 }
-
-/*
-*
-*
-      * */

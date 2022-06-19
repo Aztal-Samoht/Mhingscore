@@ -7,14 +7,15 @@ import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:provider/provider.dart';
 
 class ResumeGameBtn extends StatelessWidget {
-  const ResumeGameBtn({Key? key}) : super(key: key);
+  const ResumeGameBtn(this.flex, {Key? key}) : super(key: key);
   static double radius = 20;
+  final int flex;
 
   ///TODO: add condition of no game started yet.
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 1,
+        flex: flex,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: kButtonPadding),
           child: Consumer<GameProvider>(builder: (context, gp, child) {

@@ -38,6 +38,7 @@ class OptionsScreen extends StatelessWidget {
           backgroundColor: kBackgroundColor,
           appBar: AppBar(
             backgroundColor: kAppBarColor,
+            title: Text('Options'),
           ),
           body: AppBorder(
             borderRadius: kAppBorderRadius,

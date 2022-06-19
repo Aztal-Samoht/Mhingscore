@@ -9,6 +9,8 @@
 .history
 .svn/
 Firebase/
+*.xml
+*.gradle
 
 # IntelliJ related
 *.iml

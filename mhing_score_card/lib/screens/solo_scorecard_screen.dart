@@ -5,11 +5,9 @@ import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
-import 'package:mhing_score_card/widgets/AppBarRow.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/nav_row.dart';
-import 'package:mhing_score_card/widgets/buttons_&_borders/score_hand_btn.dart';
 import 'package:mhing_score_card/widgets/hand_list_as_data_table_displayer.dart';
 import 'package:provider/provider.dart';
 
@@ -22,10 +20,27 @@ class SoloScorecardScreen extends StatelessWidget {
     return Consumer<HandListProvider>(builder: (context, hl, child) {
       return SafeArea(
         child: Scaffold(
-          // appBar: MyAppBar(sScoreCardTitle),
           appBar: AppBar(
             backgroundColor: kAppBarColor,
-            title: AppBarRow(sScoreCardTitle),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(sScoreCardTitle),
+                TextButton(
+                  child: const Text(
+                    'view rules',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, RulesScreen.id);
+                  },
+                ),
+              ],
+            ),
           ),
           body: AppBorder(
             backgroundColor: Colors.white,
@@ -37,7 +52,18 @@ class SoloScorecardScreen extends StatelessWidget {
                 children: [
                   const NavRow(),
                   const SizedBox(height: 15),
-                  ScoreHandBtn(),
+                  MhingButton(
+                    sScoreHandButtonText,
+                    onPressed: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) => AddHandModal(),
+                      );
+                    },
+                    height: 50.0,
+                    width: double.infinity,
+                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(

@@ -5,13 +5,13 @@ import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 
 class NewGameBtn extends StatelessWidget {
-  const NewGameBtn({Key? key}) : super(key: key);
+  const NewGameBtn(this.flex, {Key? key}) : super(key: key);
   static double radius = 20;
-
+  final int flex;
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 1,
+      flex: flex,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: kButtonPadding),
         child: Material(

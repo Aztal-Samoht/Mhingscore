@@ -4,7 +4,6 @@
         android:label="Mhingscore"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <!--todo: finish following the flutter.dev page to add adMob ads to this app-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>

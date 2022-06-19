@@ -9,6 +9,7 @@ import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
 import 'package:mhing_score_card/screens/solo_scorecard_screen.dart';
 import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
+import 'package:mhing_score_card/screens/ad_test_screen.dart';
 import 'package:provider/provider.dart';
 
 //TODO: store the scores online
@@ -18,7 +19,8 @@ import 'package:provider/provider.dart';
 //TODO: add storage for previously used names
 //TODO: make hands removeable
 //TODO: add ads
-//TODO:
+//TODO: rework the border widget to use a Stack widget
+//TODO: add corner dropdown quick access menu
 //TODO:
 void main() {
   runApp(const MyAppVersionZeroPointFour());
@@ -48,6 +50,7 @@ class MyAppVersionZeroPointFour extends StatelessWidget {
           TabedScorecardScreen.id: (context) => const TabedScorecardScreen(),
           SoloScorecardScreen.id: (context) => const SoloScorecardScreen(),
           RulesScreen.id: (context) => const RulesScreen(),
+          AdTestScreen.id: (context) => const AdTestScreen(),
         },
       ),
     );
