@@ -1,6 +1,5 @@
 import 'dart:io';
 
-// todo ads: add my own ad unit info
 class AdHelper {
   static String get bannerAdUnitId {
     if (Platform.isAndroid) {

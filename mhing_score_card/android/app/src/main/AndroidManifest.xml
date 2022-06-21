@@ -4,14 +4,14 @@
         android:label="Mhingscore"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <!--test ads-->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-<!--            android:value="ca-app-pub-3940256099942544~3347511713"/>-->
-
+<!--test ads-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5934630788997149~7422978619"/>
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+<!-- my ads-->
+<!--        <meta-data-->
+<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+<!--            android:value="ca-app-pub-5934630788997149~7422978619"/>-->
         <activity
             android:name=".MainActivity"
             android:exported="true"

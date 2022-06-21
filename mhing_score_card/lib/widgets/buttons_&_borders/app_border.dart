@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mhing_score_card/models/ad_helper.dart';
+import 'package:mhing_score_card/res/ad_helper.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
 class AppBorder extends StatefulWidget {
@@ -32,11 +32,10 @@ class _AppBorderState extends State<AppBorder> {
   @override
   void initState() {
     super.initState();
-
-    // TODO 07: Initialize _bannerAd
     _bannerAd = BannerAd(
       // adUnitId: AdHelper.testBannerAdUnitId,
-      adUnitId: AdHelper.bannerAdUnitId,
+      // todo:change this to a real add after mergeing
+      adUnitId: AdHelper.testBannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
@@ -53,7 +52,6 @@ class _AppBorderState extends State<AppBorder> {
       ),
     );
     _bannerAd.load();
-    // TODO: Initialize _rewardedAd
   }
 
   @override

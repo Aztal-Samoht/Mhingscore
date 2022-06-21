@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mhing_score_card/providers/ad_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
-import 'package:mhing_score_card/screens/ad_test_screen.dart';
+import 'package:mhing_score_card/screens/solo_scorecard_screen.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/new_game_buton.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/resume_game_buton.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   static String id = '/';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
+    context
+        .read<AdProvider>()
+        .loadInterstitialAdForBefore(context, SoloScorecardScreen.id);
     int standardFlex = 2;
     return AppBorder(
       vPadding: 40,
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           RulesBtn(1),
           MyHomePageSpacer(1, 20),
           OptionsBtn(1),
-          Text('v1.0.1', style: TextStyle(color: Colors.red, fontSize: 10)),
+          Text('v1.0.2', style: TextStyle(color: Colors.red, fontSize: 10)),
         ],
       ),
     );

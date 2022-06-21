@@ -23,7 +23,7 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
                     style: kCellStyle),
                 onPressed: () {
                   print('short press on hand $i');
-                  hl.printState();
+                  // hl.printState();
                 },
                 onLongPress: () {
                   // hl.printState();
@@ -35,8 +35,7 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
                           .remove(hl.pagedHands[hl.currentPage][i].last);
                     },
                   );
-
-                  hl.printState();
+                  //  hl.printState();
                 },
               ),
             ),
@@ -49,7 +48,7 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
             rows[i].cells.add(hl.pagedHands[hl.currentPage][i][j]);
           }
         }
-        hl.printState();
+        // hl.printState();
         return Padding(
           padding: const EdgeInsets.only(
             left: 8.0,

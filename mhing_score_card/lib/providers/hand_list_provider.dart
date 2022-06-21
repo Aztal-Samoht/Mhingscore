@@ -75,15 +75,15 @@ class HandListProvider with ChangeNotifier {
     _totalScore = 0;
   }
 
-  void printState() {
-    for (int page = 0; page < _pagedHands.length; page++) {
-      for (int row = 0; row < _pagedHands[page].length; row++) {
-        for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
-          print(
-            'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
-          );
-        }
-      }
-    }
-  }
+  // void printState() {
+  //   for (int page = 0; page < _pagedHands.length; page++) {
+  //     for (int row = 0; row < _pagedHands[page].length; row++) {
+  //       for (int cell = 0; cell < _pagedHands[page][row].length; cell++) {
+  //         print(
+  //           'page: $page|row: $row|cell: $cell| ${_pagedHands[page][row][cell].child}',
+  //         );
+  //       }
+  //     }
+  //   }
+  // }
 }

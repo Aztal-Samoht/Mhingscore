@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/providers/hand_list_provider.dart';
+import 'package:mhing_score_card/screens/home_screen.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/dummy_btn.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/nav_btn.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/nav_row/next_pg_btn.dart';
@@ -27,6 +28,8 @@ class NavRow extends StatelessWidget {
                   text: 'back',
                   onPressed: () {
                     Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, HomeScreen.id);
                   }),
             ),
             modeIndependantCurrentPage >= modeIndependantLastPage - 1
