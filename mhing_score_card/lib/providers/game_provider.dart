@@ -4,19 +4,28 @@ import 'package:mhing_score_card/models/player.dart';
 
 class GameProvider with ChangeNotifier {
   String _playerName = '';
+  bool _isGameActive = false;
 
-  bool singlePlayerMode = false;
+  bool _singlePlayerMode = false;
   int _handsPerPage = 3;
   int currentExample = 0;
   Map<String, Player> _players = {};
   Map<String, Player> _newPlayers = {};
   String _activePlayer = '';
 
+  ///getters
   Map<String, Player> get players => _players;
   Map<String, Player> get newPlayers => _newPlayers;
   String get activePlayer => _activePlayer;
   int get handsPerPage => _handsPerPage;
   String get playerName => _playerName;
+  bool get isGameActive => _isGameActive;
+  bool get singlePlayerMode => _singlePlayerMode;
+
+  ///setters
+  set isGameActive(bool value) {
+    _isGameActive = value;
+  }
 
   set playerName(String value) {
     _playerName = value;
@@ -30,6 +39,19 @@ class GameProvider with ChangeNotifier {
 
   set activePlayer(String value) {
     _activePlayer = value;
+  }
+
+  ///utility functions
+  void startMultiGame() {
+    _isGameActive = true;
+    _singlePlayerMode = false;
+    notifyListeners();
+  }
+
+  void startSoloGame() {
+    _isGameActive = true;
+    _singlePlayerMode = true;
+    notifyListeners();
   }
 
   void resortHands(BuildContext context) {
@@ -76,7 +98,6 @@ class GameProvider with ChangeNotifier {
     _players[_activePlayer]!.addHand(context, h);
     notifyListeners();
   }
-
   // void printPlayers() {
   //   print('entered printPlayers method');
   //   int i = 0;
@@ -94,7 +115,6 @@ class GameProvider with ChangeNotifier {
   //     },
   //   );
   // }
-
   int getColumnCount() {
     try {
       return (_players[activePlayer]?.getColumnCount())!;
@@ -121,7 +141,7 @@ class GameProvider with ChangeNotifier {
 
   void clearForNewMultiGame() {
     playerName = '';
-    singlePlayerMode = false;
+    _singlePlayerMode = false;
     notifyListeners();
   }
 }

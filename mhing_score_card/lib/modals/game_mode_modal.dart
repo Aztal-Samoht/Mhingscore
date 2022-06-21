@@ -23,7 +23,7 @@ class GameModeModal extends StatelessWidget {
           MhingButton(
             sGameModeModalSoloButton,
             onPressed: () {
-              gp.singlePlayerMode = true;
+              gp.startSoloGame();
               hl.reset();
               Navigator.pop(context);
               showDialog<String>(
@@ -38,7 +38,7 @@ class GameModeModal extends StatelessWidget {
           MhingButton(
             sGameModeModalMultiButton,
             onPressed: () {
-              gp.singlePlayerMode = false;
+              gp.startMultiGame();
               // gp.playerName = '';
               // gp.enteredPlayers = [];
               Navigator.pop(context);

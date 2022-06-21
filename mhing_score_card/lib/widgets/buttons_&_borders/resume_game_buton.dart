@@ -17,7 +17,7 @@ class ResumeGameBtn extends StatelessWidget {
     return Expanded(
         flex: flex,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: kButtonPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kButtonPadding),
           child: Consumer<GameProvider>(builder: (context, gp, child) {
             return Material(
               borderRadius: BorderRadius.circular(radius),
@@ -31,10 +31,28 @@ class ResumeGameBtn extends StatelessWidget {
                   child: MaterialButton(
                     child: sResumeButtonText,
                     onPressed: () {
-                      gp.singlePlayerMode
-                          ? Navigator.pushNamed(context, SoloScorecardScreen.id)
-                          : Navigator.pushNamed(
-                              context, TabedScorecardScreen.id);
+                      if (gp.isGameActive) {
+                        gp.singlePlayerMode
+                            ? Navigator.pushNamed(
+                                context, SoloScorecardScreen.id)
+                            : Navigator.pushNamed(
+                                context, TabedScorecardScreen.id);
+                      } else {
+                        showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: const Text('No Active Game'),
+                                  content: const Text(
+                                      'There is no game currently being scored.'),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('Close'))
+                                  ],
+                                ));
+                      }
                     },
                   ),
                 ),
