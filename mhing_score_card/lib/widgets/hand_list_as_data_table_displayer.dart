@@ -12,13 +12,35 @@ class HandListAsDataTableDisplayer extends StatelessWidget {
     return Consumer<HandListProvider>(
       builder: (context, hl, child) {
         List<DataColumn> columns = [
-          const DataColumn(label: Text('Hand Number', style: kCellStyle))
+          DataColumn(label: const Text('Hand Number', style: kCellStyle))
         ];
 
         for (int i = 1; i < hl.pagedHands[hl.currentPage][0].length; i++) {
-          columns.add(DataColumn(
-              label: Text('${i + hl.handsPerPage * hl.currentPage}',
-                  style: kCellStyle)));
+          columns.add(
+            DataColumn(
+              label: TextButton(
+                child: Text('${i + hl.handsPerPage * hl.currentPage}',
+                    style: kCellStyle),
+                onPressed: () {
+                  print('short press on hand $i');
+                  hl.printState();
+                },
+                onLongPress: () {
+                  // hl.printState();
+                  print('removing hand');
+                  print(hl.pagedHands[hl.currentPage].runtimeType);
+                  hl.pagedHands[hl.currentPage][i].forEach(
+                    (element) {
+                      hl.pagedHands[hl.currentPage][i]
+                          .remove(hl.pagedHands[hl.currentPage][i].last);
+                    },
+                  );
+
+                  hl.printState();
+                },
+              ),
+            ),
+          );
         }
 
         List<DataRow> rows = Player.constructInitialRows();

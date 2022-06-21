@@ -56,7 +56,7 @@ const List<dynamic> kEmptyHand = [
   0,
   false,
   0,
-  false,
+  0,
   false,
   false,
   false,

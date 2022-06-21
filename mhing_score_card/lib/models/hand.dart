@@ -54,7 +54,7 @@ class Hand {
     _contents[sCatagory[19]] += _contents[sCatagory[7]];
     if (_contents[sCatagory[8]]) _contents[sCatagory[19]] += 3;
     _contents[sCatagory[19]] += (_contents[sCatagory[9]] * 3);
-    if (_contents[sCatagory[10]]) _contents[sCatagory[19]] += 3;
+    _contents[sCatagory[19]] += _contents[sCatagory[10]] * 3;
     if (_contents[sCatagory[11]]) _contents[sCatagory[19]] += 3;
     if (_contents[sCatagory[12]]) _contents[sCatagory[19]] += 3;
     if (_contents[sCatagory[13]]) _contents[sCatagory[19]] += 5;

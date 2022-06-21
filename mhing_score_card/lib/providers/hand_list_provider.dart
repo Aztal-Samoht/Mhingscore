@@ -67,6 +67,8 @@ class HandListProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeHand(int index) {}
+
   void reset() {
     _currentPage = 0;
     _pagedHands = _addFirstPage();

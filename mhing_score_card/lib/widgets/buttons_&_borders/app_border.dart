@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mhing_score_card/ad_helper.dart';
+import 'package:mhing_score_card/models/ad_helper.dart';
 import 'package:mhing_score_card/res/constants.dart';
 
 class AppBorder extends StatefulWidget {
@@ -35,6 +35,7 @@ class _AppBorderState extends State<AppBorder> {
 
     // TODO 07: Initialize _bannerAd
     _bannerAd = BannerAd(
+      // adUnitId: AdHelper.testBannerAdUnitId,
       adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,

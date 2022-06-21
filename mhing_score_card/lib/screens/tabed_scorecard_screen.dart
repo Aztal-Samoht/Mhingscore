@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mhing_score_card/ad_helper.dart';
+import 'package:mhing_score_card/models/ad_helper.dart';
 import 'package:mhing_score_card/providers/game_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/res/strings.dart';
