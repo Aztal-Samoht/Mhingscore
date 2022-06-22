@@ -13,7 +13,7 @@ Native Advanced Video	ca-app-pub-3940256099942544/1044960115
 * */
 
 class AdHelper {
-  static bool testing = true;
+  static bool testing = false;
   static String get bannerAdUnitId {
     if (testing) {
       if (Platform.isAndroid) {
