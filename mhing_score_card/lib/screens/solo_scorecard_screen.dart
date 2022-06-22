@@ -17,71 +17,76 @@ class SoloScorecardScreen extends StatelessWidget {
   const SoloScorecardScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Consumer<HandListProvider>(builder: (context, hl, child) {
-      return SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: kAppBarColor,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(sScoreCardTitle),
-                TextButton(
-                  child: const Text(
-                    'view rules',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, RulesScreen.id);
-                  },
-                ),
-              ],
-            ),
-          ),
-          body: AppBorder(
-            backgroundColor: Colors.white,
-            borderRadius: kAppBorderRadiusSm,
-            child: SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: Column(
+    return Consumer2<HandListProvider, GameProvider>(
+        builder: (context, hl, gp, child) {
+      return WillPopScope(
+        onWillPop: gp.canPop,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: kAppBarColor,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const NavRow(),
-                  const SizedBox(height: 15),
-                  MhingButton(
-                    sScoreHandButtonText,
-                    onPressed: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) => AddHandModal(),
-                      );
-                    },
-                    height: 50.0,
-                    width: double.infinity,
-                  ),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: const [
-                          HandListAsDataTableDisplayer(),
-                        ],
+                  const Text(sScoreCardTitle),
+                  TextButton(
+                    child: const Text(
+                      'view rules',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
-                  ),
-                  const Divider(color: Colors.red, thickness: 3),
-                  Text(
-                    'Total Score: ${hl.totalScore}',
-                    style: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.red,
-                        fontWeight: FontWeight.w600),
+                    onPressed: () {
+                      Navigator.pushNamed(context, RulesScreen.id);
+                    },
                   ),
                 ],
+              ),
+            ),
+            body: AppBorder(
+              backgroundColor: Colors.white,
+              borderRadius: kAppBorderRadiusSm,
+              child: SizedBox(
+                height: double.infinity,
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    const NavRow(),
+                    const SizedBox(height: 15),
+                    MhingButton(
+                      sScoreHandButtonText,
+                      onPressed: () {
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (context) => AddHandModal(),
+                        );
+                      },
+                      height: 50.0,
+                      width: double.infinity,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: const [
+                            HandListAsDataTableDisplayer(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const Divider(color: Colors.red, thickness: 3),
+                    Text(
+                      'Total Score: ${hl.totalScore}',
+                      style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.red,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

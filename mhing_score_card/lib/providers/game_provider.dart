@@ -5,7 +5,7 @@ import 'package:mhing_score_card/models/player.dart';
 class GameProvider with ChangeNotifier {
   String _playerName = '';
   bool _isGameActive = false;
-
+  bool shouldPop = false;
   bool _singlePlayerMode = false;
   int _handsPerPage = 3;
   int currentExample = 0;
@@ -42,6 +42,10 @@ class GameProvider with ChangeNotifier {
   }
 
   ///utility functions
+  Future<bool> canPop() async {
+    return shouldPop;
+  }
+
   void multiPlayerSetupMode() {
     _isGameActive = false;
     _singlePlayerMode = false;

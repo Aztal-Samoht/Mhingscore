@@ -27,9 +27,11 @@ class NavRow extends StatelessWidget {
               child: NavBtn(
                   text: 'back',
                   onPressed: () {
+                    gp.shouldPop = true;
                     Navigator.pop(context);
                     Navigator.pop(context);
                     Navigator.pushNamed(context, HomeScreen.id);
+                    gp.shouldPop = false;
                   }),
             ),
             modeIndependantCurrentPage >= modeIndependantLastPage - 1

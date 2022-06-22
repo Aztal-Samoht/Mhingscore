@@ -10,8 +10,6 @@ class ResumeGameBtn extends StatelessWidget {
   const ResumeGameBtn(this.flex, {Key? key}) : super(key: key);
   static double radius = 20;
   final int flex;
-
-  ///TODO: add condition of no game started yet.
   @override
   Widget build(BuildContext context) {
     return Expanded(

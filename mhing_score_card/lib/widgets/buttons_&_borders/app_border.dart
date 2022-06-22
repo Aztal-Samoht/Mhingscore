@@ -33,9 +33,7 @@ class _AppBorderState extends State<AppBorder> {
   void initState() {
     super.initState();
     _bannerAd = BannerAd(
-      // adUnitId: AdHelper.testBannerAdUnitId,
-      // todo:change this to a real add after mergeing
-      adUnitId: AdHelper.testBannerAdUnitId,
+      adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(

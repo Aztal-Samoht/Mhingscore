@@ -20,37 +20,40 @@ class TabedScorecardScreen extends StatelessWidget {
       for (String element in gp.players.keys) {
         tabs.addAll({Tab(text: element): ScorecardTabDisplayer(element)});
       }
-
-      return SafeArea(
-        child: DefaultTabController(
-          length: gp.players.length,
-          child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: kAppBarColor,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(sScoreCardTitle),
-                  TextButton(
-                    child: const Text(
-                      'view rules',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
+      return WillPopScope(
+        onWillPop: gp.canPop,
+        child: SafeArea(
+          child: DefaultTabController(
+            length: gp.players.length,
+            child: Scaffold(
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+                backgroundColor: kAppBarColor,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(sScoreCardTitle),
+                    TextButton(
+                      child: const Text(
+                        'view rules',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, RulesScreen.id);
+                      },
                     ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, RulesScreen.id);
-                    },
-                  ),
-                ],
+                  ],
+                ),
+                bottom: TabBar(
+                  tabs: tabs.keys.toList(),
+                ),
               ),
-              bottom: TabBar(
-                tabs: tabs.keys.toList(),
-              ),
+              body: TabBarView(children: tabs.values.toList()),
             ),
-            body: TabBarView(children: tabs.values.toList()),
           ),
         ),
       );

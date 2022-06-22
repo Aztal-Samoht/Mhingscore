@@ -27,7 +27,7 @@ class AdProvider with ChangeNotifier {
 
   void loadInterstitialAd(BuildContext context, String destination) {
     InterstitialAd.load(
-      adUnitId: AdHelper.testInterstitialAdUnitId,
+      adUnitId: AdHelper.interstitialAdUnitId,
       request: AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {

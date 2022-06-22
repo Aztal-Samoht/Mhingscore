@@ -13,84 +13,67 @@ Native Advanced Video	ca-app-pub-3940256099942544/1044960115
 * */
 
 class AdHelper {
+  static bool testing = true;
   static String get bannerAdUnitId {
-    if (Platform.isAndroid) {
-      return 'ca-app-pub-5934630788997149/3737802903';
-    } else if (Platform.isIOS) {
-      //test ios ads
-      return 'ca-app-pub-3940256099942544/2934735716';
+    if (testing) {
+      if (Platform.isAndroid) {
+        return 'ca-app-pub-3940256099942544/6300978111';
+      } else if (Platform.isIOS) {
+        return 'ca-app-pub-3940256099942544/2934735716';
+      } else {
+        throw new UnsupportedError('Unsupported platform');
+      }
     } else {
-      throw new UnsupportedError('Unsupported platform');
-    }
-  }
-
-  static String get testBannerAdUnitId {
-    if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/6300978111';
-    } else if (Platform.isIOS) {
-      return 'ca-app-pub-3940256099942544/2934735716';
-    } else {
-      throw new UnsupportedError('Unsupported platform');
+      if (Platform.isAndroid) {
+        return 'ca-app-pub-5934630788997149/3737802903';
+      } else if (Platform.isIOS) {
+        //test ios ads
+        return 'ca-app-pub-3940256099942544/2934735716';
+      } else {
+        throw new UnsupportedError('Unsupported platform');
+      }
     }
   }
 
   static String get interstitialAdUnitId {
-    if (Platform.isAndroid) {
-      return "ca-app-pub-5934630788997149~7422978619";
-    } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/4411468910";
+    if (testing) {
+      if (Platform.isAndroid) {
+        return "ca-app-pub-3940256099942544/1033173712";
+      } else if (Platform.isIOS) {
+        return "ca-app-pub-3940256099942544/4411468910";
+      } else {
+        throw new UnsupportedError("Unsupported platform");
+      }
     } else {
-      throw new UnsupportedError("Unsupported platform");
+      if (Platform.isAndroid) {
+        return "ca-app-pub-5934630788997149/6253313276";
+      } else if (Platform.isIOS) {
+        //test unit id
+        return "ca-app-pub-3940256099942544/4411468910";
+      } else {
+        throw new UnsupportedError("Unsupported platform");
+      }
     }
   }
 
   static String get rewardedInterstitialAdUnitId {
-    if (Platform.isAndroid) {
-      return "ca-app-pub-3940256099942544/1033173712";
-    } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/4411468910";
+    if (testing) {
+      if (Platform.isAndroid) {
+        return "ca-app-pub-3940256099942544/1033173712";
+      } else if (Platform.isIOS) {
+        return "ca-app-pub-3940256099942544/4411468910";
+      } else {
+        throw new UnsupportedError("Unsupported platform");
+      }
     } else {
-      throw new UnsupportedError("Unsupported platform");
-    }
-  }
-
-  ///*
-  ///
-  /// merge before uploading the thing!!!!!!
-  ///
-  ///
-  ///
-  ///
-  ///
-  ///
-
-  static String get testRewardedInterstitialAdUnitId {
-    if (Platform.isAndroid) {
-      return "ca-app-pub-3940256099942544/5354046379";
-    } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/4411468910";
-    } else {
-      throw new UnsupportedError("Unsupported platform");
-    }
-  }
-
-  static String get testInterstitialAdUnitId {
-    if (Platform.isAndroid) {
-      return "ca-app-pub-3940256099942544/1033173712";
-    } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/4411468910";
-    } else {
-      throw new UnsupportedError("Unsupported platform");
-    }
-  }
-
-  static String get testRewardedAdUnitId {
-    if (Platform.isAndroid) {
-      return "ca-app-pub-3940256099942544/5224354917";
-    } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/1712485313";
-    } else {
-      throw new UnsupportedError("Unsupported platform");
+      if (Platform.isAndroid) {
+        return "ca-app-pub-5934630788997149/5678598205";
+      } else if (Platform.isIOS) {
+        //test unit id
+        return "ca-app-pub-3940256099942544/4411468910";
+      } else {
+        throw new UnsupportedError("Unsupported platform");
+      }
     }
   }
 }
