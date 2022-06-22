@@ -6,6 +6,7 @@ import 'package:mhing_score_card/res/strings.dart';
 import 'package:mhing_score_card/screens/options_screen.dart';
 import 'package:mhing_score_card/screens/rules_screen.dart';
 import 'package:mhing_score_card/screens/solo_scorecard_screen.dart';
+import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/app_border.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/mhing_button.dart';
 import 'package:mhing_score_card/widgets/buttons_&_borders/new_game_buton.dart';
@@ -20,7 +21,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context
         .read<AdProvider>()
-        .loadInterstitialAdForBefore(context, SoloScorecardScreen.id);
+        .loadInterstitialAd(context, SoloScorecardScreen.id);
+    context.read<AdProvider>().loadRewardedInterstitialAd(context);
     int standardFlex = 2;
     return AppBorder(
       vPadding: 40,

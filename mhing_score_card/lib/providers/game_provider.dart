@@ -42,8 +42,8 @@ class GameProvider with ChangeNotifier {
   }
 
   ///utility functions
-  void startMultiGame() {
-    _isGameActive = true;
+  void multiPlayerSetupMode() {
+    _isGameActive = false;
     _singlePlayerMode = false;
     notifyListeners();
   }
@@ -88,6 +88,7 @@ class GameProvider with ChangeNotifier {
   }
 
   void updatePlayerList() {
+    _isGameActive = true;
     _players = _newPlayers;
     _activePlayer = _players.keys.first;
     clearNewPlayerList();

@@ -45,9 +45,7 @@ class GameModeModal extends StatelessWidget {
           MhingButton(
             sGameModeModalMultiButton,
             onPressed: () {
-              gp.startMultiGame();
-              // gp.playerName = '';
-              // gp.enteredPlayers = [];
+              gp.multiPlayerSetupMode();
               Navigator.pop(context);
               showDialog<String>(
                   context: context,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhing_score_card/models/player.dart';
+import 'package:mhing_score_card/providers/ad_provider.dart';
+import 'package:mhing_score_card/providers/hand_list_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
 import 'package:mhing_score_card/screens/solo_scorecard_screen.dart';
 import 'package:mhing_score_card/screens/tabed_scorecard_screen.dart';
@@ -122,32 +124,32 @@ class StartGameBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(builder: (context, gp, child) {
+    return Consumer3<GameProvider, HandListProvider, AdProvider>(
+        builder: (context, gp, hl, ap, child) {
       return TextButton(
         child: const Text(
           'Start Game',
           style: kNewGameModalActionFont,
         ),
         onPressed: () {
-          if (gp.newPlayers.isNotEmpty) {
+          if (gp.newPlayers.length > 1) {
             gp.updatePlayerList();
-            Navigator.pop(context);
-            Navigator.pushNamed(context, TabedScorecardScreen.id);
+            print(
+                'ap.isRewardedInterstitialReady: ${ap.isRewardedInterstitialReady}');
+            if (ap.isRewardedInterstitialReady) {
+              ap.dispalayRewardedInterstitialAd(context);
+            } else {
+              Navigator.pushNamed(context, TabedScorecardScreen.id);
+            }
           } else {
-            showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: const Text('Too few players!'),
-                content: const Text('please enter at least one player name'),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text('close'))
-                ],
-              ),
-            );
+            gp.startSoloGame();
+            hl.reset();
+            Navigator.pop(context);
+            if (ap.isInterstitialAdReady) {
+              ap.dispalayInterstitialAd();
+            } else {
+              Navigator.pushNamed(context, SoloScorecardScreen.id);
+            }
           }
         },
       );
