@@ -14,12 +14,10 @@ import 'package:provider/provider.dart';
 
 //TODO: store the scores online
 //TODO: create game sessions online
-//TODO: deactivate resume btn if no game started
-//TODO: add warning to new solo game of erasing current game
 //TODO: add storage for previously used names
 //TODO: make hands removeable
-//TODO: add ads
 //TODO: rework the border widget to use a Stack widget
+//TODO: rework the border widget to use the SVG file
 //TODO: add corner dropdown quick access menu
 //TODO:
 void main() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mhing_score_card/models/hand.dart';
 import 'package:mhing_score_card/models/player.dart';
 
@@ -43,6 +44,13 @@ class GameProvider with ChangeNotifier {
 
   ///utility functions
   Future<bool> canPop() async {
+    if (!shouldPop) {
+      Fluttertoast.showToast(
+        msg: "Please use in-app back button",
+        toastLength: Toast.LENGTH_SHORT,
+        timeInSecForIosWeb: 1,
+      );
+    }
     return shouldPop;
   }
 

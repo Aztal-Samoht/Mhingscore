@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mhing_score_card/providers/ad_provider.dart';
 import 'package:mhing_score_card/res/constants.dart';
@@ -42,6 +43,15 @@ class HomeScreen extends StatelessWidget {
           RulesBtn(1),
           MyHomePageSpacer(1, 20),
           OptionsBtn(1),
+          // TextButton(
+          //   onPressed: () {
+          //     Fluttertoast.showToast(
+          //         msg: "This is Short Toast",
+          //         toastLength: Toast.LENGTH_SHORT,
+          //         timeInSecForIosWeb: 1);
+          //   },
+          //   child: Text('show short toast'),
+          // ),
           Text('v1.0.2', style: TextStyle(color: Colors.red, fontSize: 10)),
         ],
       ),
